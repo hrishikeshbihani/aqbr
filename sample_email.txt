@@ -1,0 +1,40 @@
+Subject: Performance Review and Metrics Update: Video Verification Solution
+
+Dear [Client's Name],
+
+I hope this message finds you well. As part of our continual efforts to ensure you are informed about the performance and benefits derived from our video verification solution, we have compiled the latest metrics comparing the current period to the previous one. Below are key insights:
+
+1. Usage Metrics:
+
+Customers Doing Video Calls: Increased to 510,816 from 457,424, a 11.66% rise.
+2. Video Call Outcomes:
+
+Verified Calls: Improved to 230,453 from 198,409, marking a 16.1% increase.
+Rejected Calls: Increased slightly to 52,749 from 50,054, an 5.37% increase.
+Unable to Verify Calls: Rose to 227,614 from 208,961, an 8.94% increase.
+3. Efficiency Metrics:
+
+Average Handling Time: Reduced to 263.44 seconds from 270.88 seconds, a reduction of 2.75%.
+Average Wait Time: Increased slightly to 21.5 seconds from 20.9 seconds, a 2.87% rise.
+4. Rejection and UTV Reasons:
+
+Top Rejection Reason:
+"Original PAN not available" remained consistent at 865 (previous 862).
+"Customer not available in application address" slightly decreased to 851 from 854.
+Top UTV Reason:
+"Customer asked to reschedule during session" slightly increased to 889 from 887.
+"Customer disconnected abruptly during the call" slightly decreased to 887 from 892.
+5. Review Outcomes:
+
+Profiles Approved by Checker: Increased significantly to 223,704 from 196,419, a 13.87% rise.
+Profiles Rejected by Checker: Increased to 55,351 from 51,953, a 6.54% increase.
+Conclusion: Overall, there's a substantial increase in customer engagement and verification success rates, along with a notable decrease in handling times. However, the slight increase in rejected calls and UTV reasons highlights areas for potential improvement, which we are keen to address collaboratively.
+
+Thank you for your continued trust in our solutions. Feel free to reach out for any further insights or assistance.
+
+Best regards,
+
+[Your Full Name]
+[Your Position]
+[Your Contact Information]
+[Company Name]

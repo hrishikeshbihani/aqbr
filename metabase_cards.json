@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Count of customers doing video calls",
+    "card_number": 5531
+  },
+  {
+    "title": "Count of Results of Video Calls",
+    "card_number": 5530
+  },
+  {
+    "title": "Average Handling Time",
+    "card_number": 5532
+  },
+  {
+    "title": "Average Wait Time",
+    "card_number": 5533
+  },
+  {
+    "title": "Top 10 Rejection Reasons",
+    "card_number": 5535
+  },
+  {
+    "title": "Top 10 UTV Reasons",
+    "card_number": 5534
+  },
+  {
+    "title": "Checker Approved and Rejected Count",
+    "card_number": 5536
+  }
+]
