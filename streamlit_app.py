@@ -37,7 +37,7 @@ def make_call_to_openai(prompt):
 def get_metabase_dashboard_url(current_start_date, current_end_date, ou_id):
   previous_start_date, previous_end_date = calculate_previous_date_range(
       current_start_date.strftime('%Y-%m-%d'), current_end_date.strftime('%Y-%m-%d'))
-  return "https://metabase.idfystaging.com/dashboard/275-mv?start_date={current_start_date}&end_date={current_end_date}&ouid={ou_id}&timezone=Asia%2FKolkata&previous_start_date={previous_start_date}&previous_end_date={previous_end_date}".format(current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
+  return "https://metabase.idfy.com/dashboard/1099-business-review-dashboard?start_date={current_start_date}&end_date={current_end_date}&ouid={ou_id}&timezone=Asia%2FKolkata&previous_start_date={previous_start_date}&previous_end_date={previous_end_date}".format(current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
 
 
 def main():

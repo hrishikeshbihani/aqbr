@@ -18,7 +18,7 @@ def convert_csv_to_jsonl(csv_content):
 
 def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previous_end_date):
     url = (
-        "https://metabase.idfystaging.com/api/card/{card_number}/query/csv?format_rows=true&parameters="
+        "https://metabase.idfy.com/api/card/{card_number}/query/csv?format_rows=true&parameters="
         "["
         "{{\"type\": \"date/single\", \"value\": \"{start_date}\", \"target\": [\"variable\", [\"template-tag\", \"start_date\"]]}},"
         "{{\"type\": \"date/single\", \"value\": \"{end_date}\", \"target\": [\"variable\", [\"template-tag\", \"end_date\"]]}},"
@@ -36,17 +36,8 @@ def call_url(url):
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         'content-type': 'application/x-www-form-urlencoded',
         'x-api-key': os.getenv("METABASE_API_KEY"),
-        'origin': 'https://metabase.idfystaging.com',
         'priority': 'u=1, i',
-        'referer': 'https://metabase.idfystaging.com/dashboard/258-top-reject-and-utv-reasons-maker-checker?tab=33-reject-reasons-by-maker-and-checker&start_date=2024-06-02&end_date=2024-06-06&ouid=&timezone=Asia%2FKolkata&ouname=',
-        'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"macOS"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-        'Cookie': 'metabase.DEVICE=51300c22-528e-4ff6-973a-5de6408b36a4; metabase.TIMEOUT=alive'
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
     }
     response = requests.request("POST", url, headers=headers)
     return response
@@ -67,7 +58,11 @@ def get_data_from_metabase(**kwargs):
 
 
 def get_title_and_card_id():
-    return [("Count of customers doing video calls", 1513), ("Count of Results of Video Calls", 1514), ("Average Handling Time", 1515), ("Average Wait Time", 1516), ("Top 10 Rejection Reasons", 1517), ("Top 10 UTV Reasons", 1518), ("Checker Approved and Rejected Count", 1518)]
+    with open("./metabase_cards.json", 'r') as file:
+        data = json.load(file)
+        data_parsed = list(
+            map(lambda dt: (dt['title'], dt['card_number']), data))
+        return data_parsed
 
 
 def get_prompt_body(current_start_date, current_end_date, ou_id, previous_start_date, previous_end_date):
@@ -81,7 +76,7 @@ def get_prompt_body(current_start_date, current_end_date, ou_id, previous_start_
         jsonl_data = convert_csv_to_jsonl(csv_data)
         prompt_body = """{prompt_body}
 
-{title}
+{title}\n
 {jsonl_data}""".format(prompt_body=prompt_body, title=title, jsonl_data=jsonl_data)
     return prompt_body
 
@@ -94,10 +89,15 @@ def get_prompt(current_start_date, current_end_date, ou_id):
     prompt_header = open('./prompt.txt').read()
     prompt_body = get_prompt_body(current_start_date, current_end_date,
                                   ou_id, previous_start_date, previous_end_date)
-    prompt_tail = "Using the above raw data about the metrics, write a story which I can share with my clients. The story should highlight how we are preventing potential fraud. Back your claims by data."
+    prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease Explantions should be lesser."
+    sample_email = open("./sample_email.txt").read()
     return """{prompt_header}
 {prompt_body}  
 
 
 {prompt_tail}
-""".format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail)
+
+I am including a sample Email below for you to refer. This is only for reference, you can alter the email structure if need be. 
+
+{sample_email}
+""".format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail, sample_email=sample_email)
