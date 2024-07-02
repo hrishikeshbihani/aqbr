@@ -2,7 +2,7 @@ import streamlit as st
 from openai_request import make_call_to_openai
 from previous_date_time import calculate_previous_date_range
 from prompt_generator import get_prompt
-from prompt_generator import chart_generator
+from chart_generator import chart_generator
 
 
 def get_metabase_dashboard_url(current_start_date, current_end_date, ou_id):
@@ -19,15 +19,15 @@ def main():
   if (current_start_date and current_end_date and ou_id):
     is_generate = st.button('Let\'s put AI to work !!')
     if (is_generate):
-      prompt,jsonl_data = get_prompt(current_start_date, current_end_date, ou_id)
+      prompt,metabase_title_data = get_prompt(current_start_date, current_end_date, ou_id)
       if len(prompt) > 0:
         openai_output = make_call_to_openai(prompt)
         st.write(openai_output)
         metabase_dashboard_url = get_metabase_dashboard_url(
             current_start_date, current_end_date, ou_id)
         st.link_button("Open Dashboard in Metabase", metabase_dashboard_url)
-      img_url=chart_generator(jsonl_data)
-      for i in img_url:
-        st.image(i, caption='Chart Image', use_column_width=True)
-
+      for title, value in metabase_title_data.items():
+        img_url=chart_generator(title,value)
+        for i in img_url:
+          st.image(i, caption='Chart Image', use_column_width=True)
 main()
