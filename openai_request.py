@@ -2,7 +2,8 @@ import logging
 import requests
 import json
 import datetime
-
+from openai import OpenAI
+open_ai_client = OpenAI()
 timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
 filename = f'openai_call_logs/logfile_{timestamp}.log'
 # Set up logging configuration
@@ -48,4 +49,29 @@ with open('prompt.txt', 'r') as file:
     prompt = file.read()
     make_call_to_openai(prompt)
     
+    
+def openai_text_completion(system_text, user_text):
+    try:
+        completion = open_ai_client.chat.completions.create(
+            model="gpt-3.5-turbo-0125",
+            messages=[
+                {"role": "system", "content": system_text},
+                {"role": "user", "content": user_text},
+            ],
+            temperature=1.1,
+            max_tokens=4096
+        )
+        if (
+            completion
+            and completion.choices[0]
+            and completion.choices[0].message
+            and completion.choices[0].message.content
+        ):
+            return completion.choices[0].message.content
+        raise Exception(
+            f"Exception in openai_text_completion. Response: {json.dumps(completion)}"
+        )
+
+    except Exception as err:
+        raise Exception("Error in openai text completion. Error: {err}".format(err=err))
 
