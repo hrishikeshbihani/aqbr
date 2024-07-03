@@ -1,5 +1,6 @@
 import re
 from openai_request import make_call_to_openai
+import re
 
 
 def parse_jsonl_data(jsonl_array, title):
@@ -36,10 +37,6 @@ Encode URL: https://quickchart.io/chart?width=1000&height=800&c=%7B%22type%22%3A
     {data}
     The link should be complusory valid URL Encoded and give only link,nothing else
     """.format(prompt_header=prompt_header, data=jsonl_data_parsed)
-    response = make_call_to_openai(prompt, "gpt-4o")
-    print(response)
-    url_pattern = re.compile(
-       r'https:.*?(?=\s|$)')
-    urls = url_pattern.findall(response)
-    print("URL",urls)
+    response = make_call_to_openai(prompt, "gpt-3.5-turbo-0125")
+    urls = re.findall(r'https:\/\/quickchart\.io\/chart\?[^ ]+', response)
     return urls

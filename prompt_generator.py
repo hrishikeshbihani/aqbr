@@ -4,7 +4,7 @@ import json
 import os
 from previous_date_time import calculate_previous_date_range
 import requests
-import re
+
 
 def convert_csv_to_jsonl(csv_content):
     # Use StringIO to treat the CSV string as a file object
@@ -70,32 +70,40 @@ def read_jsonl(file_path):
             data.append(json.loads(line))
     return data
 
-def get_prompt_body(current_start_date, current_end_date, ou_id, previous_start_date, previous_end_date):
+
+def get_jsonl_data_from_card(card_id, **kwargs):
+    current_start_date = kwargs['current_start_date']
+    current_end_date = kwargs['current_end_date']
+    ou_id = kwargs['ou_id']
+    previous_start_date, previous_end_date = calculate_previous_date_range(
+        current_start_date.strftime('%Y-%m-%d'), current_end_date.strftime('%Y-%m-%d'))
+    csv_data = get_data_from_metabase(card_number=card_id, start_date=current_start_date, end_date=current_end_date,
+                                      ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
+    jsonl_data = convert_csv_to_jsonl(csv_data)
+    return jsonl_data
+
+
+def get_prompt_body(current_start_date, current_end_date, ou_id):
     title_and_card_id_list = get_title_and_card_id()
-    metabase_title_data={}
     prompt_body = """
 """
     for title_and_card in title_and_card_id_list:
         (title, card_id) = title_and_card
-        csv_data = get_data_from_metabase(card_number=card_id, start_date=current_start_date, end_date=current_end_date,
-                                          ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
-        jsonl_data = convert_csv_to_jsonl(csv_data)
-        metabase_title_data[title]=jsonl_data
+        data = get_jsonl_data_from_card(
+            card_id, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id)
         prompt_body = """{prompt_body}
 
 {title}\n
-{jsonl_data}""".format(prompt_body=prompt_body, title=title, jsonl_data=jsonl_data)
-    return prompt_body,metabase_title_data
+{data}""".format(prompt_body=prompt_body, title=title, data=data)
+    return prompt_body
 
 ########
 
 
-def get_prompt(current_start_date, current_end_date, ou_id):
-    previous_start_date, previous_end_date = calculate_previous_date_range(
-        current_start_date.strftime('%Y-%m-%d'), current_end_date.strftime('%Y-%m-%d'))
+def get_storyline_prompt(current_start_date, current_end_date, ou_id):
     prompt_header = open('./prompt.txt').read()
-    prompt_body,metabase_title_data = get_prompt_body(current_start_date, current_end_date,
-                                  ou_id, previous_start_date, previous_end_date)
+    prompt_body = get_prompt_body(current_start_date, current_end_date,
+                                  ou_id)
     prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease Explantions should be lesser."
     sample_email = open("./sample_email.txt").read()
     return """{prompt_header}
@@ -107,24 +115,5 @@ def get_prompt(current_start_date, current_end_date, ou_id):
 I am including a sample Email below for you to refer. This is only for reference, you can alter the email structure if need be. 
 
 {sample_email}
-""".format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail, sample_email=sample_email),metabase_title_data
 
-# def chart_generator(title,value):
-#     system_text = """
-#     You are a data visaualization and analysis expert using chartJS version 2 and height is 800 and widht is 1000.
-#     Your task is to understand and analyze the data provided to you and create relevant visualization and it should be visually appealing for a business presentation
-#     Make a Top 5 horizontal bar chart type if preivous and current data then use dual horizontal bar chart,
-#     Make pie chart only if the labels < 4
-#     If any other chart is revelant create that also (Generate 1-3 charts as required)
-#     Chart Should be presentable,labels should be present it should not get cut in the image, data count descending order,no need for tooltip
-#     Keep the colour of the bars only blue and orange (use different colour only when required) and always have data labels(options) using plugin chartjs-plugin-datalabels and align end,anchor end,Add chart title,all fonts colour black,you will only provide me with the link of the images of the charts and make sure the links are not 404
-
-#     Example Chart for reference: https://quickchart.io/chart?width=1000&height=1000&c={"type":"horizontalBar","data":{"labels":["Name mismatch in the original PAN Card","Third party prompt","Customer Reading from Document","Original PAN not available","Incorrect answer to security question"],"datasets":[{"label":"Current","data":[1,1,1,1,1],"backgroundColor":["blue","blue","blue","blue","blue"]},{"label":"Previous","data":[23,23,21,20,14],"backgroundColor":["orange","orange","orange","orange","orange"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display":true,"text":"Comparison of Current and Previous Issues"}}}
-#     """
-#     user_text = f"The Data: {title} {value},Generate required charts and create a valid Image links of quickchart.io from where i can download the charts and nothing else,no code and you do mistake in end of the link so take reference from the example, dont forget to closed curly brackets url encoding in the link you generate"
-#     output = openai_text_completion(system_text, user_text)
-#     url_pattern = re.compile(r'https://quickchart\.io/chart\?width=\d+&height=\d+&c=\{".*?"\}\}\}')
-#     urls = url_pattern.findall(output)
-#     return urls
-
-
+""".format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail, sample_email=sample_email)
