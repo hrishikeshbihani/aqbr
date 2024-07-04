@@ -63,14 +63,6 @@ def get_title_and_card_id():
             map(lambda dt: (dt['title'], dt['card_number']), data))
         return data_parsed
 
-def read_jsonl(file_path):
-    data = []
-    with open(file_path, "r") as file:
-        for line in file:
-            data.append(json.loads(line))
-    return data
-
-
 def get_jsonl_data_from_card(card_id, **kwargs):
     current_start_date = kwargs['current_start_date']
     current_end_date = kwargs['current_end_date']
