@@ -1,37 +1,10 @@
+from prompt_generator import get_jsonl_data_from_card, get_storyline_prompt, get_title_and_card_id
 import streamlit as st
-import pandas as pd
-import json
-import requests
-import os
-
+from chart_generator import chart_generator, check_chartio_url_response
+from openai_request import make_call_to_openai
 from previous_date_time import calculate_previous_date_range
-from prompt_generator import get_prompt
+from chart_generator import chart_generator
 
-def make_call_to_openai(prompt):
-  url = "https://api.openai.com/v1/chat/completions"
-  payload = json.dumps({
-      "model": "gpt-4o",
-      "messages": [
-          {
-              "role": "user",
-              "content": [
-                  {
-                      "type": "text",
-                      "text": prompt
-                  }
-              ]
-          }
-      ],
-      "max_tokens": 1500
-  })
-  headers = {
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer {openai_api_key}".format(openai_api_key=os.getenv("OPENAI_API_KEY")),
-      'Cookie': '__cf_bm=rXD8QGnnR.3ZwpE6cVLmRIUiisK7OLOXcLJdP4Oj2pU-1717140354-1.0.1.1-8tPW2Gba2FJZtuL0Uumj7y8keMT2sv61psMFn32tbTZtYQeKpcHVYwHFdiAuv9VazjVM4Eb6uZ3GpJbMHqwVcg; _cfuvid=1pG74ojeUhECcNrA1pepiKG0BhN31hokp4w6e4Tul1k-1717136312953-0.0.1.1-604800000'
-  }
-
-  response = requests.request("POST", url, headers=headers, data=payload)
-  return response.json()['choices'][0]['message']['content']
 
 
 def get_metabase_dashboard_url(current_start_date, current_end_date, ou_id):
@@ -40,21 +13,66 @@ def get_metabase_dashboard_url(current_start_date, current_end_date, ou_id):
   return "https://metabase.idfy.com/dashboard/1099-business-review-dashboard?start_date={current_start_date}&end_date={current_end_date}&ouid={ou_id}&timezone=Asia%2FKolkata&previous_start_date={previous_start_date}&previous_end_date={previous_end_date}".format(current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
 
 
-def main():
-  st.title("AQBR Demo")
+def render_stable_app():
   current_start_date = st.date_input("Start Date")
   current_end_date = st.date_input("End Date")
   ou_id = st.text_input("OU ID")
   if (current_start_date and current_end_date and ou_id):
     is_generate = st.button('Let\'s put AI to work !!')
     if (is_generate):
-      prompt = get_prompt(current_start_date, current_end_date, ou_id)
+      prompt = get_storyline_prompt(
+          current_start_date, current_end_date, ou_id)
       if len(prompt) > 0:
-        openai_output = make_call_to_openai(prompt)
-        st.write(openai_output)
-        metabase_dashboard_url = get_metabase_dashboard_url(
+          openai_output = make_call_to_openai(prompt)
+          st.write(openai_output)
+          metabase_dashboard_url = get_metabase_dashboard_url(
+              current_start_date, current_end_date, ou_id)
+          st.link_button("Open Dashboard in Metabase",
+                         metabase_dashboard_url)
+
+
+def render_developer_app():
+  st.text('This is the beta mode and may have some issues. Feel free to test this feature and reach out to developers for any feedback but do not use this app feature for official purposes.')
+  current_start_date = st.date_input("Start Date")
+  current_end_date = st.date_input("End Date")
+  ou_id = st.text_input("OU ID")
+  if (current_start_date and current_end_date and ou_id):
+    is_generate = st.button('Let\'s put AI to work !!')
+    if (is_generate):
+      prompt = get_storyline_prompt(
+          current_start_date, current_end_date, ou_id)
+
+      story_line, graphical_representations = st.tabs(
+          ["Storyline", "Graphical Representation"])
+
+      with story_line:
+        prompt = get_storyline_prompt(
             current_start_date, current_end_date, ou_id)
-        st.link_button("Open Dashboard in Metabase", metabase_dashboard_url)
+        if len(prompt) > 0:
+          openai_output = make_call_to_openai(prompt)
+          st.write(openai_output)
+          metabase_dashboard_url = get_metabase_dashboard_url(
+              current_start_date, current_end_date, ou_id)
+          st.link_button("Open Dashboard in Metabase",
+                         metabase_dashboard_url)
+
+      with graphical_representations:
+        title_and_card_id_list = get_title_and_card_id()
+        for title_and_card_id in title_and_card_id_list:
+          (title, card_id) = title_and_card_id
+          with st.expander(title):
+            jsonl_data = get_jsonl_data_from_card(
+                card_id, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id)
+            chart_generator_output = chart_generator(jsonl_data, title)
+            corrected_url = check_chartio_url_response(chart_generator_output)
+            st.image(corrected_url)
 
 
+def main():
+  developer_mode = st.toggle("Developer Mode", value=False)
+  st.title("AQBR Demo")
+  if (developer_mode):
+    render_developer_app()
+  else:
+    render_stable_app()
 main()

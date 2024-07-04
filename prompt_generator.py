@@ -15,7 +15,6 @@ def convert_csv_to_jsonl(csv_content):
     jsonl_content = "\n".join([json.dumps(row) for row in reader])
     return jsonl_content
 
-
 def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previous_end_date):
     url = (
         "https://metabase.idfy.com/api/card/{card_number}/query/csv?format_rows=true&parameters="
@@ -64,31 +63,39 @@ def get_title_and_card_id():
             map(lambda dt: (dt['title'], dt['card_number']), data))
         return data_parsed
 
+def get_jsonl_data_from_card(card_id, **kwargs):
+    current_start_date = kwargs['current_start_date']
+    current_end_date = kwargs['current_end_date']
+    ou_id = kwargs['ou_id']
+    previous_start_date, previous_end_date = calculate_previous_date_range(
+        current_start_date.strftime('%Y-%m-%d'), current_end_date.strftime('%Y-%m-%d'))
+    csv_data = get_data_from_metabase(card_number=card_id, start_date=current_start_date, end_date=current_end_date,
+                                      ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
+    jsonl_data = convert_csv_to_jsonl(csv_data)
+    return jsonl_data
 
-def get_prompt_body(current_start_date, current_end_date, ou_id, previous_start_date, previous_end_date):
+
+def get_prompt_body(current_start_date, current_end_date, ou_id):
     title_and_card_id_list = get_title_and_card_id()
     prompt_body = """
 """
     for title_and_card in title_and_card_id_list:
         (title, card_id) = title_and_card
-        csv_data = get_data_from_metabase(card_number=card_id, start_date=current_start_date, end_date=current_end_date,
-                                          ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
-        jsonl_data = convert_csv_to_jsonl(csv_data)
+        data = get_jsonl_data_from_card(
+            card_id, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id)
         prompt_body = """{prompt_body}
 
 {title}\n
-{jsonl_data}""".format(prompt_body=prompt_body, title=title, jsonl_data=jsonl_data)
+{data}""".format(prompt_body=prompt_body, title=title, data=data)
     return prompt_body
 
 ########
 
 
-def get_prompt(current_start_date, current_end_date, ou_id):
-    previous_start_date, previous_end_date = calculate_previous_date_range(
-        current_start_date.strftime('%Y-%m-%d'), current_end_date.strftime('%Y-%m-%d'))
+def get_storyline_prompt(current_start_date, current_end_date, ou_id):
     prompt_header = open('./prompt.txt').read()
     prompt_body = get_prompt_body(current_start_date, current_end_date,
-                                  ou_id, previous_start_date, previous_end_date)
+                                  ou_id)
     prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease Explantions should be lesser."
     sample_email = open("./sample_email.txt").read()
     return """{prompt_header}
@@ -100,4 +107,5 @@ def get_prompt(current_start_date, current_end_date, ou_id):
 I am including a sample Email below for you to refer. This is only for reference, you can alter the email structure if need be. 
 
 {sample_email}
+
 """.format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail, sample_email=sample_email)
