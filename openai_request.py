@@ -1,24 +1,9 @@
-import logging
 import requests
 import json
-import datetime
 import os
-
-timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-filename = f'openai_call_logs/logfile_{timestamp}.log'
-# Set up logging configuration
-logging.basicConfig(
-    filename=filename,  # Log file name
-    filemode='a',        # Append mode ('w' for overwrite)
-    format='%(asctime)s - %(levelname)s - %(message)s',  # Log message format
-    datefmt='%Y-%m-%d %H:%M:%S',  # Date format
-    level=logging.INFO  # Log level
-)
-logger = logging.getLogger()
 
 
 def make_call_to_openai(prompt, model="gpt-4o"):
-    logger.info(prompt)
     url = "https://api.openai.com/v1/chat/completions"
     payload = json.dumps({
         "model": model,
@@ -42,6 +27,5 @@ def make_call_to_openai(prompt, model="gpt-4o"):
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-    logger.info(response.text)
     return response.json()['choices'][0]['message']['content']
 
