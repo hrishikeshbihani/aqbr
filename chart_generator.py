@@ -1,6 +1,6 @@
 import re
 from openai_request import make_call_to_openai
-import re
+import requests
 
 
 def parse_jsonl_data(jsonl_array, title):
@@ -14,20 +14,9 @@ def parse_jsonl_data(jsonl_array, title):
 
 
 def chart_generator(jsonl_array, title):
-    prompt_header = """
-You are a data visaualization and analysis expert using chartJS version 2 and height is 800 and widht is 1000.
-#     Your task is to understand and analyze the data provided to you and create relevant visualization and it should be visually appealing for a business presentation
-#     Make a Top 5 horizontal bar chart type if preivous and current data then use dual horizontal bar chart ,
-#     Make pie/donut chart (Can use multiple colours if required)
-#     If any other chart is revelant create that also (Generate 1-3 charts as required)
-#     Chart Should be presentable,labels should be present it should not get cut in the image, data count descending order,no need for tooltip
-#     Keep the colour of the bars only blue and orange (use different colour only when required) and always have data labels(options) using plugin chartjs-plugin-datalabels and align end,anchor end,Add chart title,all fonts colour black and bold,you will only provide me with the link of the images of the charts and make sure the links are not 404 and 
-# Ensure there is no closing round bracket ) in end of chart link
-# Ensure this term has proper qoutes closing -> "align":"end"
-
-# Encode URL: https%3A%2F%2Fquickchart.io%2Fchart%3Fwidth%3D1000%26height%3D1000%26c%3D%7B%22type%22%3A%22horizontalBar%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22Name%20mismatch%20in%20the%20original%20PAN%20Card%22%2C%22Third%20party%20prompt%22%2C%22Customer%20Reading%20from%20Document%22%2C%22Original%20PAN%20not%20available%22%2C%22Incorrect%20answer%20to%20security%20question%22%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Current%22%2C%22data%22%3A%5B1%2C1%2C1%2C1%2C1%5D%2C%22backgroundColor%22%3A%5B%22blue%22%2C%22blue%22%2C%22blue%22%2C%22blue%22%2C%22blue%22%5D%7D%2C%7B%22label%22%3A%22Previous%22%2C%22data%22%3A%5B23%2C23%2C21%2C20%2C14%5D%2C%22backgroundColor%22%3A%5B%22orange%22%2C%22orange%22%2C%22orange%22%2C%22orange%22%2C%22orange%22%5D%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22datalabels%22%3A%7B%22anchor%22%3A%22end%22%2C%22align%22%3A%22end%22%2C%22color%22%3A%22black%22%7D%7D%2C%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Comparison%20of%20Current%20and%20Previous%20Issues%22%7D%7D%7D
-
-Encode URL: https://quickchart.io/chart?width=1000&height=800&c=%7B%22type%22%3A%22doughnut%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22Approved%22%2C%22Rejected%22%5D%2C%22datasets%22%3A%5B%7B%22data%22%3A%5B237914%2C58963%5D%2C%22backgroundColor%22%3A%5B%22blue%22%2C%22orange%22%2C%22red%22%2C%22green%22%2C%22purple%22%5D%7D%5D%7D%2C%22options%22%3A%7B%22plugins%22%3A%7B%22datalabels%22%3A%7B%22anchor%22%3A%22end%22%2C%22align%22%3A%22end%22%2C%22color%22%3A%22black%22%7D%7D%2C%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Previous%20Profiles%20Distribution%22%7D%7D%7D
+    prompt_header = """I need charts and graphs to be generated based on the data that I provide. To generate these charts, you can use the quickcharts.io service which generates graphs based on ChartJS specifications. Depending upon the type of data, you can either generate a Bar graph or a Pie chart or line graph.
+    
+    Give me full URL in the output. For example - https://quickchart.io/chart?width=1000&height=800&c={"type":"doughnut","data":{"labels":["Approved","Rejected"],"datasets":[{"data":[237914,58963],"backgroundColor":["blue","orange","red","green","purple"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display":true,"text":"Previous Profiles Distribution"}}}
 
     """
     jsonl_data_parsed = parse_jsonl_data(jsonl_array, title)
@@ -35,8 +24,29 @@ Encode URL: https://quickchart.io/chart?width=1000&height=800&c=%7B%22type%22%3A
     {prompt_header}
     The data is as follows: 
     {data}
-    The link should be complusory valid URL Encoded and give only link,nothing else
+    Only output the URL, do not write anything else in the output.
     """.format(prompt_header=prompt_header, data=jsonl_data_parsed)
-    response = make_call_to_openai(prompt, "gpt-3.5-turbo-0125")
-    urls = re.findall(r'https:\/\/quickchart\.io\/chart\?[^ ]+', response)
-    return urls
+    response = make_call_to_openai(prompt, "gpt-4o")
+    return response
+
+
+def fix_chart_io_url(url):
+    prompt = """Given below is a URL of charts.io. This URL returns a graph/chart in png format based on the data that is passed in its query params. The JSON in this query params seems to be incorrect. Please correct the URL by correctly formatting the JSON in params. Only output the array of full corrected URL in string format. Do not write anything else. 
+    
+    
+    
+    {url}
+    """.format(url=url)
+    response = make_call_to_openai(prompt, "gpt-4o")
+    return response
+
+
+def check_chartio_url_response(url):
+    try:
+        response = requests.get(url)
+        status_code = response.status_code
+        if 400 <= status_code < 500:
+            return fix_chart_io_url(url)
+        return url
+    except requests.exceptions.RequestException as e:
+        return f"An error occurred: {e}"

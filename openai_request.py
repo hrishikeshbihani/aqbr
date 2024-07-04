@@ -12,7 +12,7 @@ logging.basicConfig(
     filemode='a',        # Append mode ('w' for overwrite)
     format='%(asctime)s - %(levelname)s - %(message)s',  # Log message format
     datefmt='%Y-%m-%d %H:%M:%S',  # Date format
-    level=logging.DEBUG  # Log level
+    level=logging.INFO  # Log level
 )
 logger = logging.getLogger()
 
