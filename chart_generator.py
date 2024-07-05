@@ -14,19 +14,30 @@ def parse_jsonl_data(jsonl_array, title):
 
 
 def chart_generator(jsonl_array, title):
-    prompt_header = """You are a data visaualization and analysis expert using chartJS version 2 and height is 800 and widht is 1000 (Adjust height according to the size of labels).
-#     Your task is to understand and analyze the data provided to you and create relevant visualization and it should be visually appealing for a business presentation
-#     Make a Top 5 horizontal bar chart type if preivous and current data then use dual horizontal bar chart ,
-#     Make pie/donut chart (Can use multiple colours if required)
-#     If any other chart is revelant create that also (Generate 1-3 charts as required)
-#     Chart Should be presentable,labels should be present it should not get cut in the image, data count descending order,no need for tooltip
-#     Keep the colour of the bars only blue and orange (use different colour only when required) and always have data labels(options) using plugin chartjs-plugin-datalabels and align end,anchor end,Add chart title,all fonts colour black and bold,you will only provide me with the link of the images of the charts and make sure the links are not 404 and 
-# Ensure there is no closing round bracket ) in end of chart link
-# Ensure this term has proper qoutes closing -> "align":"end"
+    prompt_header = """You are a data visualization and analysis expert tasked with generating graphs using the QuickChart.io service, which supports ChartJS specifications. The generated graphs should have a height of 800 and a width of 1000 (adjust height according to the size of labels).
 
-# URL: https://quickchart.io/chart?width=1000&height=1000&c={"type":"horizontalBar","data":{"labels":["Name mismatch in the original PAN Card","Third party prompt","Customer Reading from Document","Original PAN not available","Incorrect answer to security question"],"datasets":[{"label":"Current","data":[1,1,1,1,1],"backgroundColor":["blue","blue","blue","blue","blue"]},{"label":"Previous","data":[23,23,21,20,14],"backgroundColor":["orange","orange","orange","orange","orange"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display":true,"text":"Comparison of Current and Previous Issues"}}}
+Your task is to analyze the provided data and create relevant visualizations that are visually appealing for a business presentation. Follow these guidelines:
 
-Encode URL: https://quickchart.io/chart?width=1000&height=800&c={"type":"doughnut","data":{"labels":["Approved","Rejected"],"datasets":[{"data":[237914,58963],"backgroundColor":["blue","orange","red","green","purple"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display":true,"text":"Previous Profiles Distribution"}}}
+Graph Type:
+
+1. If applicable, use a dual horizontal bar chart.
+2. Generate a pie or donut chart with multiple colors if necessary.
+
+Design Specifications:
+
+1. Ensure the chart is presentable and labels are fully visible (no labels should be cut off).
+2. Tooltips are not required.
+3. Use blue and orange colors for bars (use other colors only if necessary).
+4. Always include data labels using the ChartJS plugin chartjs-plugin-datalabels with options align: end and anchor: end.
+5. Add a chart title.
+6. All fonts should be black and bold.
+
+Output:
+
+Provide only the link to the images of the charts. Do not write anything else.
+
+Example URL: https://quickchart.io/chart?width=1000&height=1000&c={"type":"horizontalBar","data":{"labels":["Name mismatch in the original PAN Card","Third party prompt","Customer Reading from Document","Original PAN not available","Incorrect answer to security question"],"datasets":[{"label":"Current","data":[1,1,1,1,1],"backgroundColor":["blue","blue","blue","blue","blue"]},{"label":"Previous","data":[23,23,21,20,14],"backgroundColor":["orange","orange","orange","orange","orange"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display"
+,"text":"Comparison of Current and Previous Issues"}}}
 
     """
     jsonl_data_parsed = parse_jsonl_data(jsonl_array, title)
