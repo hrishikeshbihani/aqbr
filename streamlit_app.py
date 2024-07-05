@@ -69,10 +69,6 @@ def render_developer_app():
 
 
 def main():
-  developer_mode = st.toggle("Developer Mode", value=False)
   st.title("AQBR Demo")
-  if (developer_mode):
-    render_developer_app()
-  else:
-    render_stable_app()
+  render_developer_app()
 main()
