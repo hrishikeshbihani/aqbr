@@ -2,7 +2,7 @@ import csv
 from io import StringIO
 import json
 import os
-from previous_date_time import calculate_previous_date_range
+from libs.utils import calculate_previous_date_range
 import requests
 
 
@@ -14,6 +14,7 @@ def convert_csv_to_jsonl(csv_content):
     # Convert each row to a JSON object and accumulate them in a list
     jsonl_content = "\n".join([json.dumps(row) for row in reader])
     return jsonl_content
+
 
 def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previous_end_date):
     url = (
@@ -58,9 +59,9 @@ def get_data_from_metabase(**kwargs):
 
 def get_metabase_json_file_name_by_product(product):
     if (product == "VS"):
-        return "./vs_metabase_cards.json"
+        return "./config/vs_metabase_cards.json"
     if (product == "EVE"):
-        return "./eve_metabase_cards.json"
+        return "./config/eve_metabase_cards.json"
 
 
 def get_title_and_card_id(product):
@@ -70,6 +71,7 @@ def get_title_and_card_id(product):
         data_parsed = list(
             map(lambda dt: (dt['title'], dt['card_number']), data))
         return data_parsed
+
 
 def get_jsonl_data_from_card(card_id, **kwargs):
     current_start_date = kwargs['current_start_date']
@@ -102,16 +104,17 @@ def get_prompt_body(product, current_start_date, current_end_date, ou_id):
 
 def get_prompt_header_file_name(product):
     if (product == "VS"):
-        return "./vs_prompt.txt"
+        return "./prompts/vs_prompt.txt"
     if (product == "EVE"):
-        return "./eve_prompt.txt"
+        return "./prompts/eve_prompt.txt"
 
 
 def get_sample_email_file_name(product):
     if (product == "VS"):
-        return "./vs_sample_email.txt"
+        return "./prompts/vs_sample_email.txt"
     if (product == "EVE"):
-        return "./eve_sample_email.txt"
+        return "./prompts/eve_sample_email.txt"
+
 
 def get_storyline_prompt(product, current_start_date, current_end_date, ou_id):
     prompt_header_file = get_prompt_header_file_name(product)

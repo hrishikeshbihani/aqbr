@@ -1,9 +1,9 @@
-from prompt_generator import get_jsonl_data_from_card, get_storyline_prompt, get_title_and_card_id
+from libs.prompt_generator import get_jsonl_data_from_card, get_storyline_prompt, get_title_and_card_id
 import streamlit as st
-from chart_generator import chart_generator, check_chartio_url_response
-from openai_request import make_call_to_openai
-from previous_date_time import calculate_previous_date_range
-from chart_generator import chart_generator
+from libs.chart_generator import chart_generator, check_chartio_url_response
+from services.openai_request import make_call_to_openai
+from libs.utils import calculate_previous_date_range
+from libs.chart_generator import chart_generator
 
 
 def get_metabase_dashboard_name(product):

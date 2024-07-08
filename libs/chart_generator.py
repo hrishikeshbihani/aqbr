@@ -1,5 +1,5 @@
 import re
-from openai_request import make_call_to_openai
+from services.openai_request import make_call_to_openai
 import requests
 
 
