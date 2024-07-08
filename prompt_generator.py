@@ -21,7 +21,7 @@ def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previ
         "["
         "{{\"type\": \"date/single\", \"value\": \"{start_date}\", \"target\": [\"variable\", [\"template-tag\", \"start_date\"]]}},"
         "{{\"type\": \"date/single\", \"value\": \"{end_date}\", \"target\": [\"variable\", [\"template-tag\", \"end_date\"]]}},"
-        "{{\"type\": \"string/=\", \"value\": [\"{ou_id}\"], \"target\": [\"variable\", [\"template-tag\", \"ou_id\"]]}},"
+        "{{\"type\": \"string/=\", \"value\": [\"{ou_id}\"], \"target\": [\"variable\", [\"template-tag\", \"OUID\"]]}},"
         "{{\"type\": \"date/single\", \"value\": \"{previous_start_date}\", \"target\": [\"variable\", [\"template-tag\", \"previous_start_date\"]]}},"
         "{{\"type\": \"date/single\", \"value\": \"{previous_end_date}\", \"target\": [\"variable\", [\"template-tag\", \"previous_end_date\"]]}}"
         "]"
@@ -30,6 +30,7 @@ def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previ
 
 
 def call_url(url):
+    print("Metabae called")
     headers = {
         'accept': '*/*',
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
@@ -39,6 +40,7 @@ def call_url(url):
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
     }
     response = requests.request("POST", url, headers=headers)
+    print(response.text)
     return response
 
 
@@ -56,8 +58,16 @@ def get_data_from_metabase(**kwargs):
     return response_text
 
 
-def get_title_and_card_id():
-    with open("./metabase_cards.json", 'r') as file:
+def get_metabase_json_file_name_by_product(product):
+    if (product == "VS"):
+        return "./vs_metabase_cards.json"
+    if (product == "EVE"):
+        return "./eve_metabase_cards.json"
+
+
+def get_title_and_card_id(product):
+    file_name = get_metabase_json_file_name_by_product(product)
+    with open(file_name, 'r') as file:
         data = json.load(file)
         data_parsed = list(
             map(lambda dt: (dt['title'], dt['card_number']), data))
@@ -75,14 +85,15 @@ def get_jsonl_data_from_card(card_id, **kwargs):
     return jsonl_data
 
 
-def get_prompt_body(current_start_date, current_end_date, ou_id):
-    title_and_card_id_list = get_title_and_card_id()
+def get_prompt_body(product, current_start_date, current_end_date, ou_id):
+    title_and_card_id_list = get_title_and_card_id(product)
     prompt_body = """
 """
     for title_and_card in title_and_card_id_list:
         (title, card_id) = title_and_card
         data = get_jsonl_data_from_card(
             card_id, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id)
+        print(data)
         prompt_body = """{prompt_body}
 
 {title}\n
@@ -92,14 +103,22 @@ def get_prompt_body(current_start_date, current_end_date, ou_id):
 ########
 
 
-def get_storyline_prompt(current_start_date, current_end_date, ou_id):
-    prompt_header = open('./prompt.txt').read()
-    prompt_body = get_prompt_body(current_start_date, current_end_date,
+def get_prompt_header_file_name(product):
+    if (product == "VS"):
+        return "./vs_prompt.txt"
+    if (product == "EVE"):
+        return "./eve_prompt.txt"
+
+
+def get_storyline_prompt(product, current_start_date, current_end_date, ou_id):
+    prompt_header_file = get_prompt_header_file_name(product)
+    prompt_header = open(prompt_header_file).read()
+    prompt_body = get_prompt_body(product, current_start_date, current_end_date,
                                   ou_id)
     prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease Explantions should be lesser."
     sample_email = open("./sample_email.txt").read()
     return """{prompt_header}
-{prompt_body}  
+{prompt_body}
 
 
 {prompt_tail}
