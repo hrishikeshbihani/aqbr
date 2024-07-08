@@ -1,0 +1,77 @@
+Subject: Performance Review and Metrics Update: Verification API Services
+
+Dear [Client's Name],
+
+I hope this message finds you well. As part of our ongoing effort to keep you informed about the performance and benefits derived from our verification API services, we have compiled the latest metrics comparing the current period to the previous one. Below are key insights:
+
+1. API Usage Metrics:
+
+validate_document: Usage decreased to 48,251 from 176,650, an 72.68% drop.
+verify_with_source_aadhaar_lite: Usage fell to 37,289 from 176,266, a decline of 78.84%.
+extract_ind_aadhaar: Usage reduced to 6,556 from 28,056, showing a 76.63% decrease.
+extract_ind_voter_id: Usage dropped to 0 from 4,092, a 100% decrease.
+extract_ind_driving_license: Usage declined to 0 from 2,243, a 100% decrease.
+2. API Performance Metrics:
+
+P50 (Median) Response Times:
+
+validate_document: Increased slightly to 0.89 seconds from 0.84 seconds, a 5.95% increase.
+verify_with_source_aadhaar_lite: Improved to 0.97 seconds from 1.12 seconds, a 13.39% reduction.
+extract_ind_aadhaar: Marginally increased to 2.13 seconds from 2.11 seconds, a 0.95% increase.
+extract_ind_voter_id: Increased to 3.08 seconds from 3.03 seconds, a 1.65% rise.
+extract_ind_driving_license: Improved to 2.4 seconds from 2.44 seconds, a 1.64% decrease.
+P90 Response Times:
+
+validate_document: Rose to 1.49 seconds from 1.34 seconds, an 11.19% increase.
+verify_with_source_aadhaar_lite: Improved to 2.64 seconds from 2.93 seconds, a reduction of 9.9%.
+extract_ind_aadhaar: Increased to 3.91 seconds from 3.66 seconds, a 6.83% rise.
+extract_ind_voter_id: Increased to 6.45 seconds from 6.01 seconds, a 7.32% rise.
+extract_ind_driving_license: Rose to 6.79 seconds from 6.53 seconds, a 3.98% increase.
+P99 Response Times:
+
+validate_document: Slightly increased to 7.96 seconds from 7.76 seconds, a 2.58% rise.
+verify_with_source_aadhaar_lite: Increased to 6.48 seconds from 4.94 seconds, a 31.17% rise.
+extract_ind_aadhaar: Increased to 7.16 seconds from 7.06 seconds, a 1.42% rise.
+extract_ind_voter_id: Rose to 9.21 seconds from 8.57 seconds, a 7.47% rise.
+extract_ind_driving_license: Increased to 9.8 seconds from 8.78 seconds, an 11.62% rise.
+3. Failure Reasons Analysis:
+
+"Please enter a valid Aadhaar number": Improved slightly, reducing from 84.06% to 83.61%.
+"Image is non compliant to request/quality standard": Slightly increased to 7.91% from 7.73%.
+"PDF is non compliant to request/quality standard": Reduced to 3.38% from 4.05%, a 16.54% decrease.
+"The image requested is smaller than the acceptance range": Increased to 2% from 1.39%.
+"Multiple documents detected": Slightly increased to 1.74% from 1.57%.
+"Document download request timeout": Increased to 0.63% from 0.45%.
+"The image requested is larger than the acceptance range": Marginally increased to 0.45% from 0.44%.
+"Invalid URL": Remained constant at 0.28%.
+4. Failure Types:
+
+Business Reasons:
+Total types remained at 10.
+Technical Reasons:
+Reduced to 1 from 2.
+5. Specific Business Reasons:
+
+PE_INVALID_AADHAAR: Reduced significantly to 4,479 from 16,469, a 72.8% decrease.
+MAX_PAGES: Reduced to 361 from 1,381, a 73.86% drop.
+INVALID_PDF: Decreased to 185 from 801, a 76.91% reduction.
+PE_IMAGE_RESOLUTION_TOO_SMALL: Fell to 107 from 273, a 60.84% decrease.
+PE_MULTIPLE_DOCUMENTS_DETECTED: Reduced to 93 from 307, a 69.7% drop.
+DOCUMENT_DOWNLOAD_TIMEOUT: Decreased to 34 from 89, a 61.8% reduction.
+PE_INACCESSIBLE_IMAGE: Reduced to 29 from 48, a 39.58% decrease.
+PE_IMAGE_RESOLUTION_TOO_LARGE: Decreased to 24 from 87, a 72.41% reduction.
+PE_ROI_DETECTION_FAILED: Reduced to 21 from 36, a 41.67% decrease.
+INVALID_URL: Reduced to 15 from 54, a 72.22% decrease.
+6. Technical Reasons:
+
+source_down: Noted with 430 occurrences, previously zero.
+Conclusion: Overall, API usage has significantly decreased, indicating a potential reduction in demand or changes in business requirements. Performance metrics have shown minor variations, with some improvements and some deteriorations. Failure reasons have remained relatively stable, with slight shifts in percentages.
+
+Thank you for your continued trust in our solutions. Feel free to reach out for any further insights or assistance.
+
+Best regards,
+
+[Your Full Name]
+[Your Position]
+[Your Contact Information]
+[Company Name]

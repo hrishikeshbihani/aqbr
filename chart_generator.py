@@ -31,6 +31,7 @@ Design Specifications:
 4. Always include data labels using the ChartJS plugin chartjs-plugin-datalabels with options align: end and anchor: end.
 5. Add a chart title.
 6. All fonts should be black and bold.
+7. Ensure that on scales wherver applicable, beingAtZero is set to True.
 
 Output:
 
@@ -52,22 +53,26 @@ Example URL: https://quickchart.io/chart?width=1000&height=1000&c={"type":"horiz
 
 
 def fix_chart_io_url(url):
-    prompt = """Given below is a URL of charts.io. This URL returns a graph/chart in png format based on the data that is passed in its query params. The JSON in this query params seems to be incorrect. Please correct the URL by correctly formatting the JSON in params. Only output the array of full corrected URL in string format. Do not write anything else. 
+    prompt = """Given below is a URL of charts.io. This URL returns a graph/chart in png format based on the data that is passed in its query params. The JSON in this query params seems to be incorrect. Please correct the URL by correctly formatting the JSON in params. If there is a URL anywhere in the JSON payload, remove that URL by replacing it with empty string. Be careful to not remove the host of the URL. Only output the array of full corrected URL in string format. Do not write anything else.
+    
     
     
     
     {url}
     """.format(url=url)
     response = make_call_to_openai(prompt, "gpt-4o")
-    return response
+    return check_chartio_url_response(response, False)
 
 
-def check_chartio_url_response(url):
+def check_chartio_url_response(url, is_retry=True):
     try:
         response = requests.get(url)
         status_code = response.status_code
-        if 400 <= status_code < 500:
-            return fix_chart_io_url(url)
+        if 400 <= status_code < 500 and is_retry:
+            if is_retry:
+                return fix_chart_io_url(url)
+            else:
+                return None
         return url
     except requests.exceptions.RequestException as e:
-        return f"An error occurred: {e}"
+        return None

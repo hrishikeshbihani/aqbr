@@ -12,10 +12,6 @@
     "card_number": 5639
   },
   {
-    "title": "API Usage",
-    "card_number": 5617
-  },
-  {
     "title": "API Usage Consumption",
     "card_number": 5624
   },
@@ -38,10 +34,8 @@
   {
     "title": "Failure Reasons Comparison",
     "card_number": 5638
-  },{
-    "title": "Failure Reasons for API's",
-    "card_number": 5652
-  },{
+  },
+  {
     "title": "Type of failure reason comparison",
     "card_number": 5630
   },
