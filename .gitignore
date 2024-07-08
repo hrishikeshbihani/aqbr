@@ -1,3 +1,5 @@
 venv/*
 data_files/*
 openai_call_logs/*
+.env.dev.rc
+testing.py

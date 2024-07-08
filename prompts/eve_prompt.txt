@@ -1,0 +1,4 @@
+My product EVE exposes multiple ML/AI based APIs which are used by client to perform verfications of individuals/business. Some of these APIs are liveness check API that checks if the person in the image is an actual person of a click from a screen or other photographs. Aadhar OCR and PAN OCR APIs scrapes data from the images of Aadhar card and Pan card and so on.
+Whenever my client uses my product, I instrument them and occassionally, I present this metrics to them to help them understand how my product have helped them thru these times. 
+I am providing some important business metrics to you below. I need your help in deriving insights from these metrics and formulating a summary for my clients for the same. The data below is in JSONL format. Meaning JSON is demilited by new line.
+The metrics starts here-
