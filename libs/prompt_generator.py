@@ -74,25 +74,25 @@ def get_title_and_card_id(product):
 
 
 def get_jsonl_data_from_card(card_id, **kwargs):
-    current_start_date = kwargs['current_start_date']
-    current_end_date = kwargs['current_end_date']
+    current_date_range = kwargs['current_date_range']
+    previous_date_range = kwargs['previous_date_range']
     ou_id = kwargs['ou_id']
-    previous_start_date, previous_end_date = calculate_previous_date_range(
-        current_start_date.strftime('%Y-%m-%d'), current_end_date.strftime('%Y-%m-%d'))
+    (current_start_date, current_end_date) = current_date_range
+    (previous_start_date, previous_end_date) = previous_date_range
     csv_data = get_data_from_metabase(card_number=card_id, start_date=current_start_date, end_date=current_end_date,
                                       ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
     jsonl_data = convert_csv_to_jsonl(csv_data)
     return jsonl_data
 
 
-def get_prompt_body(product, current_start_date, current_end_date, ou_id):
+def get_prompt_body(product, current_date_range, previous_date_range, ou_id):
     title_and_card_id_list = get_title_and_card_id(product)
     prompt_body = """
 """
     for title_and_card in title_and_card_id_list:
         (title, card_id) = title_and_card
         data = get_jsonl_data_from_card(
-            card_id, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id)
+            card_id, current_date_range=current_date_range, previous_date_range=previous_date_range, ou_id=ou_id)
         prompt_body = """{prompt_body}
 
 {title}\n
@@ -116,10 +116,10 @@ def get_sample_email_file_name(product):
         return "./prompts/eve_sample_email.txt"
 
 
-def get_storyline_prompt(product, current_start_date, current_end_date, ou_id):
+def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id):
     prompt_header_file = get_prompt_header_file_name(product)
     prompt_header = open(prompt_header_file).read()
-    prompt_body = get_prompt_body(product, current_start_date, current_end_date,
+    prompt_body = get_prompt_body(product, current_date_range, previous_date_range,
                                   ou_id)
     prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease Explantions should be lesser."
     sample_email_file_name = get_sample_email_file_name(product)
