@@ -1,7 +1,7 @@
 [
   {
     "title": "Total API Requests",
-    "card_number": 5614
+    "card_number": 5675
   },
   {
     "title": "Overall API Success Rate",
@@ -13,11 +13,11 @@
   },
   {
     "title": "API Usage Consumption",
-    "card_number": 5624
+    "card_number": 5678
   },
   {
     "title": "API Performance",
-    "card_number": 5620
+    "card_number": 5680
   },
   {
     "title": "P50 Comparison",
@@ -33,18 +33,6 @@
   },
   {
     "title": "Failure Reasons Comparison",
-    "card_number": 5638
-  },
-  {
-    "title": "Type of failure reason comparison",
-    "card_number": 5630
-  },
-  {
-    "title": "Business Reasons Comparison",
-    "card_number": 5636
-  },
-  {
-    "title": "Technical Reasons Comparison",
-    "card_number": 5637
+    "card_number": 5652
   }
 ]
