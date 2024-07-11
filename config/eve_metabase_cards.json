@@ -5,19 +5,15 @@
   },
   {
     "title": "Overall API Success Rate",
-    "card_number": 5616
-  },
-  {
-    "title": "Overall API Failure Rate",
-    "card_number": 5639
+    "card_number": 5676
   },
   {
     "title": "API Usage Consumption",
     "card_number": 5678
   },
   {
-    "title": "API Performance",
-    "card_number": 5680
+    "title": "API Performance Comparison",
+    "card_number": 5688
   },
   {
     "title": "P50 Comparison",
