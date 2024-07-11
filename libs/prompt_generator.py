@@ -121,7 +121,7 @@ def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id
     prompt_header = open(prompt_header_file).read()
     prompt_body = get_prompt_body(product, current_date_range, previous_date_range,
                                   ou_id)
-    prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease Keep the Email concise and give lesser explanations. Output me the final Email that I can send to my client without editting"
+    prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease. Keep the Email concise and give lesser explanations. Include only those metrics which have significantly changed. Output me the final Email that I can send to my client without editting."
     sample_email_file_name = get_sample_email_file_name(product)
     sample_email = open(sample_email_file_name).read()
     return """{prompt_header}
