@@ -113,7 +113,7 @@ def get_sample_email_file_name(product):
     if (product == "VS"):
         return "./prompts/vs_sample_email.txt"
     if (product == "EVE"):
-        return "./prompts/eve_sample_email.txt"
+        return "./prompts/eve_sample_email_v2.txt"
 
 
 def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id):
@@ -121,7 +121,7 @@ def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id
     prompt_header = open(prompt_header_file).read()
     prompt_body = get_prompt_body(product, current_date_range, previous_date_range,
                                   ou_id)
-    prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Numbers should be clearly readable. Wherever you are comparing the data, include the percentage increase/decrease. Keep the Email concise and give lesser explanations. Include only those metrics which have significantly changed. Output me the final Email that I can send to my client without editting."
+    prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Ensure you include every item of a metric even if you do not see any notable change in the metric. Wherever you are comparing the data, include the percentage increase/decrease. Keep the Email concise and give lesser explanations. Output me the final Email that I can send to my client without editting. Keep the indentation of the contents of the email correct."
     sample_email_file_name = get_sample_email_file_name(product)
     sample_email = open(sample_email_file_name).read()
     return """{prompt_header}
