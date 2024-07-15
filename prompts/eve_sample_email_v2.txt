@@ -42,29 +42,29 @@ We hope this email finds you well. We are pleased to share with you the latest p
 #### API Performance Metrics:
 
 `check_photo_liveness_face`:
-**P50:** 1.61 secs (Current), 1.62 secs (Previous) - **Decrease:** 0.62%
-**P90:** 1.98 secs (Current), 2.09 secs (Previous) - **Decrease:** 5.26%
-**P99:** 2.81 secs (Current), 2.95 secs (Previous) - **Decrease:** 4.75%
+- **P50:** 1.61 secs (Current), 1.62 secs (Previous) - **Decrease:** 0.62%
+- **P90:** 1.98 secs (Current), 2.09 secs (Previous) - **Decrease:** 5.26%
+- **P99:** 2.81 secs (Current), 2.95 secs (Previous) - **Decrease:** 4.75%
 
 `compare_face`:
-**P50:** 1.05 secs (Current), 1.04 secs (Previous) - **Increase:** 0.96%
-**P90:** 1.31 secs (Current), 1.3 secs (Previous) - **Increase:** 0.77%
-**P99:** 1.83 secs (Current), 1.93 secs (Previous) - **Decrease:** 5.18%
+- **P50:** 1.05 secs (Current), 1.04 secs (Previous) - **Increase:** 0.96%
+- **P90:** 1.31 secs (Current), 1.3 secs (Previous) - **Increase:** 0.77%
+- **P99:** 1.83 secs (Current), 1.93 secs (Previous) - **Decrease:** 5.18%
 
 `extract_ind_cheque`:
-**P50:** 2.18 secs (Current), 1.54 secs (Previous) - **Increase:** 41.56%
-**P90:** 5.41 secs (Current), 3.79 secs (Previous) - **Increase:** 42.74%
-**P99:** 9.29 secs (Current), 7.57 secs (Previous) - **Increase:** 22.72%
+- **P50:** 2.18 secs (Current), 1.54 secs (Previous) - **Increase:** 41.56%
+- **P90:** 5.41 secs (Current), 3.79 secs (Previous) - **Increase:** 42.74%
+- **P99:** 9.29 secs (Current), 7.57 secs (Previous) - **Increase:** 22.72%
 
 `extract_ind_driving_license`:
-**P50:** 2.04 secs (Current), 1.85 secs (Previous) - **Increase:** 10.27%
-**P90:** 2.82 secs (Current), 2.56 secs (Previous) - **Increase:** 10.16%
-**P99:** 6.97 secs (Current), 6.01 secs (Previous) - **Increase:** 15.97%
+- **P50:** 2.04 secs (Current), 1.85 secs (Previous) - **Increase:** 10.27%
+- **P90:** 2.82 secs (Current), 2.56 secs (Previous) - **Increase:** 10.16%
+- **P99:** 6.97 secs (Current), 6.01 secs (Previous) - **Increase:** 15.97%
 
 `validate_document`:
-**P50:** 0.75 secs (Current), 0.82 secs (Previous) - **Decrease:** 8.54%
-**P90:** 0.92 secs (Current), 1.26 secs (Previous) - **Decrease:** 26.98%
-**P99:** 1.43 secs (Current), 5.14 secs (Previous) - **Decrease:** 72.18%
+- **P50:** 0.75 secs (Current), 0.82 secs (Previous) - **Decrease:** 8.54%
+- **P90:** 0.92 secs (Current), 1.26 secs (Previous) - **Decrease:** 26.98%
+- **P99:** 1.43 secs (Current), 5.14 secs (Previous) - **Decrease:** 72.18%
 
 We appreciate your continued trust in our services. Should you have any questions or need further insights, please do not hesitate to reach out.
 
