@@ -70,19 +70,18 @@ def render_developer_app():
                          metabase_dashboard_url)
 
       with graphical_representations:
-        pass
-        # title_and_card_id_list = get_title_and_card_id(product)
-        # for title_and_card_id in title_and_card_id_list:
-        #   (title, card_id) = title_and_card_id
-        #   with st.expander(title):
-        #     jsonl_data = get_jsonl_data_from_card(
-        #         card_id, current_date_range=current_date_range, previous_date_range=previous_date_range, ou_id=ou_id)
-        #     chart_generator_output = chart_generator(jsonl_data, title)
-        #     corrected_url = check_chartio_url_response(chart_generator_output)
-        #     if corrected_url is not None:
-        #       st.image(corrected_url)
-        #     else:
-        #       st.write("Graph could not generated due to error from source.")
+        title_and_card_id_list = get_title_and_card_id(product)
+        for title_and_card_id in title_and_card_id_list:
+          (title, card_id) = title_and_card_id
+          with st.expander(title):
+            jsonl_data = get_jsonl_data_from_card(
+                card_id, current_date_range=current_date_range, previous_date_range=previous_date_range, ou_id=ou_id)
+            chart_generator_output = chart_generator(jsonl_data, title)
+            corrected_url = check_chartio_url_response(chart_generator_output)
+            if corrected_url is not None:
+              st.image(corrected_url)
+            else:
+              st.write("Graph could not generated due to error from source.")
 
 def main():
   st.title("AQBR Demo")
