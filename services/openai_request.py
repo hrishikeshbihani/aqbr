@@ -18,7 +18,7 @@ def make_call_to_openai(prompt, model="gpt-4o"):
                 ]
             }
         ],
-        "max_tokens": 1500
+        "max_tokens": 4000
     })
     headers = {
         'Content-Type': 'application/json',
