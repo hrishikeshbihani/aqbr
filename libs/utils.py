@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-
+import json
 
 def calculate_previous_date_range(current_start_date, current_end_date):
     # Convert string dates to datetime objects
@@ -21,3 +21,8 @@ def calculate_previous_date_range(current_start_date, current_end_date):
 
     return previous_start_date_str, previous_end_date_str
 
+
+def get_data_from_json_file(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+        return data
