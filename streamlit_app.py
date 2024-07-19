@@ -1,3 +1,4 @@
+from libs.customizable_rules import render_customizable_rules
 from libs.prompt_generator import get_jsonl_data_from_card, get_storyline_prompt, get_title_and_card_id
 import streamlit as st
 from libs.chart_generator import chart_generator, check_chartio_url_response
@@ -52,6 +53,9 @@ def render_developer_app():
       value=(datetime.datetime.now(), datetime.datetime.now())
   )
   ou_id = st.text_input("OU ID")
+  custom_prompt_inputs = []
+  with st.expander("Customization Options"):
+    custom_prompt_inputs = render_customizable_rules(product)
   if (current_date_range and previous_date_range and ou_id):
     is_generate = st.button('Let\'s put AI to work !!')
     if (is_generate):
@@ -60,7 +64,8 @@ def render_developer_app():
 
       with story_line:
         prompt = get_storyline_prompt(product,
-                                      current_date_range, previous_date_range, ou_id)
+                                      current_date_range, previous_date_range, ou_id, custom_prompt_inputs)
+
         if len(prompt) > 0:
           openai_output = make_call_to_openai(prompt)
           st.write(openai_output)

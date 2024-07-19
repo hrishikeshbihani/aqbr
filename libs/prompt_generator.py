@@ -2,7 +2,7 @@ import csv
 from io import StringIO
 import json
 import os
-from libs.utils import calculate_previous_date_range
+from libs.utils import calculate_previous_date_range, get_data_from_json_file
 import requests
 
 
@@ -66,11 +66,10 @@ def get_metabase_json_file_name_by_product(product):
 
 def get_title_and_card_id(product):
     file_name = get_metabase_json_file_name_by_product(product)
-    with open(file_name, 'r') as file:
-        data = json.load(file)
-        data_parsed = list(
-            map(lambda dt: (dt['title'], dt['card_number']), data))
-        return data_parsed
+    data = get_data_from_json_file(file_name)
+    data_parsed = list(
+        map(lambda dt: (dt['title'], dt['card_number']), data))
+    return data_parsed
 
 
 def get_jsonl_data_from_card(card_id, **kwargs):
@@ -116,12 +115,30 @@ def get_sample_email_file_name(product):
         return "./prompts/eve_sample_email_v2.txt"
 
 
-def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id):
+def get_customization_prompt(custom_prompt_inputs):
+    if (len(custom_prompt_inputs) > 0):
+        custom_prompt_input_generated = ""
+        for i in range(0, len(custom_prompt_inputs)):
+            custom_prompt_input_generated = custom_prompt_input_generated + "\n" + \
+                "{index}. {prompt}".format(index=i+1,
+                                           prompt=custom_prompt_inputs[i])
+        return """
+        The above example that is given to you needs to updated with following rules.
+        {custom_prompt_input_generated}
+        
+    """.format(custom_prompt_input_generated=custom_prompt_input_generated)
+    return ""
+
+
+def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id, custom_prompt_inputs):
     prompt_header_file = get_prompt_header_file_name(product)
     prompt_header = open(prompt_header_file).read()
     prompt_body = get_prompt_body(product, current_date_range, previous_date_range,
                                   ou_id)
-    prompt_tail = "Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Ensure you include every item of a metric even if you do not see any notable change in the metric. Wherever you are comparing the data, include the percentage increase/decrease. Keep the Email concise and give lesser explanations. Output me the final Email that I can send to my client without editting. Keep the indentation of the contents of the email correct."
+    custom_prompt = get_customization_prompt(custom_prompt_inputs)
+    prompt_tail = """Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Ensure you include every item of a metric even if you do not see any notable change in the metric. Wherever you are comparing the data, include the percentage increase/decrease.
+    
+    """
     sample_email_file_name = get_sample_email_file_name(product)
     sample_email = open(sample_email_file_name).read()
     return """{prompt_header}
@@ -130,8 +147,11 @@ def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id
 
 {prompt_tail}
 
-I am including a sample Email below for you to refer. This is only for reference, you can alter the email structure if need be. 
+I am including a sample Email below for you to refer. This is only for reference, you can alter the email structure if need be.
 
 {sample_email}
 
-""".format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail, sample_email=sample_email)
+{custom_prompt}
+
+Keep the Email concise and give lesser explanations. Output me the final Email that I can send to my client without editting. Keep the indentation of the contents of the email correct.
+""".format(prompt_body=prompt_body, prompt_header=prompt_header, prompt_tail=prompt_tail, sample_email=sample_email, custom_prompt=custom_prompt)
