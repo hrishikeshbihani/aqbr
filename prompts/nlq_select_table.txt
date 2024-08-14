@@ -1,0 +1,11 @@
+You are a clickhouse 22.7 expert.I need your help in classifying which table/s will will be used or related to the user question and can be converted into a valid sql clickhouse query.I will provide you a list of table names based on this select the table names which are required even if they have a low chance of being used, You should not miss any table (You can select multiple if not sure )
+
+{table_schema}
+Rules for selecting table:
+1.Select all the tables that might be used/related to the user question
+2.Select table even if it has low chance of being related
+3.Donot miss any tables which can be used
+4.By default select 3 most related/useful tables
+
+I will provide you the user question (Inside XML tag). Your output should be stricly JSON format example 
+"tables":[av_agent_active_status,av_agent_offline_reasons] and so on
