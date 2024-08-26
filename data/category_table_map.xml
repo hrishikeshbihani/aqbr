@@ -1,0 +1,2032 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Categories>
+    <Category name="Profiles">
+        <Tables>
+            <Table name="agentservices_tasky_task_states_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">PrevState</column>
+                <column is_nullable="False" data_type="String" description="">Reason</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_completed">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">AgentOUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AllocationID</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_created">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="True" data_type="String" description="">TaskAttributes</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_events">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AllocationID</column>
+                <column is_nullable="True" data_type="UUID" description="">AgentID</column>
+            </Table>
+            <Table name="av_completed_profiles">
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorParticipantID</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorAccountID</column>
+                <column is_nullable="False" data_type="UUID" description="">MSCRoomID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="UUID" description="">ReviewerAccountID</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="Int64" description="">OverallTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">CallDuration</column>
+                <column is_nullable="False" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    FirstAttemptToCompletionTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    DaysToInvokeFirstCapture</column>
+                <column is_nullable="True" data_type="Int64" description="">ReviewerTATFrontend</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    TotalEngagementTimePreVideo</column>
+                <column is_nullable="True" data_type="Int64" description="">CaptureJourneyTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    CaptureInvokedToReviewRequiredTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">VCTime</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">CreatedAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewRequiredTimestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FinalOperatorActionAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FirstCaptureInvokedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    TotalProfileLevelCaptures</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalCaptureAttempts</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalVideoCallAttempts</column>
+                <column is_nullable="False" data_type="Int8" description="">StraightPassThrough</column>
+                <column is_nullable="False" data_type="Int64" description="">TechnicalReasonUTVs</column>
+                <column is_nullable="False" data_type="Int64" description="">BusinessReasonUTVs</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String"
+                    description="This value can be 'verified' or 'rejected'">OperatorAction</column>
+                <column is_nullable="True" data_type="String" description="">OperatorReason</column>
+                <column is_nullable="True" data_type="String"
+                    description="This value can be 'approved' or 'rejected'">ReviewerAction</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerEmailID</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+                <column is_nullable="True" data_type="String" description="">QueueLabel</column>
+                <column is_nullable="True" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">Country</column>
+                <column is_nullable="True" data_type="String" description="">CountryCode</column>
+                <column is_nullable="True" data_type="String" description="">Latitude</column>
+                <column is_nullable="True" data_type="String" description="">Longitude</column>
+            </Table>
+            <Table name="av_completed_tasks">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="True" data_type="String" description="">Label</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+            </Table>
+            <Table name="av_completed_tasks_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt1BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt2BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt3BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">HealthCheckAttemptCount</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    CustomerPublishCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    MSCPublisherCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP90</column>
+            </Table>
+            <Table name="av_missed_and_declined_calls_summary">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">EventType</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    CallAcceptedTimestamp</column>
+                <column is_nullable="True" data_type="String" description="">
+                    OperatorAcceptedCallEmail</column>
+                <column is_nullable="True" data_type="Int32" description="">PickupTAT</column>
+                <column is_nullable="False" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="False" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_operator_action">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="True" data_type="String" description="">ReasonCategory</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+            </Table>
+            <Table name="pm_link_clicked">
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="String" description="">CaptureToken</column>
+                <column is_nullable="False" data_type="String" description="">CaptureStatus</column>
+                <column is_nullable="False" data_type="String" possible_value="Started,Completed,Failed" description="">ProfileStatus</column>
+                <column is_nullable="False" data_type="DateTime64(6)" description="">Timestamp</column>
+                <column is_nullable="True" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="DateTime64(6)" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="UUID" description="">EID</column>
+                <column is_nullable="True" data_type="String" description="">QueueLabel</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+            </Table>
+            <Table name="profiles_created">
+                <column is_nullable="True" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">ExtReferenceID</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="DateTime64(6)" description="">Timestamp</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="False" data_type="String" description="">Service</column>
+                <column is_nullable="True" data_type="UInt8" description="">HasDataCapture</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    CaptureExpiresAt</column>
+                <column is_nullable="False" data_type="DateTime64(6)" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">AppVSN</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">QueueLabel</column>
+            </Table>
+        </Tables>
+    </Category>
+    <Category name="Video Calls">
+        <Tables>
+            <Table name="agentservices_tasky_allocation_created">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AgentOUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="UUID" description="">AllocationID</column>
+                <column is_nullable="True" data_type="String" description="">TaskAttributes</column>
+                <column is_nullable="True" data_type="String" description="">AgentAttributes</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(6))" description="">
+                    AllocationCycleTimestamp</column>
+            </Table>
+            <Table name="agentservices_tasky_allocation_cycle_stats">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="Int32" description="">AgentsCount</column>
+                <column is_nullable="False" data_type="Int32" description="">TasksCount</column>
+                <column is_nullable="False" data_type="DateTime64(6)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_task_states_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">PrevState</column>
+                <column is_nullable="False" data_type="String" description="">Reason</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_completed">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">AgentOUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AllocationID</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_created">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="True" data_type="String" description="">TaskAttributes</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_events">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AllocationID</column>
+                <column is_nullable="True" data_type="UUID" description="">AgentID</column>
+            </Table>
+            <Table name="av_allocation_events">
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="True" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="Int8" description="">Assigned</column>
+                <column is_nullable="False" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AuthSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="False" data_type="UUID" description="">AllocationID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="False" data_type="DateTime" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_call_allocation_events">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorID</column>
+                <column is_nullable="False" data_type="String" description="">Reason</column>
+            </Table>
+            <Table name="av_call_details">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="True" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="True" data_type="UUID" description="">AllocationID</column>
+                <column is_nullable="True" data_type="UUID" description="">OperatorSessionID</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="True" data_type="String" description="">FinalSessionState</column>
+                <column is_nullable="True" data_type="String" description="">FinalSessionStateReason</column>
+                <column is_nullable="True" data_type="UInt8" description="">UserWasInCall</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_call_events">
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="Int8" description="">Assigned</column>
+                <column is_nullable="False" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="False" data_type="String" description="">Details</column>
+                <column is_nullable="False" data_type="DateTime" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_call_events_view">
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="True" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="Int8" description="">Assigned</column>
+                <column is_nullable="False" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="False" data_type="String" description="">Details</column>
+                <column is_nullable="False" data_type="DateTime" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_completed_profiles">
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorParticipantID</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorAccountID</column>
+                <column is_nullable="False" data_type="UUID" description="">MSCRoomID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="UUID" description="">ReviewerAccountID</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="Int64" description="">OverallTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">CallDuration</column>
+                <column is_nullable="False" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    FirstAttemptToCompletionTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    DaysToInvokeFirstCapture</column>
+                <column is_nullable="True" data_type="Int64" description="">ReviewerTATFrontend</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    TotalEngagementTimePreVideo</column>
+                <column is_nullable="True" data_type="Int64" description="">CaptureJourneyTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    CaptureInvokedToReviewRequiredTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">VCTime</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">CreatedAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewRequiredTimestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FinalOperatorActionAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FirstCaptureInvokedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    TotalProfileLevelCaptures</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalCaptureAttempts</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalVideoCallAttempts</column>
+                <column is_nullable="False" data_type="Int8" description="">StraightPassThrough</column>
+                <column is_nullable="False" data_type="Int64" description="">TechnicalReasonUTVs</column>
+                <column is_nullable="False" data_type="Int64" description="">BusinessReasonUTVs</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">OperatorAction</column>
+                <column is_nullable="True" data_type="String" description="">OperatorReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerAction</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerEmailID</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+                <column is_nullable="True" data_type="String" description="">QueueLabel</column>
+                <column is_nullable="True" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">Country</column>
+                <column is_nullable="True" data_type="String" description="">CountryCode</column>
+                <column is_nullable="True" data_type="String" description="">Latitude</column>
+                <column is_nullable="True" data_type="String" description="">Longitude</column>
+            </Table>
+            <Table name="av_completed_task_reasons_mv">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAtUTC</column>
+                <column is_nullable="False" data_type="Date" description="">CallCompletedAtInIST</column>
+                <column is_nullable="False" data_type="UInt8" description="">HourInIST</column>
+                <column is_nullable="False" data_type="AggregateFunction(avg, Int32)" description="">
+                    AvgHandlingTime</column>
+                <column is_nullable="True" data_type="Int64" description="">AvgWaitTime</column>
+                <column is_nullable="False" data_type="AggregateFunction(count, String)"
+                    description="">TotalCount</column>
+            </Table>
+            <Table name="av_completed_tasks_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt1BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt2BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt3BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">HealthCheckAttemptCount</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    CustomerPublishCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    MSCPublisherCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP90</column>
+            </Table>
+            <Table name="av_missed_and_declined_calls_summary">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">EventType</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    CallAcceptedTimestamp</column>
+                <column is_nullable="True" data_type="String" description="">
+                    OperatorAcceptedCallEmail</column>
+                <column is_nullable="True" data_type="Int32" description="">PickupTAT</column>
+                <column is_nullable="False" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="False" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_operator_action">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="True" data_type="String" description="">ReasonCategory</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+            </Table>
+        </Tables>
+    </Category>
+    <Category name="Agent Performance">
+        <Tables>
+            <Table name="agentservices_tasky_agent_states_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">AgentEmail</column>
+                <column is_nullable="False" data_type="String" description="">State</column>
+                <column is_nullable="False" data_type="String" description="">PrevState</column>
+                <column is_nullable="False" data_type="String" description="">Reason</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_allocation_created">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AgentOUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="UUID" description="">AllocationID</column>
+                <column is_nullable="True" data_type="String" description="">TaskAttributes</column>
+                <column is_nullable="True" data_type="String" description="">AgentAttributes</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(6))" description="">
+                    AllocationCycleTimestamp</column>
+            </Table>
+            <Table name="agentservices_tasky_reviewer_offline_events">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">AgentEmail</column>
+                <column is_nullable="False" data_type="String" description="">OfflineReason</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_task_states_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">PrevState</column>
+                <column is_nullable="False" data_type="String" description="">Reason</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_completed">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">AgentOUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AgentID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AllocationID</column>
+            </Table>
+            <Table name="agentservices_tasky_tasks_events">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="String" description="">TaskType</column>
+                <column is_nullable="False" data_type="String" description="">EventName</column>
+                <column is_nullable="False" data_type="String" description="">Mode</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AllocationID</column>
+                <column is_nullable="True" data_type="UUID" description="">AgentID</column>
+            </Table>
+            <Table name="av_agent_active_status">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="Int32" description="">IsOnline</column>
+                <column is_nullable="False" data_type="Int32" description="">IsOffline</column>
+                <column is_nullable="False" data_type="String" description="">Email</column>
+                <column is_nullable="True" data_type="String" description="">Location</column>
+                <column is_nullable="False" data_type="Array(String)" description="">Skills</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_agent_offline_reasons">
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">Reason</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    BackOnlineAt</column>
+                <column is_nullable="False" data_type="Int64" description="">TAT</column>
+                <column is_nullable="False" data_type="String" description="">Email</column>
+                <column is_nullable="True" data_type="String" description="">Location</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_completed_tasks">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="True" data_type="String" description="">Label</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+            </Table>
+            <Table name="av_completed_tasks_mv">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="String" description="">Label</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAtUTC</column>
+                <column is_nullable="False" data_type="Date" description="">CallCompletedAtInIST</column>
+                <column is_nullable="False" data_type="UInt8" description="">
+                    CallCompletedAtHourInIST</column>
+                <column is_nullable="False" data_type="Date" description="">CallStartedAtInIST</column>
+                <column is_nullable="False" data_type="UInt8" description="">CallStartedAtHourInIST</column>
+                <column is_nullable="False" data_type="AggregateFunction(avg, Int32)" description="">
+                    AvgHandlingTime</column>
+                <column is_nullable="True" data_type="Int64" description="">AvgWaitTime</column>
+                <column is_nullable="False" data_type="AggregateFunction(count, UUID)"
+                    description="">UniqueProfileCount</column>
+                <column is_nullable="False" data_type="AggregateFunction(count, String)"
+                    description="">TotalCount</column>
+            </Table>
+            <Table name="av_completed_tasks_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt1BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt2BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt3BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">HealthCheckAttemptCount</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    CustomerPublishCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    MSCPublisherCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP90</column>
+            </Table>
+            <Table name="av_missed_and_declined_calls_summary">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">EventType</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    CallAcceptedTimestamp</column>
+                <column is_nullable="True" data_type="String" description="">
+                    OperatorAcceptedCallEmail</column>
+                <column is_nullable="True" data_type="Int32" description="">PickupTAT</column>
+                <column is_nullable="False" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="False" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+            </Table>
+            <Table name="av_operator_activity_stats">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">AppVSN</column>
+                <column is_nullable="True" data_type="String" description="">Email</column>
+                <column is_nullable="True" data_type="String" description="">Location</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="Int64" description="">ToggleOntimeMS</column>
+                <column is_nullable="False" data_type="Int64" description="">IdleTimeMS</column>
+                <column is_nullable="False" data_type="Int64" description="">InCallTimeMS</column>
+                <column is_nullable="False" data_type="Int64" description="">SuspendedTimeMS</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    FirstToggleOn</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    LastToggleOff</column>
+                <column is_nullable="False" data_type="String" description="">LastState</column>
+                <column is_nullable="True" data_type="Int64" description="">AllocatedTimeMS</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ShiftToggleOn</column>
+            </Table>
+        </Tables>
+    </Category>
+    <Category name="UTV Reasons">
+        <Tables>
+            <Table name="av_completed_task_reasons_mv">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAtUTC</column>
+                <column is_nullable="False" data_type="Date" description="">CallCompletedAtInIST</column>
+                <column is_nullable="False" data_type="UInt8" description="">HourInIST</column>
+                <column is_nullable="False" data_type="AggregateFunction(avg, Int32)" description="">
+                    AvgHandlingTime</column>
+                <column is_nullable="True" data_type="Int64" description="">AvgWaitTime</column>
+                <column is_nullable="False" data_type="AggregateFunction(count, String)"
+                    description="">TotalCount</column>
+            </Table>
+            <Table name="av_completed_tasks">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="True" data_type="String" description="">Label</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+            </Table>
+            <Table name="av_completed_tasks_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt1BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt2BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt3BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">HealthCheckAttemptCount</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    CustomerPublishCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    MSCPublisherCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP90</column>
+            </Table>
+            <Table name="av_operator_action">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="True" data_type="String" description="">ReasonCategory</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+            </Table>
+        </Tables>
+    </Category>
+    <Category name="Agent Actions">
+        <Tables>
+            <Table name="av_completed_profiles">
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorParticipantID</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorAccountID</column>
+                <column is_nullable="False" data_type="UUID" description="">MSCRoomID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="UUID" description="">ReviewerAccountID</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="Int64" description="">OverallTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">CallDuration</column>
+                <column is_nullable="False" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    FirstAttemptToCompletionTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    DaysToInvokeFirstCapture</column>
+                <column is_nullable="True" data_type="Int64" description="">ReviewerTATFrontend</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    TotalEngagementTimePreVideo</column>
+                <column is_nullable="True" data_type="Int64" description="">CaptureJourneyTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    CaptureInvokedToReviewRequiredTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">VCTime</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">CreatedAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewRequiredTimestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FinalOperatorActionAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FirstCaptureInvokedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    TotalProfileLevelCaptures</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalCaptureAttempts</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalVideoCallAttempts</column>
+                <column is_nullable="False" data_type="Int8" description="">StraightPassThrough</column>
+                <column is_nullable="False" data_type="Int64" description="">TechnicalReasonUTVs</column>
+                <column is_nullable="False" data_type="Int64" description="">BusinessReasonUTVs</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">OperatorAction</column>
+                <column is_nullable="True" data_type="String" description="">OperatorReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerAction</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerEmailID</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+                <column is_nullable="True" data_type="String" description="">QueueLabel</column>
+                <column is_nullable="True" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">Country</column>
+                <column is_nullable="True" data_type="String" description="">CountryCode</column>
+                <column is_nullable="True" data_type="String" description="">Latitude</column>
+                <column is_nullable="True" data_type="String" description="">Longitude</column>
+            </Table>
+            <Table name="av_completed_tasks">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="True" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="True" data_type="String" description="">Label</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+            </Table>
+            <Table name="av_completed_tasks_mv">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="String" description="">Label</column>
+                <column is_nullable="True" data_type="String" description="">QueueName</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAtUTC</column>
+                <column is_nullable="False" data_type="Date" description="">CallCompletedAtInIST</column>
+                <column is_nullable="False" data_type="UInt8" description="">
+                    CallCompletedAtHourInIST</column>
+                <column is_nullable="False" data_type="Date" description="">CallStartedAtInIST</column>
+                <column is_nullable="False" data_type="UInt8" description="">CallStartedAtHourInIST</column>
+                <column is_nullable="False" data_type="AggregateFunction(avg, Int32)" description="">
+                    AvgHandlingTime</column>
+                <column is_nullable="True" data_type="Int64" description="">AvgWaitTime</column>
+                <column is_nullable="False" data_type="AggregateFunction(count, UUID)"
+                    description="">UniqueProfileCount</column>
+                <column is_nullable="False" data_type="AggregateFunction(count, String)"
+                    description="">TotalCount</column>
+            </Table>
+            <Table name="av_completed_tasks_v2">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">TaskID</column>
+                <column is_nullable="False" data_type="String" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallCompletedAt</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False"
+                    data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)"
+                    description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="False"
+                    data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" description="">
+                    ReasonCategory</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="False" data_type="String" description="">MSCRoomID</column>
+                <column is_nullable="False" data_type="String" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorParticipantID</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="DateTime" description="">CallStartedAt</column>
+                <column is_nullable="False" data_type="Int32" description="">CallDuration</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">
+                    MSCTerminateParticipantsOn</column>
+                <column is_nullable="False" data_type="Int8" description="">MSCStartAfterAllJoin</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateAvg</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutgoingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorIncomingBitrateP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorInputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    OperatorOutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int8" description="">CustomerMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">OperatorMSReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int8" description="">
+                    OperatorMSManualReconnectCount</column>
+                <column is_nullable="True" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="True" data_type="String" description="">SkillConfig</column>
+                <column is_nullable="True" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="String" description="">AllocationSkills</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+                <column is_nullable="True" data_type="String" description="">ClientVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientEngineVersion</column>
+                <column is_nullable="True" data_type="String" description="">ClientName</column>
+                <column is_nullable="True" data_type="String" description="">ClientType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceModel</column>
+                <column is_nullable="True" data_type="String" description="">DeviceType</column>
+                <column is_nullable="True" data_type="String" description="">DeviceBrand</column>
+                <column is_nullable="True" data_type="String" description="">OSName</column>
+                <column is_nullable="True" data_type="String" description="">OSFamily</column>
+                <column is_nullable="True" data_type="String" description="">BrowserFamily</column>
+                <column is_nullable="True" data_type="String" description="">OSPlatform</column>
+                <column is_nullable="True" data_type="String" description="">OSVersion</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    SuccessBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    SuccessBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">
+                    FailedBandwidthCheckCount</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    FailedBandwidthCheckAvgTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt1BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt2BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Float64" description="">
+                    Attempt3BandwidthCheckTAT</column>
+                <column is_nullable="False" data_type="Int32" description="">HealthCheckAttemptCount</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioLevel</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    CustomerPlayCheckVideoBandwidthP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    CustomerPublishCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPublishRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">CustomerPlayRTTP90</column>
+                <column is_nullable="True" data_type="UUID" description="">
+                    MSCPublisherCheckParticipantID</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPublishCheckVideoBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckRTTP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckAudioBandwidthP90</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP50</column>
+                <column is_nullable="False" data_type="Float32" description="">
+                    MSCPublisherPlayCheckVideoBandwidthP90</column>
+            </Table>
+            <Table name="av_operator_action">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">AccountID</column>
+                <column is_nullable="False" data_type="String" description="">Action</column>
+                <column is_nullable="True" data_type="String" description="">Reason</column>
+                <column is_nullable="True" data_type="String" description="">ReasonCategory</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="String" description="">AppVSN</column>
+                <column is_nullable="False" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="UUID" description="">EID</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="String" description="">ActionLabel</column>
+                <column is_nullable="True" data_type="String" description="">Remarks</column>
+            </Table>
+        </Tables>
+    </Category>
+    <Category name="Checker Action/Performance">
+        <Tables>
+            <Table name="av_completed_profiles">
+                <column is_nullable="False" data_type="UUID" description="">ProfileID</column>
+                <column is_nullable="False" data_type="UUID" description="">TaskID</column>
+                <column is_nullable="False" data_type="UUID" description="">AVSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">CustomerParticipantID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorParticipantID</column>
+                <column is_nullable="True" data_type="String" description="">CaptureSessionID</column>
+                <column is_nullable="False" data_type="UUID" description="">OperatorAccountID</column>
+                <column is_nullable="False" data_type="UUID" description="">MSCRoomID</column>
+                <column is_nullable="True" data_type="UUID" description="">PackageID</column>
+                <column is_nullable="True" data_type="UUID" description="">CaptureID</column>
+                <column is_nullable="True" data_type="UUID" description="">ReviewerAccountID</column>
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="Int64" description="">OverallTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">CallDuration</column>
+                <column is_nullable="False" data_type="Int64" description="">WaitTimeInQueue</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    FirstAttemptToCompletionTAT</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    DaysToInvokeFirstCapture</column>
+                <column is_nullable="True" data_type="Int64" description="">ReviewerTATFrontend</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    TotalEngagementTimePreVideo</column>
+                <column is_nullable="True" data_type="Int64" description="">CaptureJourneyTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">
+                    CaptureInvokedToReviewRequiredTAT</column>
+                <column is_nullable="True" data_type="Int64" description="">VCTime</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">CreatedAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewRequiredTimestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FinalOperatorActionAt</column>
+                <column is_nullable="False" data_type="Nullable(DateTime64(3))" description="">
+                    ReviewedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">
+                    FirstCaptureInvokedAt</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">Timestamp</column>
+                <column is_nullable="False" data_type="DateTime64(3)" description="">InsertedAt</column>
+                <column is_nullable="False" data_type="Int64" description="">
+                    TotalProfileLevelCaptures</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalCaptureAttempts</column>
+                <column is_nullable="False" data_type="Int64" description="">TotalVideoCallAttempts</column>
+                <column is_nullable="False" data_type="Int8" description="">StraightPassThrough</column>
+                <column is_nullable="False" data_type="Int64" description="">TechnicalReasonUTVs</column>
+                <column is_nullable="False" data_type="Int64" description="">BusinessReasonUTVs</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+                <column is_nullable="False" data_type="String" description="">OperatorEmail</column>
+                <column is_nullable="False" data_type="String" description="">MSCInstanceGroup</column>
+                <column is_nullable="False" data_type="String" description="">OperatorAction</column>
+                <column is_nullable="True" data_type="String" description="">OperatorReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerAction</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerReason</column>
+                <column is_nullable="True" data_type="String" description="">ReviewerEmailID</column>
+                <column is_nullable="True" data_type="String" description="">ProfileTag</column>
+                <column is_nullable="True" data_type="String" description="">ExtReferenceID</column>
+                <column is_nullable="True" data_type="String" description="">QueueLabel</column>
+                <column is_nullable="True" data_type="String" description="">State</column>
+                <column is_nullable="True" data_type="String" description="">Country</column>
+                <column is_nullable="True" data_type="String" description="">CountryCode</column>
+                <column is_nullable="True" data_type="String" description="">Latitude</column>
+                <column is_nullable="True" data_type="String" description="">Longitude</column>
+            </Table>
+        </Tables>
+    </Category>
+    <Category name="Network Performance">
+        <Tables>
+            <Table name="av_operator_hourly_stats">
+                <column is_nullable="False" data_type="String" description="">OUID</column>
+                <column is_nullable="False" data_type="String" description="">AccountID</column>
+                <column is_nullable="False" data_type="String" description="">EmailID</column>
+                <column is_nullable="True" data_type="String" description="">Location</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsAllocatedCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsAcceptedCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsNoActionCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsDeclinedCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsCompletedCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsVerifiedCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsRejectedCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsUTVCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsUTVBusinessCount</column>
+                <column is_nullable="False" data_type="Int16" description="">CallsUTVTechnicalCount</column>
+                <column is_nullable="False" data_type="Int32" description="">InCallTime</column>
+                <column is_nullable="False" data_type="DateTime" description="">WindowStartTimestamp</column>
+                <column is_nullable="False" data_type="DateTime" description="">WindowEndTimestamp</column>
+                <column is_nullable="False" data_type="DateTime" description="">InsertedAt</column>
+                <column is_nullable="True" data_type="Float32" description="">OutgoingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">IncomingBitrateAvg</column>
+                <column is_nullable="True" data_type="Float32" description="">OutgoingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">IncomingBitrateP90</column>
+                <column is_nullable="True" data_type="Float32" description="">InputAudioLevelP90</column>
+                <column is_nullable="True" data_type="Float32" description="">OutputAudioLevelP90</column>
+                <column is_nullable="False" data_type="Int16" description="">MSReconnectCount</column>
+                <column is_nullable="False" data_type="Int16" description="">MSAutoReconnectCount</column>
+                <column is_nullable="False" data_type="Int16" description="">MSManualReconnectCount</column>
+                <column is_nullable="True" data_type="String" description="">Universe</column>
+            </Table>
+        </Tables>
+    </Category>
+</Categories>

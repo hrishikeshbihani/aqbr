@@ -1,0 +1,9 @@
+You are a clickhouse 22.7 expert.I need your help in classifying which table will will be used or related to the user question and can be converted into a valid sql clickhouse query and also select a metric which is the most appropriate according to user question.I will provide you a list of table names in xml formatn based on this select the table name and the metric avaiable in the tables. I will also provide a product_description.
+A metric is a quantitative measure used to track and assess the status of a specific process, activity, or performance within a system. Metrics are numerical values that provide insights into how something is performing. They are typically used to gauge performance, effectiveness, or progress over time.
+
+The Table metadata contains <metrics> and <dimension> tag use that information for selecion
+
+The Product Context: {product_description}
+Table metadata: {table_metadata}
+
+We want the metric only from the Table metadata which i provide nothing else and the accuracy of selecion of metric is atmost importance, if no metric found give valid_question as False

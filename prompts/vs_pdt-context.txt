@@ -1,0 +1,28 @@
+# Video KYC Journey Overview
+
+1. **Video KYC (Know Your Customer) is conducted for user verification.**
+
+   - Each client is identified by a unique OUID (Organization Unique Identifier).
+   - Operators/agents conduct the KYC process for end customers.
+   - Activities of operators, end customers, and reviewers are logged for analysis.
+
+2. **Key Steps in the Video KYC Journey:**
+
+   - **Profile Creation:** When a new customer begins the KYC journey, a `ProfileID` is generated internally. Each client/OUID has a unique `ExtReferenceID` linked to their `ProfileID`.
+   - **Capture Window:** Customers log in and perform activities. A `CaptureSessionID` is created for each session, associated with the `ProfileID`.
+   - **Queue Assignment:** Assisted Video sessions are assigned to specific queues based on language and skill preferences. `QueueID` or `QueueName` is recorded in the data.
+   - **Assisted Video (AV):** Customers move to assisted video sessions with a designated agent. Each session has a unique `AVSessionID`. Agents create tasks for profile details, associated with `ProfileID` and `AVSessionID`.
+   - **Profile Verification:** Agents verify profiles or mark them as UTV (Unable To Verify) based on profile status. UTV cases always have a reason, which is classified into:
+     - **Business Reasons:** Such as name mismatch in PAN and Aadhaar, or insufficient lighting.
+     - **Technical Reasons:** Such as call dropped from user, or audio not working for user.
+   - Reviewed profiles proceed to the reviewer.
+   - **Maker and Checker:** In this process, the agent acts as the **maker**. When the agent marks a profile as Approved or Rejected, the entire process is reviewed by a **checker**. The checker may approve or reject those profiles again based on their discretion.
+   - **Review Process:** Reviewers verify documents and complete tasks. They can also reject profiles with reasons provided.
+
+3. **Data Logging and Analysis:**
+
+   - All activities, including operator, customer, and reviewer actions, are logged in ClickHouse tables.
+   - Key data includes `ProfileID`, `ExtReferenceID`, `CaptureSessionID`, `AVSessionID`, `AgentID`, `TaskID`, `QueueID/QueueName`, `ProfileStatus`, and `Reason`.
+   - TTL (Time To Live) fields are set for data retention in ClickHouse tables.
+
+In summary, the Video KYC process involves multiple steps, including queue assignment during assisted video sessions. Data from these activities is logged for analysis, facilitating insights into operator performance, customer behavior, and verification outcomes.
