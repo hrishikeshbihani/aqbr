@@ -1,0 +1,2131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tables>
+  <table name="agentservices_tasky_agent_states_v2" description="Description for agentservices_tasky_agent_states_v2">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="Yogesh" data_type="String" />
+      <column dimension_name="AgentID" description="" data_type="UUID" />
+      <column dimension_name="AgentEmail" description="" data_type="String" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="PrevState" description="" data_type="String" />
+      <column dimension_name="Reason" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_allocation_created" description="Description for agentservices_tasky_allocation_created">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="AgentOUID" description="" data_type="String" />
+      <column dimension_name="AgentID" description="" data_type="UUID" />
+      <column dimension_name="AllocationID" description="" data_type="UUID" />
+      <column dimension_name="TaskAttributes" description="" data_type="Nullable(String)" />
+      <column dimension_name="AgentAttributes" description="" data_type="Nullable(String)" />
+      <column dimension_name="Mode" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AllocationCycleTimestamp" description="" data_type="Nullable(DateTime64(6))" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_allocation_cycle_stats" description="Description for agentservices_tasky_allocation_cycle_stats">
+    <metrics>
+      <column metric_name="AgentsCount" description="" data_type="Int32" />
+      <column metric_name="TasksCount" description="" data_type="Int32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_reviewer_offline_events" description="Description for agentservices_tasky_reviewer_offline_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AgentID" description="" data_type="UUID" />
+      <column dimension_name="AgentEmail" description="" data_type="String" />
+      <column dimension_name="OfflineReason" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_task_states_v2" description="Description for agentservices_tasky_task_states_v2">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AgentID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="PrevState" description="" data_type="Nullable(String)" />
+      <column dimension_name="Reason" description="" data_type="String" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="Mode" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_tasks_completed" description="Description for agentservices_tasky_tasks_completed">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AgentOUID" description="" data_type="String" />
+      <column dimension_name="AgentID" description="" data_type="UUID" />
+      <column dimension_name="Action" description="" data_type="String" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="Mode" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AllocationID" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_tasks_created" description="Description for agentservices_tasky_tasks_created">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="TaskAttributes" description="" data_type="Nullable(String)" />
+      <column dimension_name="Mode" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_tasks_events" description="Description for agentservices_tasky_tasks_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="Mode" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AllocationID" description="" data_type="Nullable(String)" />
+      <column dimension_name="AgentID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="av_agent_active_status" description="Description for av_agent_active_status">
+    <metrics>
+      <column metric_name="IsOnline" description="" data_type="Int32" />
+      <column metric_name="IsOffline" description="" data_type="Int32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="Email" description="" data_type="String" />
+      <column dimension_name="Location" description="" data_type="Nullable(String)" />
+      <column dimension_name="Skills" description="" data_type="Array(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_agent_offline_reasons" description="Description for av_agent_offline_reasons">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="Reason" description="" data_type="String" />
+      <column dimension_name="BackOnlineAt" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="Email" description="" data_type="String" />
+      <column dimension_name="Location" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_allocation_events" description="Description for av_allocation_events">
+    <metrics>
+      <column metric_name="Assigned" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="AuthSessionID" description="" data_type="UUID" />
+      <column dimension_name="OperatorSessionID" description="" data_type="UUID" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="AllocationID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime" />
+    </dimensions>
+  </table>
+  <table name="av_call_allocation_events" description="Description for av_call_allocation_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="OperatorID" description="" data_type="UUID" />
+      <column dimension_name="Reason" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="av_call_details" description="Description for av_call_details">
+    <metrics>
+      <column metric_name="UserWasInCall" description="" data_type="Nullable(UInt8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AllocationID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="OperatorSessionID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="QueueName" description="" data_type="Nullable(String)" />
+      <column dimension_name="FinalSessionState" description="" data_type="Nullable(String)" />
+      <column dimension_name="FinalSessionStateReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_call_events" description="Description for av_call_events">
+    <metrics>
+      <column metric_name="Assigned" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="Details" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime" />
+    </dimensions>
+  </table>
+  <table name="av_call_events_view" description="Description for av_call_events_view">
+    <metrics>
+      <column metric_name="Assigned" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="Details" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime" />
+    </dimensions>
+  </table>
+  <table name="av_completed_profiles" description="Description for av_completed_profiles">
+    <metrics>
+      <column metric_name="OverallTAT" description="" data_type="Int64" />
+      <column metric_name="CallDuration" description="" data_type="Int64" />
+      <column metric_name="WaitTimeInQueue" description="" data_type="Int64" />
+      <column metric_name="FirstAttemptToCompletionTAT" description="" data_type="Int64" />
+      <column metric_name="DaysToInvokeFirstCapture" description="" data_type="Int64" />
+      <column metric_name="ReviewerTAT" description="" data_type="Nullable(Int64)" />
+      <column metric_name="TotalEngagementTimePreVideo" description="" data_type="Nullable(Int64)" />
+      <column metric_name="CaptureJourneyTAT" description="" data_type="Nullable(Int64)" />
+      <column metric_name="CaptureInvokedToReviewRequiredTAT" description="" data_type="Nullable(Int64)" />
+      <column metric_name="VCTime" description="" data_type="Nullable(Int64)" />
+      <column metric_name="TotalProfileLevelCaptures" description="" data_type="Int64" />
+      <column metric_name="TotalCaptureAttempts" description="" data_type="Int64" />
+      <column metric_name="TotalVideoCallAttempts" description="" data_type="Int64" />
+      <column metric_name="StraightPassThrough" description="" data_type="Int8" />
+      <column metric_name="TechnicalReasonUTVs" description="" data_type="Int64" />
+      <column metric_name="BusinessReasonUTVs" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="CustomerParticipantID" description="" data_type="UUID" />
+      <column dimension_name="OperatorParticipantID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="Nullable(String)" />
+      <column dimension_name="OperatorAccountID" description="" data_type="UUID" />
+      <column dimension_name="MSCRoomID" description="" data_type="UUID" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="CaptureID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="ReviewerAccountID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="CreatedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ReviewRequiredTimestamp" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="FinalOperatorActionAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ReviewedAt" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="FirstCaptureInvokedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="OperatorEmail" description="" data_type="String" />
+      <column dimension_name="MSCInstanceGroup" description="" data_type="String" />
+      <column dimension_name="OperatorAction" description="" data_type="String" />
+      <column dimension_name="OperatorReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewerAction" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewerReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewerEmailID" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="OperatorActionLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="ExtReferenceID" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="State" description="" data_type="Nullable(String)" />
+      <column dimension_name="Country" description="" data_type="Nullable(String)" />
+      <column dimension_name="CountryCode" description="" data_type="Nullable(String)" />
+      <column dimension_name="Latitude" description="" data_type="Nullable(String)" />
+      <column dimension_name="Longitude" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_completed_task_reasons_mv" description="Description for av_completed_task_reasons_mv">
+    <metrics>
+      <column metric_name="HourInIST" description="" data_type="UInt8" />
+      <column metric_name="AvgHandlingTime" description="" data_type="AggregateFunction(avg, Int32)" />
+      <column metric_name="AvgWaitTime" description="" data_type="AggregateFunction(avg, Nullable(Int64))" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Action" description="" data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReasonCategory" description="" data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" />
+      <column dimension_name="CallCompletedAtUTC" description="" data_type="DateTime" />
+      <column dimension_name="CallCompletedAtInIST" description="" data_type="Date" />
+      <column dimension_name="TotalCount" description="" data_type="AggregateFunction(count, String)" />
+    </dimensions>
+  </table>
+  <table name="av_completed_tasks" description="Description for av_completed_tasks">
+    <metrics>
+      <column metric_name="CallDuration" description="" data_type="Int32" />
+      <column metric_name="MSCStartAfterAllJoin" description="" data_type="Int8" />
+      <column metric_name="CustomerOutgoingBitrateAvg" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerIncomingBitrateAvg" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OperatorOutgoingBitrateAvg" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OperatorIncomingBitrateAvg" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerOutgoingBitrateP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerIncomingBitrateP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OperatorOutgoingBitrateP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OperatorIncomingBitrateP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerInputAudioLevelP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerOutputAudioLevelP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OperatorInputAudioLevelP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OperatorOutputAudioLevelP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerMSReconnectCount" description="" data_type="Int8" />
+      <column metric_name="OperatorMSReconnectCount" description="" data_type="Int8" />
+      <column metric_name="OperatorMSAutoReconnectCount" description="" data_type="Int8" />
+      <column metric_name="OperatorMSManualReconnectCount" description="" data_type="Int8" />
+      <column metric_name="WaitTimeInQueue" description="" data_type="Nullable(Int64)" />
+      <column metric_name="SuccessBandwidthCheckCount" description="" data_type="Nullable(Int32)" />
+      <column metric_name="SuccessBandwidthCheckAvgTAT" description="" data_type="Nullable(Float64)" />
+      <column metric_name="FailedBandwidthCheckCount" description="" data_type="Nullable(Int32)" />
+      <column metric_name="FailedBandwidthCheckAvgTAT" description="" data_type="Nullable(Float64)" />
+      <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerPublishCheckAudioLevelP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerPublishSuccessCount" description="" data_type="Nullable(Int32)" />
+      <column metric_name="CustomerPublishFailureCount" description="" data_type="Nullable(Int32)" />
+      <column metric_name="CustomerHealthCheckSuccessCount" description="" data_type="Nullable(Int32)" />
+      <column metric_name="CustomerHealthCheckFailureCount" description="" data_type="Nullable(Int32)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="String" />
+      <column dimension_name="AVSessionID" description="" data_type="String" />
+      <column dimension_name="CallCompletedAt" description="" data_type="DateTime" />
+      <column dimension_name="AccountID" description="" data_type="String" />
+      <column dimension_name="Action" description="" data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReasonCategory" description="" data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" />
+      <column dimension_name="ActionLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="MSCRoomID" description="" data_type="String" />
+      <column dimension_name="CustomerParticipantID" description="" data_type="String" />
+      <column dimension_name="OperatorParticipantID" description="" data_type="String" />
+      <column dimension_name="OperatorEmail" description="" data_type="String" />
+      <column dimension_name="CallStartedAt" description="" data_type="DateTime" />
+      <column dimension_name="MSCInstanceGroup" description="" data_type="String" />
+      <column dimension_name="MSCTerminateParticipantsOn" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="Nullable(DateTime)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="CaptureSessionID" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="ProfileID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="SkillConfig" description="" data_type="Nullable(String)" />
+      <column dimension_name="CaptureID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AllocationSkills" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="Remarks" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientEngineVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceModel" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceBrand" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="BrowserFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSPlatform" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="Label" description="" data_type="Nullable(String)" />
+      <column dimension_name="ExtReferenceID" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_completed_tasks_mv" description="Description for av_completed_tasks_mv">
+    <metrics>
+      <column metric_name="CallCompletedAtHourInIST" description="" data_type="UInt8" />
+      <column metric_name="CallStartedAtHourInIST" description="" data_type="UInt8" />
+      <column metric_name="AvgHandlingTime" description="" data_type="AggregateFunction(avg, Int32)" />
+      <column metric_name="AvgWaitTime" description="" data_type="AggregateFunction(avg, Nullable(Int64))" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Action" description="" data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)" />
+      <column dimension_name="ReasonCategory" description="" data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="Label" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueName" description="" data_type="Nullable(String)" />
+      <column dimension_name="CallCompletedAtUTC" description="" data_type="DateTime" />
+      <column dimension_name="CallCompletedAtInIST" description="" data_type="Date" />
+      <column dimension_name="CallStartedAtInIST" description="" data_type="Date" />
+      <column dimension_name="UniqueProfileCount" description="" data_type="AggregateFunction(count, UUID)" />
+      <column dimension_name="TotalCount" description="" data_type="AggregateFunction(count, String)" />
+    </dimensions>
+  </table>
+  <table name="av_completed_tasks_v2" description="Description for av_completed_tasks_v2">
+    <metrics>
+      <column metric_name="CallDuration" description="" data_type="Int32" />
+      <column metric_name="MSCStartAfterAllJoin" description="" data_type="Int8" />
+      <column metric_name="CustomerOutgoingBitrateAvg" description="" data_type="Float32" />
+      <column metric_name="CustomerIncomingBitrateAvg" description="" data_type="Float32" />
+      <column metric_name="OperatorOutgoingBitrateAvg" description="" data_type="Float32" />
+      <column metric_name="OperatorIncomingBitrateAvg" description="" data_type="Float32" />
+      <column metric_name="CustomerOutgoingBitrateP90" description="" data_type="Float32" />
+      <column metric_name="CustomerIncomingBitrateP90" description="" data_type="Float32" />
+      <column metric_name="OperatorOutgoingBitrateP90" description="" data_type="Float32" />
+      <column metric_name="OperatorIncomingBitrateP90" description="" data_type="Float32" />
+      <column metric_name="CustomerInputAudioLevelP90" description="" data_type="Float32" />
+      <column metric_name="CustomerOutputAudioLevelP90" description="" data_type="Float32" />
+      <column metric_name="OperatorInputAudioLevelP90" description="" data_type="Float32" />
+      <column metric_name="OperatorOutputAudioLevelP90" description="" data_type="Float32" />
+      <column metric_name="CustomerMSReconnectCount" description="" data_type="Int8" />
+      <column metric_name="OperatorMSReconnectCount" description="" data_type="Int8" />
+      <column metric_name="OperatorMSAutoReconnectCount" description="" data_type="Int8" />
+      <column metric_name="OperatorMSManualReconnectCount" description="" data_type="Int8" />
+      <column metric_name="WaitTimeInQueue" description="" data_type="Nullable(Int64)" />
+      <column metric_name="SuccessBandwidthCheckCount" description="" data_type="Int32" />
+      <column metric_name="SuccessBandwidthCheckAvgTAT" description="" data_type="Float64" />
+      <column metric_name="FailedBandwidthCheckCount" description="" data_type="Int32" />
+      <column metric_name="FailedBandwidthCheckAvgTAT" description="" data_type="Float64" />
+      <column metric_name="Attempt1BandwidthCheckTAT" description="" data_type="Float64" />
+      <column metric_name="Attempt2BandwidthCheckTAT" description="" data_type="Float64" />
+      <column metric_name="Attempt3BandwidthCheckTAT" description="" data_type="Float64" />
+      <column metric_name="HealthCheckAttemptCount" description="" data_type="Int32" />
+      <column metric_name="CustomerPublishCheckAudioLevel" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckAudioLevel" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckRTTP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckRTTP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckAudioBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckVideoBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckRTTP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckRTTP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckAudioBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckAudioBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckVideoBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckVideoBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishRTTP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishRTTP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayRTTP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayRTTP90" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPublishCheckRTTP50" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPublishCheckRTTP90" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPublishCheckAudioBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPublishCheckAudioBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPublishCheckVideoBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPublishCheckVideoBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPlayCheckRTTP50" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPlayCheckAudioBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPlayCheckAudioBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPlayCheckVideoBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPlayCheckVideoBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="MSCPublisherPlayCheckRTTP90" description="" data_type="Float32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="String" />
+      <column dimension_name="AVSessionID" description="" data_type="String" />
+      <column dimension_name="CallCompletedAt" description="" data_type="DateTime" />
+      <column dimension_name="AccountID" description="" data_type="String" />
+      <column dimension_name="Action" description="" data_type="Enum8('verified' = 1, 'rejected' = 2, 'unable_to_verify' = 3)" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReasonCategory" description="" data_type="Nullable(Enum8('business' = 1, 'technical' = 2))" />
+      <column dimension_name="ActionLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="MSCRoomID" description="" data_type="String" />
+      <column dimension_name="CustomerParticipantID" description="" data_type="String" />
+      <column dimension_name="OperatorParticipantID" description="" data_type="String" />
+      <column dimension_name="OperatorEmail" description="" data_type="String" />
+      <column dimension_name="CallStartedAt" description="" data_type="DateTime" />
+      <column dimension_name="MSCInstanceGroup" description="" data_type="String" />
+      <column dimension_name="MSCTerminateParticipantsOn" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="Nullable(DateTime)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="CaptureSessionID" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="ProfileID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="SkillConfig" description="" data_type="Nullable(String)" />
+      <column dimension_name="CaptureID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AllocationSkills" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="Remarks" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientEngineVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceModel" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceBrand" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="BrowserFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSPlatform" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="CustomerPublishCheckParticipantID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="MSCPublisherCheckParticipantID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="av_missed_and_declined_calls_summary" description="Description for av_missed_and_declined_calls_summary">
+    <metrics>
+      <column metric_name="PickupTAT" description="" data_type="Nullable(Int32)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EventType" description="" data_type="String" />
+      <column dimension_name="OperatorEmail" description="" data_type="String" />
+      <column dimension_name="PackageID" description="" data_type="UUID" />
+      <column dimension_name="CallAcceptedTimestamp" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="OperatorAcceptedCallEmail" description="" data_type="Nullable(String)" />
+      <column dimension_name="SkillConfig" description="" data_type="String" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_operator_action" description="Description for av_operator_action">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="Action" description="" data_type="String" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReasonCategory" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ActionLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="Remarks" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_operator_activity_stats" description="Description for av_operator_activity_stats">
+    <metrics>
+      <column metric_name="ToggleOntimeMS" description="" data_type="Int64" />
+      <column metric_name="InCallTimeMS" description="" data_type="Int64" />
+      <column metric_name="SuspendedTimeMS" description="" data_type="Int64" />
+      <column metric_name="AllocatedTimeMS" description="" data_type="Nullable(Int64)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="Email" description="" data_type="Nullable(String)" />
+      <column dimension_name="Location" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="IdleTimeMS" description="" data_type="Int64" />
+      <column dimension_name="FirstToggleOn" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="LastToggleOff" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="LastState" description="" data_type="String" />
+      <column dimension_name="ShiftToggleOn" description="" data_type="Nullable(DateTime64(3))" />
+    </dimensions>
+  </table>
+  <table name="av_operator_events" description="Description for av_operator_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AuthSessionID" description="" data_type="UUID" />
+      <column dimension_name="LoggerSessionID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="OperatorSessionID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_operator_events_view" description="Description for av_operator_events_view">
+    <metrics />
+    <dimensions>
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AuthSessionID" description="" data_type="UUID" />
+      <column dimension_name="LoggerSessionID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="OperatorSessionID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime" />
+    </dimensions>
+  </table>
+  <table name="av_operator_funnel_sequence" description="Description for av_operator_funnel_sequence">
+    <metrics />
+    <dimensions>
+      <column dimension_name="Event" description="" data_type="String" />
+      <column dimension_name="NextEvent" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="av_operator_hourly_stats" description="Description for av_operator_hourly_stats">
+    <metrics>
+      <column metric_name="CallsAllocatedCount" description="" data_type="Int16" />
+      <column metric_name="CallsAcceptedCount" description="" data_type="Int16" />
+      <column metric_name="CallsNoActionCount" description="" data_type="Int16" />
+      <column metric_name="CallsDeclinedCount" description="" data_type="Int16" />
+      <column metric_name="CallsCompletedCount" description="" data_type="Int16" />
+      <column metric_name="CallsVerifiedCount" description="" data_type="Int16" />
+      <column metric_name="CallsRejectedCount" description="" data_type="Int16" />
+      <column metric_name="CallsUTVCount" description="" data_type="Int16" />
+      <column metric_name="CallsUTVBusinessCount" description="" data_type="Int16" />
+      <column metric_name="CallsUTVTechnicalCount" description="" data_type="Int16" />
+      <column metric_name="InCallTime" description="" data_type="Int32" />
+      <column metric_name="OutgoingBitrateAvg" description="" data_type="Nullable(Float32)" />
+      <column metric_name="IncomingBitrateAvg" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OutgoingBitrateP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="IncomingBitrateP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="InputAudioLevelP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="OutputAudioLevelP90" description="" data_type="Nullable(Float32)" />
+      <column metric_name="MSReconnectCount" description="" data_type="Int16" />
+      <column metric_name="MSAutoReconnectCount" description="" data_type="Int16" />
+      <column metric_name="MSManualReconnectCount" description="" data_type="Int16" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="String" />
+      <column dimension_name="EmailID" description="" data_type="String" />
+      <column dimension_name="Location" description="" data_type="Nullable(String)" />
+      <column dimension_name="WindowStartTimestamp" description="" data_type="DateTime" />
+      <column dimension_name="WindowEndTimestamp" description="" data_type="DateTime" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_operator_state" description="Description for av_operator_state">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="OperatorSessionID" description="" data_type="UUID" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="QueueName" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_ou_skills_master" description="Description for av_ou_skills_master">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="SkillName" description="" data_type="String" />
+      <column dimension_name="SkillValue" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_queue_master" description="Description for av_queue_master">
+    <metrics>
+      <column metric_name="Active" description="" data_type="UInt8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="QueueID" description="" data_type="String" />
+      <column dimension_name="Label" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="UpdatedByAccountID" description="" data_type="String" />
+      <column dimension_name="UpdatedByEmail" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="LogVersion" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="av_reconnect_details" description="Description for av_reconnect_details">
+    <metrics>
+      <column metric_name="ReconnectTAT" description="" data_type="Int64" />
+      <column metric_name="GetUserMediaTAT" description="" data_type="Nullable(Int64)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="ReconnectType" description="" data_type="String" />
+      <column dimension_name="ReconnectReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="BackgroundStatus" description="" data_type="Nullable(String)" />
+      <column dimension_name="Source" description="" data_type="String" />
+      <column dimension_name="Destination" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_session_meta" description="Description for av_session_meta">
+    <metrics>
+      <column metric_name="Assigned" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="String" />
+      <column dimension_name="AVSessionID" description="" data_type="String" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileID" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="av_session_queue_wait_time_summary" description="Description for av_session_queue_wait_time_summary">
+    <metrics>
+      <column metric_name="WaitTime" description="" data_type="Int32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="LastEventTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="PackageID" description="" data_type="UUID" />
+      <column dimension_name="EventType" description="" data_type="String" />
+      <column dimension_name="Skills" description="" data_type="Array(String)" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="QueueName" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="av_utv_tasks_metadata" description="Description for av_utv_tasks_metadata">
+    <metrics>
+      <column metric_name="CustomerAudioUploadEnergyP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="CustomerAudioDownloadEnergyP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="AgentAudioUploadEnergyP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="AgentAudioDownloadEnergyP50" description="" data_type="Nullable(Float32)" />
+      <column metric_name="IsPopupShown" description="" data_type="Int8" />
+      <column metric_name="IsPopupClicked" description="" data_type="Int8" />
+      <column metric_name="CustomerMSCPublishResult" description="" data_type="Nullable(Int8)" />
+      <column metric_name="CustomerMSCHealthCheckResult" description="" data_type="Nullable(Int8)" />
+      <column metric_name="CustomerPublishCheckAudioLevelP50" description="" data_type="Nullable(Float32)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="CustomerParticipantID" description="" data_type="UUID" />
+      <column dimension_name="AgentParticipantID" description="" data_type="UUID" />
+      <column dimension_name="Reason" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="CustomerAudioUploadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="CustomerAudioDownloadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="AgentAudioUploadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="AgentAudioDownloadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="CustomerAudioIssue" description="" data_type="String" />
+      <column dimension_name="AgentAudioIssue" description="" data_type="String" />
+      <column dimension_name="CustomerClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="CustomerClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="CustomerOSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="CustomerOSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="CustomerVideoUploadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="CustomerVideoDownloadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="AgentVideoUploadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="AgentVideoDownloadBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="CustomerVideoIssue" description="" data_type="String" />
+      <column dimension_name="AgentVideoIssue" description="" data_type="String" />
+      <column dimension_name="CustomerBandwidthCheckAvgTAT" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="CustomerBandwidthCheckSuccessCount" description="" data_type="Nullable(Int8)" />
+      <column dimension_name="CustomerBandwidthCheckFailureCount" description="" data_type="Nullable(Int8)" />
+      <column dimension_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Nullable(Float32)" />
+      <column dimension_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Nullable(Float32)" />
+    </dimensions>
+  </table>
+  <table name="capture_autoplay_events" description="Description for capture_autoplay_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="Event" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="FTimestamp" description="" data_type="Nullable(DateTime64(3))" />
+    </dimensions>
+  </table>
+  <table name="capture_bandwidth_check_executed" description="Description for capture_bandwidth_check_executed">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="UInt16" />
+      <column metric_name="Attempt" description="" data_type="UInt8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AVTaskID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="Status" description="" data_type="String" />
+      <column dimension_name="Error" description="" data_type="Nullable(String)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="FTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="NetworkCheckID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="capture_camera_switch_events" description="Description for capture_camera_switch_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="EventType" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="FTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+    </dimensions>
+  </table>
+  <table name="capture_create_media_stream_events" description="Description for capture_create_media_stream_events">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Nullable(UInt16)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AVTaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="String" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="Source" description="" data_type="Nullable(String)" />
+      <column dimension_name="FailureReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="FTimestamp" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="MSRoomReferenceID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="capture_customer_remote_video_state" description="Description for capture_customer_remote_video_state">
+    <metrics>
+      <column metric_name="IsMuted" description="" data_type="Nullable(UInt8)" />
+      <column metric_name="IsRetry" description="" data_type="UInt8" />
+      <column metric_name="IsPlayAttempted" description="" data_type="Nullable(UInt8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AVTaskID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="AVSessionID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="String" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="FTimestamp" description="" data_type="Nullable(DateTime64(3))" />
+    </dimensions>
+  </table>
+  <table name="capture_exception_events" description="Description for capture_exception_events">
+    <metrics>
+      <column metric_name="LogSequenceNo" description="" data_type="Nullable(UInt16)" />
+      <column metric_name="Retransmitted" description="" data_type="Nullable(UInt8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Component" description="" data_type="String" />
+      <column dimension_name="Service" description="" data_type="String" />
+      <column dimension_name="EventType" description="" data_type="String" />
+      <column dimension_name="EventValue" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="CaptureSessionID" description="" data_type="Nullable(String)" />
+      <column dimension_name="ExceptionName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ExceptionDescription" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ReferenceType" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReferenceID" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="capture_executed_image_captures" description="Description for capture_executed_image_captures">
+    <metrics>
+      <column metric_name="CompressionQuality" description="" data_type="Nullable(Float32)" />
+      <column metric_name="AttemptedHeight" description="" data_type="Nullable(Int64)" />
+      <column metric_name="CapturedHeight" description="" data_type="Nullable(Int64)" />
+      <column metric_name="IsFileUpload" description="" data_type="Nullable(Int8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="AVTaskID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="AVSessionID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="TransactionID" description="" data_type="String" />
+      <column dimension_name="FacingMode" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="APIUsed" description="" data_type="Nullable(String)" />
+      <column dimension_name="AttemptedWidth" description="" data_type="Nullable(Int64)" />
+      <column dimension_name="CapturedWidth" description="" data_type="Nullable(Int64)" />
+      <column dimension_name="FinalStatus" description="" data_type="String" />
+      <column dimension_name="Artifact" description="" data_type="String" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="MajorClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="FEAppVSN" description="" data_type="String" />
+      <column dimension_name="BEAppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="InVideoCall" description="" data_type="Nullable(Int8)" />
+    </dimensions>
+  </table>
+  <table name="capture_executed_image_captures_aggregated" description="Description for capture_executed_image_captures_aggregated">
+    <metrics>
+      <column metric_name="AttemptedHeight" description="" data_type="Nullable(Int64)" />
+      <column metric_name="Count" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="MajorClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ActiveVideoCall" description="" data_type="Int8" />
+      <column dimension_name="FacingMode" description="" data_type="Nullable(String)" />
+      <column dimension_name="APIUsed" description="" data_type="Nullable(String)" />
+      <column dimension_name="AttemptedWidth" description="" data_type="Nullable(Int64)" />
+      <column dimension_name="FinalStatus" description="" data_type="String" />
+      <column dimension_name="FEAppVSN" description="" data_type="String" />
+      <column dimension_name="BEAppVSN" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="capture_funnel" description="Description for capture_funnel">
+    <metrics />
+    <dimensions>
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="LoggerSessionID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="CaptureToken" description="" data_type="String" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="LastPage" description="" data_type="String" />
+      <column dimension_name="VisitedPages" description="" data_type="Array(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="FTimestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="LastNonErrorPage" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientEngineVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceModel" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceBrand" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="BrowserFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSPlatform" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueName" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueLabel" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="capture_funnel_timeline" description="Description for capture_funnel_timeline">
+    <metrics>
+      <column metric_name="EngagementTime" description="" data_type="UInt64" />
+      <column metric_name="TimeFromJourneyStart" description="" data_type="UInt64" />
+      <column metric_name="TimeFromPreviousPage" description="" data_type="UInt64" />
+      <column metric_name="IsLastPage" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="LoggerSessionID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="CaptureToken" description="" data_type="String" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Page" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="FTimestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(String)" />
+      <column dimension_name="PageType" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueName" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueLabel" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="capture_media_stream_ended_events" description="Description for capture_media_stream_ended_events">
+    <metrics>
+      <column metric_name="IsCallOngoing" description="" data_type="Nullable(UInt8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AVTaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="StreamID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="String" />
+      <column dimension_name="Track" description="" data_type="String" />
+      <column dimension_name="DeviceLabel" description="" data_type="String" />
+      <column dimension_name="TrackLabel" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="FTimestamp" description="" data_type="Nullable(DateTime64(3))" />
+    </dimensions>
+  </table>
+  <table name="capture_navigations" description="Description for capture_navigations">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="LoggerSessionID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="FTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="CaptureToken" description="" data_type="String" />
+      <column dimension_name="PageName" description="" data_type="String" />
+      <column dimension_name="PageType" description="" data_type="String" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueName" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="Reasons" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="capture_od_incall_reconnect_events" description="Description for capture_od_incall_reconnect_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ReconnectType" description="" data_type="String" />
+      <column dimension_name="ReconnectReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="VisibilityStatus" description="" data_type="String" />
+      <column dimension_name="MSRoomReferenceID" description="" data_type="UUID" />
+      <column dimension_name="Source" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="capture_user_events" description="Description for capture_user_events">
+    <metrics>
+      <column metric_name="BatteryLevel" description="" data_type="Nullable(Float32)" />
+      <column metric_name="BatteryCharging" description="" data_type="Nullable(UInt8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="EventType" description="" data_type="String" />
+      <column dimension_name="PageVisibility" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="FTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="kyc_pii_purged_objects" description="Description for kyc_pii_purged_objects">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Service" description="" data_type="String" />
+      <column dimension_name="ReferenceId" description="" data_type="String" />
+      <column dimension_name="ResourceId" description="" data_type="String" />
+      <column dimension_name="PurgedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="PurgeType" description="" data_type="String" />
+      <column dimension_name="Context" description="" data_type="Nullable(String)" />
+      <column dimension_name="ObjectName" description="" data_type="Nullable(String)" />
+      <column dimension_name="BucketName" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_audio_stats" description="Description for msc_audio_stats">
+    <metrics>
+      <column metric_name="AudioLevel" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="CurrentTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="MSRoomReferenceID" description="" data_type="UUID" />
+      <column dimension_name="StreamID" description="" data_type="String" />
+      <column dimension_name="Type" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_call_events" description="Description for msc_call_events">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="Details" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="PreviousMSRoomID" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="msc_health_check_aggregated_stats" description="Description for msc_health_check_aggregated_stats">
+    <metrics>
+      <column metric_name="SuccessBandwidthCheckCount" description="" data_type="Int32" />
+      <column metric_name="SuccessBandwidthCheckAvgTAT" description="" data_type="Float64" />
+      <column metric_name="FailedBandwidthCheckCount" description="" data_type="Int32" />
+      <column metric_name="FailedBandwidthCheckAvgTAT" description="" data_type="Float64" />
+      <column metric_name="Attempt1BandwidthCheckTAT" description="" data_type="Float64" />
+      <column metric_name="Attempt2BandwidthCheckTAT" description="" data_type="Float64" />
+      <column metric_name="Attempt3BandwidthCheckTAT" description="" data_type="Float64" />
+      <column metric_name="CustomerPublishCheckP50AudioLevel" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckP90AudioLevel" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckP50AudioLevel" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckP90AudioLevel" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckRTTP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckRTTP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckAudioBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPublishCheckVideoBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckRTTP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckRTTP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckAudioBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckAudioBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckVideoBandwidthP50" description="" data_type="Float32" />
+      <column metric_name="CustomerPlayCheckVideoBandwidthP90" description="" data_type="Float32" />
+      <column metric_name="MSCWebRTCStatsCount" description="" data_type="Int32" />
+      <column metric_name="NullRTTStatsCount" description="" data_type="Int32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="NetworkCheckID" description="" data_type="UUID" />
+      <column dimension_name="HealthCheckResult" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientEngineVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceModel" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceType" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceBrand" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="BrowserFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSPlatform" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="msc_health_check_decision" description="Description for msc_health_check_decision">
+    <metrics>
+      <column metric_name="PublishRTTMean" description="" data_type="Float32" />
+      <column metric_name="PublishRTTP90" description="" data_type="Float32" />
+      <column metric_name="PublishRTTP50" description="" data_type="Float32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="BandwidthCheckSuccessCount" description="" data_type="Int32" />
+      <column dimension_name="BandwidthCheckAvgTAT" description="" data_type="Float32" />
+      <column dimension_name="HealthCheckResult" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="NetworkCheckID" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_health_check_mappings" description="Description for msc_health_check_mappings">
+    <metrics>
+      <column metric_name="IsPlayNeeded" description="" data_type="Nullable(UInt8)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="NetworkCheckID" description="" data_type="UUID" />
+      <column dimension_name="ExternalSessionID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="InstanceGroup" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="MSCPublisherParticipantID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="msc_ms_rooms" description="Description for msc_ms_rooms">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="MSRoomReferenceID" description="" data_type="UUID" />
+      <column dimension_name="MediaServerName" description="" data_type="String" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="ProviderName" description="" data_type="String" />
+      <column dimension_name="InstanceGroupName" description="" data_type="String" />
+      <column dimension_name="ClientVersion" description="" data_type="String" />
+      <column dimension_name="LBAlgo" description="" data_type="String" />
+      <column dimension_name="TurnServerName" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_participants" description="Description for msc_participants">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_room_state_change" description="Description for msc_room_state_change">
+    <metrics>
+      <column metric_name="StateChangeTAT" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="PreviousState" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_rooms" description="Description for msc_rooms">
+    <metrics>
+      <column metric_name="ComposeOnDemand" description="" data_type="Int8" />
+      <column metric_name="WebhookAfterComposition" description="" data_type="Int8" />
+      <column metric_name="StartAfterAllJoin" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ExtReferenceID" description="" data_type="UUID" />
+      <column dimension_name="InstanceGroup" description="" data_type="String" />
+      <column dimension_name="TerminateParticipantsOn" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_stream_state_change" description="Description for msc_stream_state_change">
+    <metrics>
+      <column metric_name="StateChangeTAT" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="StreamID" description="" data_type="String" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="PreviousState" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_streams" description="Description for msc_streams">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="StreamID" description="" data_type="String" />
+      <column dimension_name="MediaServerName" description="" data_type="String" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="ProviderName" description="" data_type="String" />
+      <column dimension_name="InstanceGroupName" description="" data_type="String" />
+      <column dimension_name="ClientVersion" description="" data_type="String" />
+      <column dimension_name="LBAlgo" description="" data_type="String" />
+      <column dimension_name="TurnServerName" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="msc_video_composition_executed" description="Description for msc_video_composition_executed">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Nullable(Float64)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="RoomID" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="OutputFormat" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="Status" description="" data_type="String" />
+      <column dimension_name="FailureReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="FailureDetails" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="msc_webrtc_stats" description="Description for msc_webrtc_stats">
+    <metrics>
+      <column metric_name="IsChrome" description="" data_type="Int8" />
+      <column metric_name="RTT" description="" data_type="Float64" />
+      <column metric_name="Resolutions_Height" description="" data_type="Int64" />
+      <column metric_name="CpuLimitedResolution" description="" data_type="Int8" />
+      <column metric_name="Audio_AudioLevel" description="" data_type="Float64" />
+      <column metric_name="Audio_TotalAudioEnergy" description="" data_type="Float64" />
+      <column metric_name="Audio_Bytes" description="" data_type="Float64" />
+      <column metric_name="Audio_PacketsLost" description="" data_type="Int64" />
+      <column metric_name="Audio_Latency" description="" data_type="Int64" />
+      <column metric_name="Audio_Jitter" description="" data_type="Float64" />
+      <column metric_name="Audio_JitterBufferDelay" description="" data_type="Float64" />
+      <column metric_name="Track_Audio_Enabled" description="" data_type="Int8" />
+      <column metric_name="Track_Audio_Muted" description="" data_type="Int8" />
+      <column metric_name="Track_Audio_Isolated" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="CurrentTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="RoomID" description="" data_type="UUID" />
+      <column dimension_name="ParticipantID" description="" data_type="UUID" />
+      <column dimension_name="MSRoomID" description="" data_type="String" />
+      <column dimension_name="MSRoomReferenceID" description="" data_type="UUID" />
+      <column dimension_name="StreamID" description="" data_type="String" />
+      <column dimension_name="Type" description="" data_type="String" />
+      <column dimension_name="Conn_Local_CandidateType" description="" data_type="String" />
+      <column dimension_name="Conn_Local_Transport" description="" data_type="String" />
+      <column dimension_name="Conn_Local_IpAddress" description="" data_type="String" />
+      <column dimension_name="Conn_Local_PortNumber" description="" data_type="String" />
+      <column dimension_name="Conn_Local_NetworkType" description="" data_type="String" />
+      <column dimension_name="Conn_Remote_CandidateType" description="" data_type="String" />
+      <column dimension_name="Conn_Remote_Transport" description="" data_type="String" />
+      <column dimension_name="Conn_Remote_IpAddress" description="" data_type="String" />
+      <column dimension_name="Conn_Remote_PortNumber" description="" data_type="String" />
+      <column dimension_name="Conn_Remote_NetworkType" description="" data_type="String" />
+      <column dimension_name="AverageBandwidth" description="" data_type="Float64" />
+      <column dimension_name="Bandwidth" description="" data_type="Float64" />
+      <column dimension_name="AvailableBandwidth" description="" data_type="Float64" />
+      <column dimension_name="Resolutions_Width" description="" data_type="Int64" />
+      <column dimension_name="BandwidthLimitedResolution" description="" data_type="Int8" />
+      <column dimension_name="Video_Codec" description="" data_type="String" />
+      <column dimension_name="Video_Bytes" description="" data_type="Float64" />
+      <column dimension_name="Video_Bandwidth" description="" data_type="Float64" />
+      <column dimension_name="Video_AverageBandwidth" description="" data_type="Float64" />
+      <column dimension_name="Video_Latency" description="" data_type="Int64" />
+      <column dimension_name="Video_PacketsLost" description="" data_type="Int64" />
+      <column dimension_name="Video_CodecImplementationName" description="" data_type="String" />
+      <column dimension_name="Video_Jitter" description="" data_type="Float64" />
+      <column dimension_name="Video_JitterBufferDelay" description="" data_type="Int64" />
+      <column dimension_name="Audio_Codec" description="" data_type="String" />
+      <column dimension_name="Audio_Bandwidth" description="" data_type="Float64" />
+      <column dimension_name="Audio_AverageBandwidth" description="" data_type="Float64" />
+      <column dimension_name="Track_Audio_Label" description="" data_type="String" />
+      <column dimension_name="Track_Audio_ReadyState" description="" data_type="String" />
+      <column dimension_name="Track_Video_Enabled" description="" data_type="Int8" />
+      <column dimension_name="Track_Video_Muted" description="" data_type="Int8" />
+      <column dimension_name="Track_Video_Isolated" description="" data_type="Int8" />
+      <column dimension_name="Track_Video_Label" description="" data_type="String" />
+      <column dimension_name="Track_Video_ReadyState" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="pg_client_costs_master" description="Description for pg_client_costs_master">
+    <metrics>
+      <column metric_name="Cost" description="" data_type="Float32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="UpdatedBy" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pg_inbound_adaptors_activities" description="Description for pg_inbound_adaptors_activities">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Nullable(Int32)" />
+      <column metric_name="Attempt" description="" data_type="Nullable(Int32)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="Adaptor" description="" data_type="String" />
+      <column dimension_name="ExtReferenceID" description="" data_type="String" />
+      <column dimension_name="Activity" description="" data_type="String" />
+      <column dimension_name="ActivityState" description="" data_type="Nullable(String)" />
+      <column dimension_name="ActivityResult" description="" data_type="Nullable(String)" />
+      <column dimension_name="Details" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pg_outbound_adaptors_activities_v2" description="Description for pg_outbound_adaptors_activities_v2">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Nullable(Int32)" />
+      <column metric_name="Attempt" description="" data_type="Nullable(Int32)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="Activity" description="" data_type="String" />
+      <column dimension_name="ActivityState" description="" data_type="Nullable(String)" />
+      <column dimension_name="ActivityResult" description="" data_type="Nullable(String)" />
+      <column dimension_name="Details" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="EID" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pg_pii_purged_objects" description="Description for pg_pii_purged_objects">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Service" description="" data_type="String" />
+      <column dimension_name="ReferenceId" description="" data_type="String" />
+      <column dimension_name="ResourceId" description="" data_type="String" />
+      <column dimension_name="PurgedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="PurgeType" description="" data_type="String" />
+      <column dimension_name="Context" description="" data_type="Nullable(String)" />
+      <column dimension_name="ObjectName" description="" data_type="Nullable(String)" />
+      <column dimension_name="BucketName" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="pg_profile_state_transitions" description="Description for pg_profile_state_transitions">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="ProfileCurrentState" description="" data_type="String" />
+      <column dimension_name="ProfileNextState" description="" data_type="Nullable(String)" />
+      <column dimension_name="LockAcquired" description="" data_type="String" />
+      <column dimension_name="EventName" description="" data_type="String" />
+      <column dimension_name="EventType" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+    </dimensions>
+  </table>
+  <table name="pm_capture_session_meta" description="Description for pm_capture_session_meta">
+    <metrics>
+      <column metric_name="Lat" description="" data_type="Nullable(Float32)" />
+      <column metric_name="Long" description="" data_type="Nullable(Float32)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="CaptureToken" description="" data_type="String" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="UserDeviceID" description="" data_type="Nullable(String)" />
+      <column dimension_name="IP" description="" data_type="Nullable(String)" />
+      <column dimension_name="UserAgent" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientEngine" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientEngineVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientName" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientType" description="" data_type="Nullable(String)" />
+      <column dimension_name="BrowserFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="ClientVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceBrand" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceModel" description="" data_type="Nullable(String)" />
+      <column dimension_name="DeviceType" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSName" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSPlatform" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSVersion" description="" data_type="Nullable(String)" />
+      <column dimension_name="OSFamily" description="" data_type="Nullable(String)" />
+      <column dimension_name="HasRedirectURI" description="" data_type="Nullable(String)" />
+      <column dimension_name="HasExitURI" description="" data_type="Nullable(String)" />
+      <column dimension_name="Source" description="" data_type="Nullable(String)" />
+      <column dimension_name="Retries" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pm_external_tasks_executed" description="Description for pm_external_tasks_executed">
+    <metrics />
+    <dimensions>
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="EID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="TaskType" description="" data_type="Nullable(String)" />
+      <column dimension_name="TaskKey" description="" data_type="Nullable(String)" />
+      <column dimension_name="ParentTaskID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="Service" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="pm_link_clicked" description="Description for pm_link_clicked">
+    <metrics />
+    <dimensions>
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="CaptureSessionID" description="" data_type="String" />
+      <column dimension_name="CaptureToken" description="" data_type="String" />
+      <column dimension_name="CaptureStatus" description="" data_type="String" />
+      <column dimension_name="ProfileStatus" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="EID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="QueueLabel" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(UUID)" />
+    </dimensions>
+  </table>
+  <table name="pm_maker_checker_daily_mis_report" description="Description for pm_maker_checker_daily_mis_report">
+    <metrics>
+      <column metric_name="ProfilesInPendingReview" description="" data_type="Int32" />
+      <column metric_name="NewProfilesForReview" description="" data_type="Int32" />
+      <column metric_name="TotalUniqueCustomer" description="" data_type="Int32" />
+      <column metric_name="AvgCallDuration" description="" data_type="Float32" />
+      <column metric_name="AvgWaitTimeInQueue" description="" data_type="Float32" />
+      <column metric_name="VerifiedCount" description="" data_type="Int32" />
+      <column metric_name="RejectedCount" description="" data_type="Int32" />
+      <column metric_name="CallsAccepted" description="" data_type="Int32" />
+      <column metric_name="CallsDeclined" description="" data_type="Int32" />
+      <column metric_name="CallNoAction" description="" data_type="Int32" />
+      <column metric_name="CallsAllocated" description="" data_type="Int32" />
+      <column metric_name="CheckerApproved" description="" data_type="Int32" />
+      <column metric_name="CheckerAutoApproved" description="" data_type="Int32" />
+      <column metric_name="RepeatCustomerCalls" description="" data_type="Int32" />
+      <column metric_name="UTVCount" description="" data_type="Int32" />
+      <column metric_name="CheckerRejected" description="" data_type="Int32" />
+      <column metric_name="CheckerAutoRejected" description="" data_type="Int32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_package_meta" description="Description for pm_package_meta">
+    <metrics>
+      <column metric_name="AutocloseEnabled" description="" data_type="Int8" />
+      <column metric_name="Active" description="" data_type="Int8" />
+      <column metric_name="ReviewEnabled" description="" data_type="Int8" />
+      <column metric_name="CaptureEnabled" description="" data_type="Int8" />
+      <column metric_name="APIOnly" description="" data_type="Int8" />
+      <column metric_name="IsGeneric" description="" data_type="Nullable(Int8)" />
+      <column metric_name="CaptureExpiresIn" description="" data_type="Nullable(Int64)" />
+      <column metric_name="PermitMultipleCaptures" description="" data_type="Nullable(Int8)" />
+      <column metric_name="CaptureProcessingEnabled" description="" data_type="Int8" />
+      <column metric_name="ScreenshotEditEnabled" description="" data_type="Nullable(Int8)" />
+      <column metric_name="ReviewWaitTime" description="" data_type="Nullable(Int64)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="PackageID" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="Action" description="" data_type="String" />
+      <column dimension_name="Name" description="" data_type="String" />
+      <column dimension_name="Label" description="" data_type="String" />
+      <column dimension_name="Version" description="" data_type="String" />
+      <column dimension_name="HasAssistedVideo" description="" data_type="Int8" />
+      <column dimension_name="HasSelfVideo" description="" data_type="Int8" />
+      <column dimension_name="LastUpdatedByAccountID" description="" data_type="String" />
+      <column dimension_name="LastUpdatedByEmailID" description="" data_type="String" />
+      <column dimension_name="LastUpdatedByOUID" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pm_pdf_generation_exceptions" description="Description for pm_pdf_generation_exceptions">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="ErrorCode" description="" data_type="String" />
+      <column dimension_name="PackageID" description="" data_type="String" />
+      <column dimension_name="ErrorDetails" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_pdf_generation_executed" description="Description for pm_pdf_generation_executed">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="PackageID" description="" data_type="String" />
+      <column dimension_name="Status" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_pdf_publisher_executed" description="Description for pm_pdf_publisher_executed">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="Status" description="" data_type="String" />
+      <column dimension_name="StatusReason" description="" data_type="String" />
+      <column dimension_name="PackageID" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_profile_creation_webhook_executed" description="Description for pm_profile_creation_webhook_executed">
+    <metrics>
+      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+      <column metric_name="RetriesLeft" description="" data_type="Int64" />
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="Status" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="WebhookEndpoint" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_profile_creation_webhook_retries" description="Description for pm_profile_creation_webhook_retries">
+    <metrics>
+      <column metric_name="RetriesLeft" description="" data_type="Nullable(Int64)" />
+      <column metric_name="HTTPStatusCode" description="" data_type="Int64" />
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="WebhookEndpoint" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_profile_status_update_webhook_executed" description="Description for pm_profile_status_update_webhook_executed">
+    <metrics>
+      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+      <column metric_name="RetriesLeft" description="" data_type="Int64" />
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="Status" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="ProfileStatus" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="WebhookEndpoint" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_profile_status_update_webhook_retries" description="Description for pm_profile_status_update_webhook_retries">
+    <metrics>
+      <column metric_name="RetriesLeft" description="" data_type="Int64" />
+      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="ProfileStatus" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="WebhookEndpoint" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_resolve_location_result" description="Description for pm_resolve_location_result">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AVTaskID" description="" data_type="Nullable(String)" />
+      <column dimension_name="LocationTaskID" description="" data_type="UUID" />
+      <column dimension_name="CaptureSessionID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="String" />
+      <column dimension_name="City" description="" data_type="Nullable(String)" />
+      <column dimension_name="District" description="" data_type="Nullable(String)" />
+      <column dimension_name="Pincode" description="" data_type="Nullable(String)" />
+      <column dimension_name="State" description="" data_type="Nullable(String)" />
+      <column dimension_name="Country" description="" data_type="String" />
+      <column dimension_name="CountryCode" description="" data_type="String" />
+      <column dimension_name="StreetAddress" description="" data_type="String" />
+      <column dimension_name="Latitude" description="" data_type="String" />
+      <column dimension_name="Longitude" description="" data_type="String" />
+      <column dimension_name="ExecutionContext" description="" data_type="String" />
+      <column dimension_name="LocationProvider" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_reviewer_action" description="Description for pm_reviewer_action">
+    <metrics>
+      <column metric_name="AutoClosed" description="" data_type="Int8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AccountID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="Action" description="" data_type="String" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="EmailID" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="PackageID" description="" data_type="Nullable(String)" />
+      <column dimension_name="CaptureID" description="" data_type="Nullable(String)" />
+      <column dimension_name="Comments" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReasonCode" description="" data_type="Nullable(String)" />
+      <column dimension_name="ProfileTag" description="" data_type="Nullable(String)" />
+      <column dimension_name="QueueLabel" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pm_session_status_update_webhook_executed" description="Description for pm_session_status_update_webhook_executed">
+    <metrics>
+      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+      <column metric_name="RetriesLeft" description="" data_type="Int64" />
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="Status" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="SessionStatus" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="WebhookEndpoint" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_session_status_update_webhook_retries" description="Description for pm_session_status_update_webhook_retries">
+    <metrics>
+      <column metric_name="RetriesLeft" description="" data_type="Int64" />
+      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+      <column metric_name="TAT" description="" data_type="Float64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="SessionStatus" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="WebhookEndpoint" description="" data_type="String" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="LowCardinality(String)" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_task_inputs_flattened" description="Description for pm_task_inputs_flattened">
+    <metrics>
+      <column metric_name="ResourceCount" description="" data_type="Int32" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="ProfileID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="ID" description="" data_type="String" />
+      <column dimension_name="Key" description="" data_type="String" />
+      <column dimension_name="Side" description="" data_type="Nullable(String)" />
+      <column dimension_name="Source" description="" data_type="String" />
+      <column dimension_name="CardType" description="" data_type="Nullable(String)" />
+      <column dimension_name="FactType" description="" data_type="Nullable(String)" />
+      <column dimension_name="Tags" description="" data_type="Array(String)" />
+      <column dimension_name="Type" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pm_tasks_executed_billing" description="Description for pm_tasks_executed_billing">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskType" description="" data_type="Nullable(String)" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="TaskKey" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="pm_tasks_executed_billing_mv" description="Description for pm_tasks_executed_billing_mv">
+    <metrics>
+      <column metric_name="HourInIST" description="" data_type="UInt8" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskType" description="" data_type="Nullable(String)" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="TaskKey" description="" data_type="Nullable(String)" />
+      <column dimension_name="TimestampHourAtUTC" description="" data_type="DateTime" />
+      <column dimension_name="DateInIST" description="" data_type="Date" />
+      <column dimension_name="UniqueProfileCount" description="" data_type="AggregateFunction(count, UUID)" />
+      <column dimension_name="UniqueTaskCount" description="" data_type="AggregateFunction(count, UUID)" />
+    </dimensions>
+  </table>
+  <table name="profile_capture_tat_breakdown" description="Description for profile_capture_tat_breakdown">
+    <metrics>
+      <column metric_name="IsRecapture" description="" data_type="Nullable(Int8)" />
+      <column metric_name="ReviewerTAT" description="" data_type="Nullable(Int64)" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="CaptureID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="RecaptureType" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewTimestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="ReviewerAction" description="" data_type="String" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewReason" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewReasonCode" description="" data_type="Nullable(String)" />
+      <column dimension_name="ReviewerComments" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="pm_profile_states_count" description="Description for pm_profile_states_count">
+    <metrics>
+      <column metric_name="pm_profile_states_Count" description="" data_type="Float" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="string" />
+      <column dimension_name="PackageID" description="" data_type="string" />
+      <column dimension_name="PrevState" description="" data_type="string" />
+      <column dimension_name="State" description="" data_type="string" />
+      <column dimension_name="Universe" description="" data_type="string" />
+    </dimensions>
+  </table>
+  <table name="hr_portal_profiles_created" description="Description for hr_portal_profiles_created">
+    <metrics />
+    <dimensions>
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="ExtReferenceID" description="" data_type="String" />
+      <column dimension_name="OUID" description="" data_type="UUID" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="CreatedBy" description="" data_type="Nullable(String)" />
+      <column dimension_name="Source" description="" data_type="String" />
+      <column dimension_name="ProfileDBID" description="" data_type="UInt64" />
+      <column dimension_name="CreatorID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="CreationMethod" description="" data_type="String" />
+      <column dimension_name="IntReferenceID" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="agentservices_tasky_task_states_v2" description="Description for agentservices_tasky_task_states_v2">
+    <metrics />
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="AgentID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="State" description="" data_type="String" />
+      <column dimension_name="PrevState" description="" data_type="Nullable(String)" />
+      <column dimension_name="Reason" description="" data_type="String" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="Mode" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="ops_portal_tasks_created" description="Description for ops_portal_tasks_created">
+    <metrics />
+    <dimensions>
+      <column dimension_name="EID" description="" data_type="UUID" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="OUID" description="" data_type="UUID" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="TaskDBID" description="" data_type="UInt64" />
+      <column dimension_name="ExtReferenceID" description="" data_type="Nullable(String)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="tasky_completed_tasks" description="Description for tasky_completed_tasks">
+    <metrics>
+      <column metric_name="TAT" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AccountID" description="" data_type="UUID" />
+      <column dimension_name="TaskID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="TaskType" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AppVSN" description="" data_type="String" />
+      <column dimension_name="Flow" description="" data_type="Nullable(String)" />
+      <column dimension_name="Action" description="" data_type="Nullable(String)" />
+      <column dimension_name="Reason" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+    </dimensions>
+  </table>
+  <table name="tasky_reviewer_activity_stats" description="Description for tasky_reviewer_activity_stats">
+    <metrics>
+      <column metric_name="ToggleOntimeMS" description="" data_type="Int64" />
+      <column metric_name="ToggleOfftimeMS" description="" data_type="Int64" />
+      <column metric_name="InReviewTimeMS" description="" data_type="Int64" />
+    </metrics>
+    <dimensions>
+      <column dimension_name="OUID" description="" data_type="String" />
+      <column dimension_name="AgentID" description="" data_type="UUID" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+      <column dimension_name="AppVSN" description="" data_type="Nullable(String)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(3)" />
+      <column dimension_name="AgentEmail" description="" data_type="String" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(3)" />
+      <column dimension_name="IdleTimeMS" description="" data_type="Int64" />
+      <column dimension_name="FirstToggleOn" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="LastToggleOff" description="" data_type="Nullable(DateTime64(3))" />
+      <column dimension_name="LastState" description="" data_type="String" />
+    </dimensions>
+  </table>
+  <table name="profile_master_attributes" description="Description for profile_master_attributes">
+    <metrics />
+    <dimensions>
+      <column dimension_name="AttrID" description="" data_type="UUID" />
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="OUID" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="HashValue" description="" data_type="String" />
+      <column dimension_name="HashAlgo" description="" data_type="String" />
+      <column dimension_name="AttrType" description="" data_type="String" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+  <table name="profile_master_profiles" description="Description for profile_master_profiles">
+    <metrics />
+    <dimensions>
+      <column dimension_name="ProfileID" description="" data_type="UUID" />
+      <column dimension_name="OUID" description="" data_type="Nullable(String)" />
+      <column dimension_name="Timestamp" description="" data_type="DateTime64(6)" />
+      <column dimension_name="Service" description="" data_type="String" />
+      <column dimension_name="UID" description="" data_type="Nullable(UUID)" />
+      <column dimension_name="InsertedAt" description="" data_type="DateTime64(6)" />
+      <column dimension_name="Universe" description="" data_type="Nullable(String)" />
+    </dimensions>
+  </table>
+</tables>
