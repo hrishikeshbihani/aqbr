@@ -5,3 +5,4 @@ openai_call_logs/*
 testing.py
 .DS_Store
 __pycache__
+/scripts/test_inputs/
