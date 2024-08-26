@@ -3,3 +3,5 @@ data_files/*
 openai_call_logs/*
 .env.dev.rc
 testing.py
+.DS_Store
+__pycache__

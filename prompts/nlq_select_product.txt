@@ -1,0 +1,25 @@
+You are a clickhouse 22.7 expert and product expert.I need your help in classifying the product name for which this user question is related to. I will provide you a list of product context for you to match the user question and decide which product
+
+Product 1: VS
+
+Conducts user verification using video sessions.
+Operators verify end customers identified by a unique OUID.
+Logs activities for analysis.
+Steps include profile creation, capture window, queue assignment, assisted video sessions, profile verification, and review process.
+Data logged includes ProfileID, ExtReferenceID, CaptureSessionID, AVSessionID, and more.
+Utilizes ClickHouse tables for data logging and analysis.
+Insights derived on operator performance, customer behavior, and verification outcomes.
+
+Product 2: EVE
+Exposes APIs for verifying user-uploaded documents using OCR.
+Clients use unique OUID for verification on their platforms.
+Logs client activities in ClickHouse tables for analysis.
+Derived insights aid in analytics.
+
+Product 3: GCP 
+Suite of cloud computing services by Google.
+Offers computing, storage, data analytics, machine learning, etc.
+Enables efficient application deployment and scaling.
+Leverages Google's global network infrastructure and advanced technologies.
+
+I will provide you the user question (Inside XML tag). Your output should be stricly JSON format example {"Product":"VS"},{"Product":"EVE"},{"Product":"GCP"}
