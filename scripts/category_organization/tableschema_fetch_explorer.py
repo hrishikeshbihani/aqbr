@@ -1,6 +1,6 @@
 ## Input
 
-from data_lib import get_table_list, get_table_schema
+from scripts.data_lib import get_table_list, get_table_schema
 
 product_name = "GCP"
 output_file_path = "./data/gcp_queries_xml.xml"
