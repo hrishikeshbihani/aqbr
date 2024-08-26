@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tables>
+    <table name="av_agent_active_status" description="Tracks the online and offline status of agents.">
+        <metrics>
+            <column metric_name="IsOnline" description="Indicates whether the agent is online." data_type="boolean" />
+            <column metric_name="IsOffline" description="Indicates whether the agent is offline." data_type="boolean" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+            <column dimension_name="Email" description="Agent's email address." data_type="string" />
+            <column dimension_name="Location" description="Agent's location." data_type="string" />
+            <column dimension_name="Skills" description="Skills associated with the agent." data_type="string" />
+            <column dimension_name="Timestamp" description="Timestamp of the event." data_type="datetime" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+        </dimensions>
+    </table>
+
+    <table name="av_agent_offline_reasons" description="Tracks the reasons why agents go offline.">
+        <metrics>
+            <column metric_name="TAT" description="Turnaround time for going offline." data_type="integer" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="Timestamp" description="Timestamp of the offline event." data_type="datetime" />
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+            <column dimension_name="Reason" description="Reason for going offline." data_type="string" />
+            <column dimension_name="BackOnlineAt" description="Timestamp when the agent came back online." data_type="datetime" />
+            <column dimension_name="Email" description="Agent's email address." data_type="string" />
+            <column dimension_name="Location" description="Agent's location." data_type="string" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+        </dimensions>
+    </table>
+
+    <table name="av_call_details" description="Details of calls handled by agents.">
+        <metrics>
+            <column metric_name="UserWasInCall" description="Indicates whether the user was in a call." data_type="boolean" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="TaskID" description="Unique identifier for the task." data_type="string" />
+            <column dimension_name="AVSessionID" description="Unique identifier for the AV session." data_type="string" />
+            <column dimension_name="EventName" description="Name of the event in the call." data_type="string" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="AllocationID" description="Unique identifier for the allocation." data_type="string" />
+            <column dimension_name="OperatorSessionID" description="Unique identifier for the operator session." data_type="string" />
+            <column dimension_name="QueueName" description="Name of the queue the call was handled in." data_type="string" />
+            <column dimension_name="FinalSessionState" description="Final state of the session." data_type="string" />
+            <column dimension_name="FinalSessionStateReason" description="Reason for the final state of the session." data_type="string" />
+            <column dimension_name="Timestamp" description="Timestamp of the event." data_type="datetime" />
+            <column dimension_name="AppVSN" description="Version of the application." data_type="string" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+            <column dimension_name="EID" description="Unique identifier for the event." data_type="string" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+        </dimensions>
+    </table>
+
+    <table name="av_operator_action" description="Tracks actions performed by operators.">
+        <metrics>
+            <column metric_name="No Metric Available" description="No metric is defined for this table." data_type="N/A" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="TaskID" description="Unique identifier for the task." data_type="string" />
+            <column dimension_name="AVSessionID" description="Unique identifier for the AV session." data_type="string" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="Action" description="Action performed by the operator." data_type="string" />
+            <column dimension_name="Reason" description="Reason for the action." data_type="string" />
+            <column dimension_name="ReasonCategory" description="Category of the reason." data_type="string" />
+            <column dimension_name="Timestamp" description="Timestamp of the action." data_type="datetime" />
+            <column dimension_name="AppVSN" description="Version of the application." data_type="string" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+            <column dimension_name="EID" description="Unique identifier for the event." data_type="string" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+            <column dimension_name="ActionLabel" description="Label of the action." data_type="string" />
+            <column dimension_name="Remarks" description="Additional remarks regarding the action." data_type="string" />
+        </dimensions>
+    </table>
+
+    <table name="av_operator_hourly_stats" description="Hourly statistics of operator activities.">
+        <metrics>
+            <column metric_name="CallsAllocatedCount" description="Number of calls allocated." data_type="integer" />
+            <column metric_name="CallsAcceptedCount" description="Number of calls accepted." data_type="integer" />
+            <column metric_name="CallsNoActionCount" description="Number of calls with no action taken." data_type="integer" />
+            <column metric_name="CallsDeclinedCount" description="Number of calls declined." data_type="integer" />
+            <column metric_name="CallsCompletedCount" description="Number of calls completed." data_type="integer" />
+            <column metric_name="CallsVerifiedCount" description="Number of calls verified." data_type="integer" />
+            <column metric_name="CallsRejectedCount" description="Number of calls rejected." data_type="integer" />
+            <column metric_name="CallsUTVCount" description="Number of UTV (Under the Verification) calls." data_type="integer" />
+            <column metric_name="CallsUTVBusinessCount" description="Number of UTV calls for business reasons." data_type="integer" />
+            <column metric_name="CallsUTVTechnicalCount" description="Number of UTV calls for technical reasons." data_type="integer" />
+            <column metric_name="InCallTime" description="Total time spent in calls." data_type="time" />
+            <column metric_name="OutgoingBitrateAvg" description="Average outgoing bitrate." data_type="float" />
+            <column metric_name="IncomingBitrateAvg" description="Average incoming bitrate." data_type="float" />
+            <column metric_name="OutgoingBitrateP90" description="90th percentile outgoing bitrate." data_type="float" />
+            <column metric_name="IncomingBitrateP90" description="90th percentile incoming bitrate." data_type="float" />
+            <column metric_name="InputAudioLevelP90" description="90th percentile input audio level." data_type="float" />
+            <column metric_name="OutputAudioLevelP90" description="90th percentile output audio level." data_type="float" />
+            <column metric_name="MSReconnectCount" description="Number of reconnections during calls." data_type="integer" />
+            <column metric_name="MSAutoReconnectCount" description="Number of auto-reconnections." data_type="integer" />
+            <column metric_name="MSManualReconnectCount" description="Number of manual reconnections." data_type="integer" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="EmailID" description="Operator's email address." data_type="string" />
+            <column dimension_name="Location" description="Operator's location." data_type="string" />
+            <column dimension_name="WindowStartTimestamp" description="Start of the time window for statistics." data_type="datetime" />
+            <column dimension_name="WindowEndTimestamp" description="End of the time window for statistics." data_type="datetime" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+        </dimensions>
+    </table>
+
+    <table name="av_operator_activity_stats" description="Statistics of operator activities.">
+        <metrics>
+            <column metric_name="ToggleOntimeMS" description="Time spent with toggle on, in milliseconds." data_type="integer" />
+            <column metric_name="InCallTimeMS" description="Time spent in calls, in milliseconds." data_type="integer" />
+            <column metric_name="SuspendedTimeMS" description="Time spent in suspended state, in milliseconds." data_type="integer" />
+            <column metric_name="AllocatedTimeMS" description="Time spent in allocated tasks, in milliseconds." data_type="integer" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+            <column dimension_name="AppVSN" description="Version of the application." data_type="string" />
+            <column dimension_name="Email" description="Operator's email address." data_type="string" />
+            <column dimension_name="Location" description="Operator's location." data_type="string" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+            <column dimension_name="Timestamp" description="Timestamp of the activity." data_type="datetime" />
+            <column dimension_name="IdleTimeMS" description="Time spent idle, in milliseconds." data_type="integer" />
+            <column dimension_name="FirstToggleOn" description="Time of the first toggle on event." data_type="datetime" />
+            <column dimension_name="LastToggleOff" description="Time of the last toggle off event." data_type="datetime" />
+            <column dimension_name="LastState" description="Last recorded state of the operator." data_type="string" />
+            <column dimension_name="ShiftToggleOn" description="Time of the shift toggle on event." data_type="datetime" />
+        </dimensions>
+    </table>
+
+    <table name="av_completed_tasks_v2" description="Details of completed tasks in version 2.">
+        <metrics>
+            <column metric_name="CallDuration" description="Duration of the call." data_type="time" />
+            <column metric_name="MSCStartAfterAllJoin" description="Time MSC started after all participants joined." data_type="time" />
+            <column metric_name="CustomerOutgoingBitrateAvg" description="Average outgoing bitrate for the customer." data_type="float" />
+            <column metric_name="CustomerIncomingBitrateAvg" description="Average incoming bitrate for the customer." data_type="float" />
+            <column metric_name="OperatorOutgoingBitrateAvg" description="Average outgoing bitrate for the operator." data_type="float" />
+            <column metric_name="OperatorIncomingBitrateAvg" description="Average incoming bitrate for the operator." data_type="float" />
+            <column metric_name="CustomerOutgoingBitrateP90" description="90th percentile outgoing bitrate for the customer." data_type="float" />
+            <column metric_name="CustomerIncomingBitrateP90" description="90th percentile incoming bitrate for the customer." data_type="float" />
+            <column metric_name="OperatorOutgoingBitrateP90" description="90th percentile outgoing bitrate for the operator." data_type="float" />
+            <column metric_name="OperatorIncomingBitrateP90" description="90th percentile incoming bitrate for the operator." data_type="float" />
+            <column metric_name="CustomerInputAudioLevelP90" description="90th percentile input audio level for the customer." data_type="float" />
+            <column metric_name="CustomerOutputAudioLevelP90" description="90th percentile output audio level for the customer." data_type="float" />
+            <column metric_name="OperatorInputAudioLevelP90" description="90th percentile input audio level for the operator." data_type="float" />
+            <column metric_name="OperatorOutputAudioLevelP90" description="90th percentile output audio level for the operator." data_type="float" />
+            <column metric_name="CustomerMSReconnectCount" description="Number of MSC reconnections for the customer." data_type="integer" />
+            <column metric_name="OperatorMSReconnectCount" description="Number of MSC reconnections for the operator." data_type="integer" />
+            <column metric_name="OperatorMSAutoReconnectCount" description="Number of auto-reconnections for the operator." data_type="integer" />
+            <column metric_name="OperatorMSManualReconnectCount" description="Number of manual reconnections for the operator." data_type="integer" />
+            <column metric_name="WaitTimeInQueue" description="Time spent waiting in queue." data_type="time" />
+            <column metric_name="HealthCheckAttemptCount" description="Number of health check attempts." data_type="integer" />
+            <column metric_name="CustomerPublishCheckAudioLevel" description="Audio level during customer's publish check." data_type="float" />
+            <column metric_name="CustomerPlayCheckAudioLevel" description="Audio level during customer's play check." data_type="float" />
+            <column metric_name="CustomerPublishCheckRTTP50" description="50th percentile RTT during customer's publish check." data_type="float" />
+            <column metric_name="CustomerPublishCheckRTTP90" description="90th percentile RTT during customer's publish check." data_type="float" />
+            <column metric_name="CustomerPlayCheckRTTP50" description="50th percentile RTT during customer's play check." data_type="float" />
+            <column metric_name="CustomerPlayCheckRTTP90" description="90th percentile RTT during customer's play check." data_type="float" />
+            <column metric_name="CustomerPublishRTTP50" description="50th percentile RTT during customer's publish." data_type="float" />
+            <column metric_name="CustomerPublishRTTP90" description="90th percentile RTT during customer's publish." data_type="float" />
+            <column metric_name="CustomerPlayRTTP50" description="50th percentile RTT during customer's play." data_type="float" />
+            <column metric_name="CustomerPlayRTTP90" description="90th percentile RTT during customer's play." data_type="float" />
+            <column metric_name="MSCPublisherPublishCheckRTTP50" description="50th percentile RTT during MSC publish check." data_type="float" />
+            <column metric_name="MSCPublisherPublishCheckRTTP90" description="90th percentile RTT during MSC publish check." data_type="float" />
+            <column metric_name="MSCPublisherPlayCheckRTTP50" description="50th percentile RTT during MSC play check." data_type="float" />
+            <column metric_name="MSCPublisherPlayCheckRTTP90" description="90th percentile RTT during MSC play check." data_type="float" />
+        </metrics>
+        <dimensions>
+            <column dimension_name="OUID" description="Unique identifier for the organization unit." data_type="string" />
+            <column dimension_name="TaskID" description="Unique identifier for the task." data_type="string" />
+            <column dimension_name="AVSessionID" description="Unique identifier for the AV session." data_type="string" />
+            <column dimension_name="CallCompletedAt" description="Timestamp when the call was completed." data_type="datetime" />
+            <column dimension_name="AccountID" description="Unique identifier for the account." data_type="string" />
+            <column dimension_name="Action" description="Action taken during the task." data_type="string" />
+            <column dimension_name="Reason" description="Reason for the action taken." data_type="string" />
+            <column dimension_name="ReasonCategory" description="Category of the reason for the action." data_type="string" />
+            <column dimension_name="ActionLabel" description="Label associated with the action." data_type="string" />
+            <column dimension_name="MSCRoomID" description="MSC room ID associated with the task." data_type="string" />
+            <column dimension_name="CustomerParticipantID" description="ID of the customer participant." data_type="string" />
+            <column dimension_name="OperatorParticipantID" description="ID of the operator participant." data_type="string" />
+            <column dimension_name="OperatorEmail" description="Operator's email address." data_type="string" />
+            <column dimension_name="CallStartedAt" description="Timestamp when the call started." data_type="datetime" />
+            <column dimension_name="MSCInstanceGroup" description="Instance group of the MSC associated with the task." data_type="string" />
+            <column dimension_name="MSCTerminateParticipantsOn" description="Indicates whether MSC terminated participants on the call." data_type="boolean" />
+            <column dimension_name="InsertedAt" description="Timestamp when the record was inserted." data_type="datetime" />
+            <column dimension_name="Universe" description="Scope or context of the data." data_type="string" />
+            <column dimension_name="CaptureSessionID" description="ID of the capture session associated with the task." data_type="string" />
+            <column dimension_name="PackageID" description="ID of the package associated with the task." data_type="string" />
+            <column dimension_name="RequestID" description="ID of the request associated with the task." data_type="string" />
+        </dimensions>
+    </table>
+</tables>
