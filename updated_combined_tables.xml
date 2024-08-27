@@ -1,6 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
 <tables>
-  <table name="agentservices_tasky_agent_states_v2" description="Description for agentservices_tasky_agent_states_v2">
+  <table name="agentservices_tasky_agent_states_v2" description="This table contains the Tasky Agent States">
     <metrics />
     <dimensions>
       <column dimension_name="OUID" description="Yogesh" data_type="String" />
