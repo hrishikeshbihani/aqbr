@@ -6,7 +6,7 @@ import os
 
 def get_table_list(product):
     cookies = {
-        "t": "idfy-ops|idfy-ops/e73a7d7c-419a-4376-bc01-2a07f69541d6|30d477c6-e407-4e73-a727-b0acd44ee9c7"}
+        "t": "idfy-ops|idfy-ops/e73a7d7c-419a-4376-bc01-2a07f69541d6|ebf188c4-93a2-45b0-993d-20c735405ff6"}
     response = requests.get(
         f"https://explorer.shared.idfystaging.com/productTables?product={product}", cookies=cookies)
     print(response.status_code)
@@ -15,7 +15,7 @@ def get_table_list(product):
 
 def make_explorer_api_call(url):
     cookies = {
-        "t": "idfy-ops|idfy-ops/e73a7d7c-419a-4376-bc01-2a07f69541d6|30d477c6-e407-4e73-a727-b0acd44ee9c7"}
+        "t": "idfy-ops|idfy-ops/e73a7d7c-419a-4376-bc01-2a07f69541d6|ebf188c4-93a2-45b0-993d-20c735405ff6"}
     response = requests.get(url, cookies=cookies)
     if response.status_code == 200:
         return response.json()
