@@ -51,6 +51,7 @@ def test_row(row):
         return False
     dimensions_success += 1
 
+    success += 1
     return True
 
 def parse_tsv_output(rd):
