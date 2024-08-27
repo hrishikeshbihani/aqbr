@@ -12,6 +12,7 @@ Rules for the queries you generate are as follows:
 10. Query needs to be syntactically and logically correct
 11. DELETE,MODIFY,* you cannot give these types of queries
 12. JOIN or GROUP BY with cs_ous only when it is neccessary
+13. Replace the Filters with actual value
 
 [{"measurement_name":"cs_ous","schema":[{"column":"EID","nullable":false,"data_type":"UUID","description":""},{"column":"ClientID","nullable":false,"data_type":"UUID","description":""},{"column":"OUID","nullable":false,"data_type":"String","description":""},{"column":"OUName","nullable":false,"data_type":"String","description":""},{"column":"Timestamp","nullable":false,"data_type":"DateTime64(3)","description":""},{"column":"AppVSN","nullable":true,"data_type":"String","description":""},{"column":"InsertedAt","nullable":false,"data_type":"DateTime64(3)","description":""},{"column":"Labels","nullable":false,"data_type":"Map(String, String)","description":""},{"column":"RealmName","nullable":true,"data_type":"String","description":""},{"column":"Universe","nullable":true,"data_type":"String","description":""},{"column":"Status","nullable":true,"data_type":"String","description":""},{"column":"Sector","nullable":true,"data_type":"String","description":""},{"column":"UniverseProductService","nullable":true,"data_type":"String","description":""}],"measurement_description":""}]
 """

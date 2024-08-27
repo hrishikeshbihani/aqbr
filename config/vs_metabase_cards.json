@@ -1,14 +1,18 @@
 [
   {
-    "title": "Count of customers doing video calls",
+    "title": "Total Profiles Created",
+    "card_number": 5716
+  },
+  {
+    "title": "Total Video Calls ",
     "card_number": 5531
   },
   {
-    "title": "Count of Results of Video Calls",
+    "title": "Agent's Action on Profiles",
     "card_number": 5530
   },
   {
-    "title": "Average Handling Time",
+    "title": "Average Call Handling Time(in secs)",
     "card_number": 5532
   },
   {
@@ -16,15 +20,59 @@
     "card_number": 5533
   },
   {
-    "title": "Top 10 Rejection Reasons",
-    "card_number": 5535
+    "title": "Top 10 UTV Reasons on Calls",
+    "card_number": 5717
   },
   {
-    "title": "Top 10 UTV Reasons",
-    "card_number": 5534
+    "title": "Top 10 Business UTV Reasons on Calls",
+    "card_number": 5722
   },
   {
-    "title": "Checker Approved and Rejected Count",
+    "title": "Top 10 Technical UTV Reasons on Calls",
+    "card_number": 5723
+  },
+  {
+    "title": "Top 10 Reject Reasons by Maker on Profiles",
+    "card_number": 5724
+  },
+  {
+    "title": "Checker's Action on Profiles",
     "card_number": 5536
+  },
+  {
+    "title": "Average Review Time (in secs)",
+    "card_number": 5713
+  },
+  {
+    "title": "Top 10 Reject Reasons by Checker",
+    "card_number": 5725
+  },
+  {
+    "title": "Percentage of Potential Frauds",
+    "card_number": 5750
+  },
+  {
+    "title": "List of Fraud Reasons",
+    "card_number": 5752
+  },
+  {
+    "title": "Profile Conversion Rate from Links Clicked to Video Call Completion",
+    "card_number": 5771
+  },
+  {
+    "title": "Profile Conversion Rate from Links Clicked to Video Calls to Verified/Rejected Status",
+    "card_number": 5772
+  },
+  {
+    "title": "Top 10 Performing Agents",
+    "card_number": 2871
+  },
+  {
+    "title": "Bottom 10 Performing agents",
+    "card_number": 2872
+  },
+  {
+    "title": "Comparision of No. of Attempts for Maker Action",
+    "card_number": 5769
   }
 ]

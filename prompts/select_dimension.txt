@@ -3,6 +3,6 @@ A dimension is a qualitative attribute used to categorize, segment, and describe
 
 The Table metadata contains <metrics> and <dimension> tag use that information for selecion
 
+Product Context: {product_description}
 The table schema: {table_schema}
-Table metadata: {table_metadata}
 Selected metric: {selected_metric}

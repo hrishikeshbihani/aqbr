@@ -77,9 +77,9 @@ def get_product_description(product):
     }
     return product_messages.get(product, "")
 
-def get_user_message(user_input, table_schema,selected_metric,selected_dimension):
-    user_message = "The question is : {user_input} and the table schemas is  {table_xml_schema} and metric : {selected_metric} and dimension : {selected_dimension}, understand the table schema,metric,dimension and question asked and generate the most optimal and useful query".format(
-        user_input=user_input, table_xml_schema=table_schema,selected_metric=selected_metric,selected_dimension=selected_dimension
+def get_user_message(user_input, selected_table_xml,selected_metric,selected_dimension):
+    user_message = "The question is : {user_input} and the table schemas is  {table_xml_schema} and metric : {selected_metric} and dimension : {selected_dimension}, understand the table schema, metric, dimension and question asked and always use metrics and dimension give to generate the most optimal and useful query".format(
+        user_input=user_input, table_xml_schema=selected_table_xml,selected_metric=selected_metric,selected_dimension=selected_dimension
     )
     return user_message
 
@@ -88,18 +88,21 @@ def get_query_nlq(user_input,ou_id):
     system_text, user_text = check_valid_query(user_input)
     validation = openai_text_completion(system_text, user_text)
     valid = json.loads(validation)
+    print(valid["Valid"])
     if valid["Valid"] == "True":
         product_description,product = get_product(user_input)
         selected_table, selected_metric,valid_question = get_table_n_metric(user_input,product_description)
         if valid_question:
-            selected_dimension,table_schema= get_dimension(selected_table,selected_metric,user_input)
-            generated_query, updated_messages = get_gen_query(product,table_schema,user_input,selected_metric,selected_dimension,ou_id)
+            selected_dimension,selected_table_xml= get_dimension(selected_table,selected_metric,user_input,product_description)
+            generated_query, updated_messages = get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id)
             return product,selected_table,selected_dimension,selected_metric,valid_question,generated_query
         return  None, None, None, None, valid_question, None
+    return  None, None, None, None, valid["Valid"], None
 
-def get_gen_query(product,table_schema,user_input,selected_metric,selected_dimension,ou_id):
+def get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id):
     messages = get_system_message_object(product)
-    user_message = get_user_message(user_input, table_schema,selected_metric,selected_dimension)
+    user_message = get_user_message(user_input,selected_table_xml,selected_metric,selected_dimension)
+    print(user_message)
     generated_query, updated_messages = openai_text_completion_conversation_structured(
             messages, user_message,ou_id,generated_query_format
     )
@@ -126,14 +129,13 @@ def get_table_n_metric(user_input,product_description):
     valid_question = table_n_metric["valid_question"]
     return selected_table, select_metric,valid_question
 
-def get_dimension(selected_table, selected_metric,user_input):
-    table_schema= get_table_schema([selected_table])
-    system_text, user_text = select_dimension(user_input,selected_metric,table_schema)
+def get_dimension(selected_table, selected_metric,user_input,product_description):
+    system_text, user_text,selected_table_xml= select_dimension(user_input,selected_metric,selected_table,product_description)
     # print("Dimension ------------------------------------------")
     # print(system_text,user_text)
     selected_dimension= openai_text_completion_structured(system_text, user_text,dimension_format)
     selected_dimension = json.loads(selected_dimension)
-    return selected_dimension["dimension"],table_schema
+    return selected_dimension["dimension"],selected_table_xml
 
 
 def user_conversation(user_id, user_text):

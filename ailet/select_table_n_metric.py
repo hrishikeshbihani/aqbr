@@ -1,7 +1,8 @@
 import xml.etree.ElementTree as ET
-tree = ET.parse('./data/table_metadata.xml')
+tree = ET.parse('./combined_tables_metrics_only.xml')
 root = tree.getroot()
 tables_xml_string = ET.tostring(root, encoding='utf-8', xml_declaration=True).decode('utf-8')
+
 def select_table_n_metric(user_input,product_description):
     with open('prompts/select_table_n_metric.txt', 'r') as file:
         system_text = file.read()
