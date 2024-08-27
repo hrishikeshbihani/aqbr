@@ -39,13 +39,18 @@ def test_row(row):
     if not (valid_question == row["Valid"]):
         print(f'Failed {idx}: ValidationMismatch : [Validation|{valid_question}|{row["Valid"]}]')
         return False
+    validation_success += 1
+
     if not (table == row["Table"] and metric == row["Metric"]):
         print(f'Failed {idx}: MetricMismatch : [Table|{table}|{row["Table"]}], [Metric|{metric}|{row["Metric"]}]')
         return False
+    metric_success += 1
+
     if not (dimensions == row["Dimensions"]):
         print(f'Failed {idx}: DimensionsMismatch : (Dimensions|{dimensions}|{row["Dimensions"]})')
         return False
-    metric_success += 1
+    dimensions_success += 1
+
     return True
 
 def parse_tsv_output(rd):
@@ -77,6 +82,8 @@ def parse_tsv_output(rd):
             parsed_row["Valid"] = False
         else:
             parsed_row["Valid"] = None
+
+        parsed_row["Dimensions"] = parsed_row["Dimensions"].split(',')
 
         parsed.append(parsed_row)
     
