@@ -1,8 +1,8 @@
 import csv
-import streamlit as st
-from services.chat_completion import get_query
+from services.nlq import get_query_nlq
 
-ou_id = st.text_input("Enter OU ID", value="e7252c77ff4c")
+idx = -1
+ou_id = "e7252c77ff4c"
 
 ### Set of variables to store the statistics
 
@@ -39,35 +39,36 @@ def parse_row(row):
         "expected_result": row[7],
     }
 
-def test_row(row, idx):
+def test_row(row):
+    global idx
     global total
     global metric_success
     global dimensions_success
     global filters_success
     global success
+
+    idx += 1
+    if idx == 0:
+        # Ignore header row
+        return
     
     row = parse_row(row)
 
     total += 1
 
-    # {query, table, metric, metric_agg, dimensions, filters} = get_query(row[0], ou_id)
-    query = ""
-    table = ""
-    metric = ""
-    metric_agg = ""
-    dimensions = ""
+    product, table, dimensions, metric,valid_question, query = get_query_nlq(row['question'],ou_id)
     filters = ""
-    if not (table == row["table"] and metric == row["metric"] and metric_agg == row["metric_agg"]):
-        print(f'Failed {idx}: MetricMismatch : (Table|{table}|{row["table"]}), (Metric|{metric}|{row["metric"]}), (MetricAgg|{metric_agg}|{row["metric_agg"]})')
+    if not (table == row["table"] and metric == row["metric"]):
+        print(f'Failed {idx}: MetricMismatch : (Table|{table}|{row["table"]}), (Metric|{metric}|{row["metric"]}))')
         return False
     metric_success += 1
     return True
 
 def run():
-    with open("./scripts/test_inputs/sample1.tsv") as fd:
+    with open("./test_inputs/sample1.tsv") as fd:
         rd = csv.reader(fd, delimiter="\t", quotechar='"')
-        for row, i in rd:
-            test_row(row, i)
+        for row in rd:
+            test_row(row)
 
     print_results()
 
