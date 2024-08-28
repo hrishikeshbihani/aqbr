@@ -12,7 +12,9 @@ ou_id = "e7252c77ff4c"
 total = 0
 # Valid metric
 validation_success = 0
-# Table metric & aggregation
+# Table
+table_success = 0
+# Metric
 metric_success = 0
 # Table dimensions
 dimensions_success = 0
@@ -31,13 +33,14 @@ This is SQL statement 2
 "{sql2}"
 
 Till me if two SQL statements will give me the exact same result. Answer should
-strictly be either "True" if the results are exactly the same or "False" for
-anything else.
+strictly be either "True" if the results are exactly the same. Otherwise only
+return a reason describing why these are different.
 """
 
 def print_results():
     print('Total: ', total)
     print('Validation failures: ', total - validation_success)
+    print('Table failures: ', total - table_success)
     print('Metric failures: ', total - metric_success)
     print('Dimensions failures: ', total - dimensions_success)
     print('Query failures: ', total - query_success)
@@ -48,7 +51,7 @@ def match_sql(sql1, sql2):
     
     user_text = prompt_sql_compare.format(sql1=sql1, sql2=sql2)
     result = openai_text_completion("", user_text)
-    return result == "True"
+    return result == "True", result
 
 
 def test_row(row):
@@ -58,6 +61,7 @@ def test_row(row):
     global idx
     global total
     global validation_success
+    global table_success
     global metric_success
     global dimensions_success
     global query_success
@@ -92,7 +96,7 @@ def test_row(row):
         })
         test_passed = False
     else:
-        metric_success += 1
+        table_success += 1
 
     # Check metric
     if not metric == row["Metric"]:
@@ -117,11 +121,13 @@ def test_row(row):
         dimensions_success += 1
 
     # Check sql query criteria
-    if not match_sql(query, row["ExpectedQuery"]):
+    query_match, reason = match_sql(query, row["ExpectedQuery"])
+    if not query_match:
         mismatch_list.append({
             "field": "Query",
             "expected": row["ExpectedQuery"],
-            "got": query
+            "got": query,
+            "reason": reason
         })
         test_passed = False
     else:
@@ -136,6 +142,8 @@ def test_row(row):
   FIELD:    {item["field"]}
   EXPECTED: {item["expected"]}
   GOT:      {item["got"]}""")
+            if item.get("reason"):
+                print(f"  REASON: {item["reason"]}")
         print("-------------")
     return test_passed
 
