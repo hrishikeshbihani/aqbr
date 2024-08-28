@@ -1,5 +1,7 @@
 import csv
+import sys
 from services.nlq import get_query_nlq
+from libs.openai_libs import openai_text_completion
 
 idx = 0
 ou_id = "e7252c77ff4c"
@@ -15,44 +17,91 @@ metric_success = 0
 # Table dimensions
 dimensions_success = 0
 # Result of query
+query_success = 0
+# All success
 success = 0
+
+prompt_sql_compare = """
+You are a clickhouse 22.7 expert
+
+This is SQL statement 1
+"{sql1}"
+
+This is SQL statement 2
+"{sql2}"
+
+Till me if two SQL statements will give me the exact same result. Answer should
+strictly be either "True" if the results are exactly the same or "False" for
+anything else.
+"""
 
 def print_results():
     print('Total: ', total)
     print('Validation failures: ', total - validation_success)
     print('Metric failures: ', total - metric_success)
     print('Dimensions failures: ', total - dimensions_success)
+    print('Query failures: ', total - query_success)
     print('Result failures: ', total - success)
 
+def match_sql(sql1, sql2):
+    # Returns True if sql1 & sql2 statements are exact match, False otherwise.
+    
+    user_text = prompt_sql_compare.format(sql1=sql1, sql2=sql2)
+    result = openai_text_completion("", user_text)
+    return result == "True"
+
+
 def test_row(row):
+    # Tests each row privided by input against the function return values and
+    # updates the metric variables for success & Log the failures
+
     global idx
     global total
     global validation_success
     global metric_success
     global dimensions_success
+    global query_success
     global success
 
     idx += 1
     total += 1
+    test_passed = True
 
+    # Get actual values by executing function
     product, table, dimensions, metric,valid_question, query = get_query_nlq(row['Question'],ou_id)
+
+    # Check validation
     if not (valid_question == row["Valid"]):
         print(f'Failed {idx}: ValidationMismatch : [Validation|{valid_question}|{row["Valid"]}]')
-        return False
-    validation_success += 1
+        test_passed = False
+    else:
+        validation_success += 1
 
+    # Check table & metric
     if not (table == row["Table"] and metric == row["Metric"]):
         print(f'Failed {idx}: MetricMismatch : [Table|{table}|{row["Table"]}], [Metric|{metric}|{row["Metric"]}]')
-        return False
-    metric_success += 1
+        test_passed = False
+    else:
+        metric_success += 1
 
+    # Check dimensions
     if not (dimensions == row["Dimensions"]):
         print(f'Failed {idx}: DimensionsMismatch : (Dimensions|{dimensions}|{row["Dimensions"]})')
-        return False
-    dimensions_success += 1
+        test_passed = False
+    else:
+        dimensions_success += 1
 
-    success += 1
-    return True
+    # Check sql query criteria
+    if not match_sql(query, row["ExpectedQuery"]):
+        print(f'Failed {idx}: QueryMismatch : (Query|{query}|{row["ExpectedQuery"]})')
+        test_passed = False
+    else:
+        query_success += 1
+
+    if test_passed:
+        success += 1
+
+    return test_passed
 
 def parse_tsv_output(rd):
     # CSV reader provides output as array of array. This function converts that
@@ -91,11 +140,16 @@ def parse_tsv_output(rd):
     return parsed
 
 def run():
-    with open("./test_inputs/sample1.tsv") as fd:
+    if len(sys.argv) != 2:
+        print("Invalid number of arguments")
+        return
+
+    with open(f"./test_inputs/{sys.argv[1]}") as fd:
         rd = csv.reader(fd, delimiter="\t", quotechar='"')
         parsed = parse_tsv_output(rd)
         for row in parsed:
-            test_row(row)
+            if row["Active"] == "TRUE":
+                test_row(row)
 
     print_results()
 
