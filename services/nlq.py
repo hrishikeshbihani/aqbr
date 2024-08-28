@@ -88,7 +88,7 @@ def get_query_nlq(user_input,ou_id):
     system_text, user_text = check_valid_query(user_input)
     validation = openai_text_completion(system_text, user_text)
     valid = json.loads(validation)
-    print(valid["Valid"])
+    # print(valid["Valid"])
     if valid["Valid"] == "True":
         product_description,product = get_product(user_input)
         selected_table, selected_metric,valid_question = get_table_n_metric(user_input,product_description)
@@ -102,7 +102,7 @@ def get_query_nlq(user_input,ou_id):
 def get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id):
     messages = get_system_message_object(product)
     user_message = get_user_message(user_input,selected_table_xml,selected_metric,selected_dimension)
-    print(user_message)
+    # print(user_message)
     generated_query, updated_messages = openai_text_completion_conversation_structured(
             messages, user_message,ou_id,generated_query_format
     )
@@ -150,12 +150,12 @@ def user_conversation(user_id, user_text):
 def get_data_rows(table_list):
     file_contents = {}
     files_in_folder = os.listdir("data")
-    print(files_in_folder)
+    # print(files_in_folder)
     for file_name in files_in_folder:
         if file_name in table_list:
             file_path = os.path.join("data", file_name)
             with open(file_path, 'r') as file:
                 file_contents[file_name] = file.read()
-    print(file_contents)
+    # print(file_contents)
     return file_contents
 
