@@ -67,40 +67,76 @@ def test_row(row):
     total += 1
     test_passed = True
 
+    mismatch_list = []
+
     # Get actual values by executing function
     product, table, dimensions, metric,valid_question, query = get_query_nlq(row['Question'],ou_id)
 
     # Check validation
     if not (valid_question == row["Valid"]):
-        print(f'Failed {idx}: ValidationMismatch : [Validation|{valid_question}|{row["Valid"]}]')
+        mismatch_list.append({
+            "field": "Validation",
+            "expected": row["Valid"],
+            "got": valid_question
+        })
         test_passed = False
     else:
         validation_success += 1
 
-    # Check table & metric
-    if not (table == row["Table"] and metric == row["Metric"]):
-        print(f'Failed {idx}: MetricMismatch : [Table|{table}|{row["Table"]}], [Metric|{metric}|{row["Metric"]}]')
+    # Check table
+    if not table == row["Table"]:
+        mismatch_list.append({
+            "field": "Table",
+            "expected": row["Table"],
+            "got": table
+        })
+        test_passed = False
+    else:
+        metric_success += 1
+
+    # Check metric
+    if not metric == row["Metric"]:
+        mismatch_list.append({
+            "field": "Metric",
+            "expected": row["Metric"],
+            "got": metric
+        })
         test_passed = False
     else:
         metric_success += 1
 
     # Check dimensions
     if not (dimensions == row["Dimensions"]):
-        print(f'Failed {idx}: DimensionsMismatch : (Dimensions|{dimensions}|{row["Dimensions"]})')
+        mismatch_list.append({
+            "field": "Dimensions",
+            "expected": row["Dimensions"],
+            "got": dimensions
+        })
         test_passed = False
     else:
         dimensions_success += 1
 
     # Check sql query criteria
     if not match_sql(query, row["ExpectedQuery"]):
-        print(f'Failed {idx}: QueryMismatch : (Query|{query}|{row["ExpectedQuery"]})')
+        mismatch_list.append({
+            "field": "Query",
+            "expected": row["ExpectedQuery"],
+            "got": query
+        })
         test_passed = False
     else:
         query_success += 1
 
     if test_passed:
         success += 1
-
+    else:
+        print(f"Failed {idx}:-\nQuestion: {row['Question']}")
+        for item in mismatch_list:
+            print(f"""
+  FIELD:    {item["field"]}
+  EXPECTED: {item["expected"]}
+  GOT:      {item["got"]}""")
+        print("-------------")
     return test_passed
 
 def parse_tsv_output(rd):
