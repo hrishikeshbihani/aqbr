@@ -6,4 +6,4 @@ The Table metadata contains <metrics> and <dimension> tag use that information f
 The Product Context: {product_description}
 Table metadata: {table_metadata}
 
-We want the metric only from the Table metadata which i provide nothing else and the accuracy of selecion of metric is atmost importance, if no metric found give valid_question as False
+We want the metric only from the Table metadata which i provide nothing else and the accuracy of selecion of metric is atmost importance, if no metric found give valid_question as False, only give true if the question demands a count (keep count as a default metric)

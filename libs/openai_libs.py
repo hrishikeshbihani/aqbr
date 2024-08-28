@@ -13,7 +13,7 @@ def openai_text_completion(system_text, user_text):
                 {"role": "system", "content": system_text},
                 {"role": "user", "content": user_text},
             ],
-            temperature=1.1,
+            temperature=0.5,
         )
         if (
             completion
@@ -37,7 +37,7 @@ def openai_text_completion_conversation(message_history, new_message,ou_id="",re
         completion = open_ai_client.chat.completions.create(
             model=os.getenv("OPENAI_CHAT_CONVERSTATION_MODEL"),
             messages=message_history,
-            temperature=1.1,
+            temperature=0.5,
             response_format=response_format
         )
         if (
@@ -64,7 +64,7 @@ def openai_text_completion_conversation_structured(message_history, new_message,
         completion = open_ai_client.beta.chat.completions.parse(
             model="gpt-4o-2024-08-06",
             messages=message_history,
-            temperature=1.1,
+            temperature=0.5,
             response_format=response_format
                             )
         if (
@@ -90,7 +90,7 @@ def openai_text_completion_structured(system_text, user_text,response_format):
                 {"role": "system", "content": system_text},
                 {"role": "user", "content": user_text},
             ],
-            temperature=1.1,
+            temperature=0.5,
             response_format=response_format
         )
         if (

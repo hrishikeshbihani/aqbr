@@ -1,0 +1,25 @@
+Question	Valid	Table	Metric	Dimensions	ExpectedQuery	ExpectedResult	ReportedBy
+What is the average number of manual reconnects performed by each agent for calls marked as unable_to_verify?	TRUE	av_completed_tasks_v2	OperatorMSManualReconnectCount	OperatorEmail			Saksham
+What is the average number of manual reconnects performed by each agent for UTV calls over last week?	TRUE	av_completed_tasks_v2	OperatorMSManualReconnectCount Operator Ms Reconnect Count	Action, OperatorEmail,CallcompletedAt			Saksham
+How has the operator bitrate changed over the last week?	TRUE	av_completed_tasks_v2	OperatorOutgoingBitrateAvg OperatorIncomingBitrateAvg	DATE(timestamp) OperatorEmail			Saksham
+What is the Profile Creation Trend for VKYC Customers over the last 3 months ?	TRUE	profiles_created		Profile ID Timestamp			Ashish
+What is the Profile Conversion Trend for VKYC Customers over the last 3 months after the 1st call with look ahead of 14 days ?	TRUE	profiles_created av_completed_profiles		Profile ID, Timestamp Profile ID, ReviewerAction			Ashish
+What is the NANV and No Audio UTV % trend over the last 4 weeks for each customer ?	TRUE						Ashish
+Which customer have seen a growth of 5% or more in terms of calls in the last 6 months ?	TRUE	av_completed_tasks_v2		TaskID CallcompletedAt			Ashish
+What are the critical alerts by customer that have been observed over the last 4 weeks ?	TRUE						Ashish
+Can you compare the cases completed with IDFY from VKYC versus API cases and calculate the KYC TAT for any OU?							
+How many dropoffs are occurring for all skills overall?	TRUE	av_session_queue_wait_time_summary		ProfileId,EventType, Skills			
+How many dropoffs are occurring for a particular skill (e.g., English) PAN India for any given OU?	TRUE	av_session_queue_wait_time_summary		ProfileId,EventType, Skills			
+How many external users of specific OUID (ABFL Live) have been assigned the Insights Service role?	TRUE	uam_master		Roles,EmailID,OUID			
+What is the status of the mentioned Profile Tag (JC24708640, JC25279847)?	TRUE	av_completed_tasks_v2 av_completed_profiles		ProfileTag,Action OperatorAction,ProfileTag,ReviewerAction			
+Can you provide reviewer action data with the status as approved cases in July 2024?	FALSE	pm_reviewer_action		ProfileId,Action			
+What is the count of VKYC profiles link clicked package-wise for June 2024?	TRUE	pm_links_clicked					
+What is the customer drop-time call for Coin DCX(375af06d4865) for July 2024?	TRUE	av_completed_tasks_v2		WaitTimeInQueue CallcompletedAt			
+Can you share logs for the below-shared OU( 56fdae52835c) on mentioned date?	FALSE						
+Which profiles are still in the "capture pending" state for particular OUs (UBI-Live_785bac3f8be9) and in given specific time(1st to 7th July)?	TRUE	profile_states		ProfileID, State,Timestamp,OUId			
+Can you provide usage data for the below users, including user names, frequency, and tables being consumed?(HDFC OU ID d0be887c5e7d, IndusInd INDIE UU ID 292ea43cf579, IndusInd PB OU ID 292ea43cf579) -	TRUE						
+What is the overall Profile ID status data for the mentioned client(e7252c77ff4c)?	TRUE	av_completed_profiles capture_navigations profile_capture_tat_breakdown					
+How many profiles were created in a specific date range for OUID(3cf8aa5c51ee)?	TRUE	profiles_created		Profile ID Timestamp			
+Share the list of profiles with checker review action as "Auto reject"?	TRUE	pm_reviewer_action	AutoClosed	Action,ProfileId			
+With Reference ID - Need to Know Profile ID and final State as of Today (Creation Date and OUID unknown as client shares only the reference ID)	TRUE	profile_states		ProfileID, State,timestamp			
+Same for n number of Profiles/Reference ID we need final State(Creation Date and OUID unknown as client shares only the reference ID)	TRUE	profile_states		ProfileID, State,timestamp			

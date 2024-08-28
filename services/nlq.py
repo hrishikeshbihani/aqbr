@@ -37,8 +37,11 @@ class table_n_metric_format(BaseModel):
     metric: str
     valid_question: bool
 
+class filter_groupby_format(BaseModel):
+    filter: list[str]
+    groupby: list[str]
 class dimension_format(BaseModel):
-    dimension: list[str]
+    dimension: filter_groupby_format
 
 def update_user_messages(user_id: str, updated_messages: List[str]):
     messages_json = json.dumps(updated_messages)
@@ -78,7 +81,7 @@ def get_product_description(product):
     return product_messages.get(product, "")
 
 def get_user_message(user_input, selected_table_xml,selected_metric,selected_dimension):
-    user_message = "The question is : {user_input} and the table schemas is  {table_xml_schema} and metric : {selected_metric} and dimension : {selected_dimension}, understand the table schema, metric, dimension and question asked and always use metrics and dimension give to generate the most optimal and useful query".format(
+    user_message = "The question is : {user_input} and the table schemas is  {table_xml_schema} and metric : {selected_metric} and dimension : {selected_dimension}, understand the table schema, metric, dimension and question asked and always use metrics and dimension(Filters and Groupby) give to generate the most optimal and useful query".format(
         user_input=user_input, table_xml_schema=selected_table_xml,selected_metric=selected_metric,selected_dimension=selected_dimension
     )
     return user_message
@@ -88,10 +91,11 @@ def get_query_nlq(user_input,ou_id):
     system_text, user_text = check_valid_query(user_input)
     validation = openai_text_completion(system_text, user_text)
     valid = json.loads(validation)
-    print(valid["Valid"])
+    print(valid["Valid"],"First valid q check")
     if valid["Valid"] == "True":
         product_description,product = get_product(user_input)
         selected_table, selected_metric,valid_question = get_table_n_metric(user_input,product_description)
+        print(valid_question,"Second valid q check Metric")
         if valid_question:
             selected_dimension,selected_table_xml= get_dimension(selected_table,selected_metric,user_input,product_description)
             generated_query, updated_messages = get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id)

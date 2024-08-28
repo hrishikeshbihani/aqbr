@@ -44,6 +44,7 @@ if button:
         st.text(f"Question Valid: {valid_question}")
         st.text(f"Selected Dimension: {selected_dimension}")
         st.code(generated_query)
+        add_execute_button(generated_query)
         st.info("Time elapsed in seconds {:.2f}s".format(end_time - start_time))
     else:
         st.text("Query Gen not possible,Please Enter a more specific Question")
