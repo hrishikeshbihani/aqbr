@@ -75,6 +75,16 @@ def write_csv_to_file(csv_data, file_name):
     print(f"CSV data written to {file_name}")
 
 
+def write_table_descriptions_to_csv(table_names, file_name):
+    """Write table names and descriptions to a CSV file."""
+    with open(file_name, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["TableName", "Description"])
+        for table in table_names:
+            writer.writerow([table["name"], table["comment"]])
+    print(f"Table descriptions written to {file_name}")
+
+
 def main():
     base_api_url = "https://explorer.shared.idfystaging.com/detail/{table_name}?undefined=&_data=routes%2Fdetail%2F%24detail"
 
@@ -113,6 +123,10 @@ def main():
 
     print("Writing CSV to file...")
     write_csv_to_file(all_csv_data, "combined_tables.csv")
+
+    # Write table descriptions to a separate CSV file
+    print("Writing table descriptions to file...")
+    write_table_descriptions_to_csv(table_names, "table_descriptions.csv")
 
     print("Process completed successfully.")
 
