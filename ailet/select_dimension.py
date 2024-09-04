@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-tree = ET.parse('./combined_tables.xml')
+tree = ET.parse('./combined_tables_updated.xml')
 root = tree.getroot()
 
 def select_dimension(user_input,selected_metric,selected_table,product_description):

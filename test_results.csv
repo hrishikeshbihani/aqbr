@@ -1,0 +1,32 @@
+Question,expected_table,actual_table,expected_metric,actual_metric,expected_dimension,actual_dimension,test_result
+What is the average number of manual reconnects performed by each agent for calls marked as unable_to_verify?,av_completed_tasks_v2,av_completed_tasks_v2,OperatorMSManualReconnectCount,avg(OperatorMSManualReconnectCount),['AccountID'],"filter, groupby",Fail
+What is the average number of manual reconnects performed by each agent for UTV calls over last week?,av_completed_tasks_v2,av_completed_tasks_v2,OperatorMSManualReconnectCount,AVG(OperatorMSManualReconnectCount),['AccountID'],"filter, groupby",Fail
+How has the operator bitrate changed over the last week?,av_completed_tasks_v2,av_operator_hourly_stats,OperatorOutgoingBitrateAvg,OutgoingBitrateAvg,['DATE(timestamp)'],"filter, groupby",Fail
+What is the NANV and No Audio UTV % trend over the last 4 weeks for each customer ?,av_completed_tasks,,COUNT(1),,['toStartOfWeek(CallCompletedAt)'],,Fail
+Which customer have seen a growth of 5% or more in terms of calls in the last 6 months ?,av_completed_tasks_v2,av_operator_hourly_stats,count(TaskID),CallsAllocatedCount,['CallcompletedAt'],"filter, groupby",Fail
+How many dropoffs are occurring for all skills overall?,av_session_queue_wait_time_summary,av_session_queue_wait_time_summary,count(ProfileID),count(Skills),['Skills'],"filter, groupby",Fail
+"How many dropoffs are occurring for a particular skill (e.g., English) PAN India for any given OU?",av_session_queue_wait_time_summary,av_session_queue_wait_time_summary,count(ProfileID),count(TaskID),['Skills'],"filter, groupby",Fail
+How many external users of specific OUID (ABFL Live) have been assigned the Insights Service role?,uam_master,agentservices_tasky_allocation_created,count(Email),count(OUID),[''],"filter, groupby",Fail
+What is the count of VKYC profiles link clicked package-wise for June 2024?,pm_links_clicked,pm_link_clicked,count(ProfileID),count(ProfileID),['PackageID'],"filter, groupby",Fail
+What is the customer wait time for Coin DCX(375af06d4865) for July 2024?,av_completed_tasks_v2,av_completed_profiles,WaitTimeInQueue,WaitTimeInQueue,[''],"filter, groupby",Fail
+What is the overall Profile ID status data for the mentioned client(e7252c77ff4c)?,av_completed_profiles,pm_profile_status_update_webhook_executed,count(ProfileID),count(ProfileID),[''],"filter, groupby",Fail
+"Number of profiles with checker review action as ""Auto reject""?",pm_reviewer_action,pm_reviewer_action,count(ProfileID),count(ProfileID),[''],"filter, groupby",Pass
+What are the call completion rate across all OUs?,av_completed_tasks_v2,av_operator_hourly_stats,count(TaskID),CallsCompletedCount,['OUID'],"filter, groupby",Fail
+Have conversions improved across all OUs? ,av_completed_tasks_v2,av_completed_profiles,TaskID,count(ProfileID),['OUID'],"filter, groupby",Fail
+How long was the agent (email ID of the agent) offline yesterday?,av_agent_offline_reasons,av_agent_offline_reasons,Tat,TAT,[''],"filter, groupby",Fail
+What is the most common reason agents go offline?,Av Agent Offline Reasons,,,,['Reason'],,Fail
+What was the most frequently performed action by the agent over the past week?,av_completed_tasks_v2,av_operator_action,,count(Action),['Action'],"filter, groupby",Fail
+How much time was the agent free yesterday?,av_operator_activity_stats,av_operator_activity_stats,IdleTimeMS,IdleTimeMS,[''],"filter, groupby",Pass
+What was the agent's total active time on a specific date?,av_operator_activity_stats,av_operator_activity_stats,ToggleOntimeMS,ToggleOntimeMS,[''],"filter, groupby",Pass
+"How many calls a customer does, to mark oneself as verified or rejected?",av_completed_tasks_v2,av_completed_profiles,count(TaskID),count(TaskID),['Action'],"filter, groupby",Fail
+Provide the count of PackageIds for each client.,pm_package_meta,,count(PackageID),,['OUID'],,Fail
+Give the trend of the agents online for a particular client.,av_operator_activity_stats,tasky_reviewer_activity_stats,ToggleOnTimeMS,ToggleOntimeMS,[''],"filter, groupby",Fail
+How many profiles are marked as UTV for a specific date?,av_completed_tasks_v2,av_completed_profiles,count(ProfileID),count(ProfileID),[''],"filter, groupby",Fail
+What is the Incalltime of a particular agent for a specific date?,av_operator_activity_stats,av_operator_hourly_stats,InCallTimeMS,InCallTime,[''],"filter, groupby",Fail
+How many profiles are on the Introduction Page for the a particular OU?,capture_funnel_timeline,capture_funnel,count(ProfileID),count(ProfileID),[''],"filter, groupby",Fail
+How many number of calls are unanswered by agents in last week for selected OU?,av_missed_and_declined_calls_summary,av_operator_hourly_stats,count,CallsNoActionCount,[''],"filter, groupby",Fail
+How many calls are marked as UTV on the specific date?,av_operator_hourly_stats,av_operator_hourly_stats,CallsUTVBusinessCount,CallsUTVCount,[''],"filter, groupby",Fail
+How many Profiles are rejected by maker and checker for specified OUID?,av_completed_profiles,av_completed_profiles,count(ProfileID),count(ProfileID),[''],"filter, groupby",Pass
+How many Profiles are rejected by maker and accepted by checker for specified OUID?,av_completed_profiles,av_completed_profiles,count(ProfileID),count(ProfileID),[''],"filter, groupby",Pass
+Total number of profiles completed by OUID,av_completed_profiles,av_completed_profiles,count(ProfileID),count(ProfileID),[''],"filter, groupby",Pass
+how many calls are missed and declined by a particular agent?,av_missed_and_declined_calls_summary,av_operator_hourly_stats,count,count(AccountID),[''],"filter, groupby",Fail

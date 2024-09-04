@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <tables>
-    <table name="agentservices_tasky_agent_states_v2" description="Contains Tasky agent state change events">
+    <table name="agentservices_tasky_agent_states_v2" description="This table logs state change events for Tasky agents. It records each transition an agent makes between different operational states, such as available, busy, or offline. It includes both the current and previous states, the reason for the change, and the precise timestamps of these events. This table is useful for analyzing agent activity patterns, identifying periods of inactivity, and auditing state transitions over time. ">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -16,7 +16,8 @@
             <column dimension_name="Universe" description="" data_type="String" />
         </dimensions>
     </table>
-    <table name="agentservices_tasky_allocation_created" description="Stores metadata against each Tasky agent allocation">
+    <table name="agentservices_tasky_allocation_created" description="This table tracks metadata related to the allocation of Tasky agents to tasks. It captures details such as the agent and task identifiers, allocation ID, and various attributes associated with both the task and the agent. The mode of operation and timestamps are also recorded, making this table critical for understanding the allocation process, evaluating agent-task matches, and monitoring the lifecycle of task assignments.
+">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -35,7 +36,7 @@
             <column dimension_name="AllocationCycleTimestamp" description="" data_type="Nullable(DateTime64(6))" />
         </dimensions>
     </table>
-    <table name="agentservices_tasky_reviewer_offline_events" description="Contains Tasky reviewer offline events with reason">
+    <table name="agentservices_tasky_reviewer_offline_events" description="This table contains events where Tasky reviewers go offline, along with the reasons for going offline. It logs the reviewer’s identifier, email, offline reason, and precise timestamps. This table is key for understanding reviewer availability, identifying patterns in offline behavior, and ensuring that offline reasons are properly accounted for in operational metrics.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -49,7 +50,7 @@
             <column dimension_name="Universe" description="" data_type="String" />
         </dimensions>
     </table>
-    <table name="agentservices_tasky_task_states_v2" description="Contains Tasky task state change events">
+    <table name="agentservices_tasky_task_states_v2" description="This table captures the state changes of Tasky tasks, tracking the task's lifecycle from creation through various states (e.g., pending, in-progress, completed). It includes both the current and previous states, the reasons for state changes, task type, mode of operation, and relevant timestamps. This table is essential for understanding the progression of tasks, analyzing task flow efficiency, and identifying bottlenecks or delays in task completion.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -68,7 +69,7 @@
             <column dimension_name="Universe" description="" data_type="String" />
         </dimensions>
     </table>
-    <table name="agentservices_tasky_tasks_completed" description="Tasky task completed events">
+    <table name="agentservices_tasky_tasks_completed" description="This table records the completion of Tasky tasks, including details about the agent who completed the task, the type of task, and the mode in which it was completed. It also logs timestamps and various identifiers such as TaskID, ProfileID, and AllocationID. This table is valuable for assessing task outcomes, measuring completion rates, and analyzing the effectiveness of agents in different task types and modes.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -87,7 +88,7 @@
             <column dimension_name="AllocationID" description="" data_type="Nullable(String)" />
         </dimensions>
     </table>
-    <table name="agentservices_tasky_tasks_created" description="Tasky task created events">
+    <table name="agentservices_tasky_tasks_created" description="This table logs the creation of new Tasky tasks, capturing details like task type, attributes, and the mode of task creation. It also records associated identifiers (e.g., TaskID, ProfileID) and timestamps. This table is critical for understanding the initiation of tasks, analyzing the types of tasks being created, and monitoring the flow of new tasks into the system.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -103,7 +104,7 @@
             <column dimension_name="Universe" description="" data_type="String" />
         </dimensions>
     </table>
-    <table name="agentservices_tasky_tasks_events" description="Tasky task action events (accepted, declined, missed)">
+    <table name="agentservices_tasky_tasks_events" description="This table captures action events related to Tasky tasks, such as acceptance, decline, or miss events by agents. It logs task identifiers, event names, agent identifiers (if applicable), and timestamps. This table is useful for analyzing agent interactions with tasks, identifying reasons for declined or missed tasks, and ensuring proper tracking of task handling outcomes.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -121,7 +122,7 @@
             <column dimension_name="AgentID" description="" data_type="Nullable(UUID)" />
         </dimensions>
     </table>
-    <table name="av_agent_offline_reasons" description="Contains reasons for operator going offline">
+    <table name="av_agent_offline_reasons" description="This table contains records of operators going offline, including the reasons for going offline and the duration of offline periods. It logs details such as timestamps, operator identifiers, locations, and the reason for offline status. This table is key for understanding operator availability, managing workforce scheduling, and analyzing the impact of offline periods on operational efficiency.">
         <metrics>
             <column metric_name="TAT" description="Duration for which agent was offline" data_type="Int64" />
         </metrics>
@@ -198,7 +199,7 @@
             <column dimension_name="InsertedAt" description="" data_type="DateTime" />
         </dimensions>
     </table>
-    <table name="av_completed_profiles" description="Contains details of the Profiles which are completed. Profiles which are either marked as Accepted or Rejected or UTV">
+    <table name="av_completed_profiles" description="This table stores detailed information about completed profiles, including metrics like overall turnaround time (TAT), call duration, wait times, and review durations. It also captures various identifiers, timestamps, and operator actions. This table is critical for analyzing the efficiency of profile completions, understanding the factors influencing TAT, and evaluating the performance of operators and reviewers in profile handling.">
         <metrics>
             <column metric_name="OverallTAT" description="Time duration from profile creation to completion" data_type="Int64" />
             <column metric_name="CallDuration" description="Call duration of the task" data_type="Int64" />
@@ -256,7 +257,21 @@
             <column dimension_name="Longitude" description="" data_type="Nullable(String)" />
         </dimensions>
     </table>
-    <table name="av_completed_tasks_v2" description="Contains details of the tasks which are completed by the agent. Contains UTV reasons for the tasks">
+    <table name="av_completed_tasks_v2" description="Table av_completed_tasks_v2: This table stores detailed metrics and dimensions related to tasks completed by agents during video calls. The data structure supports the generation of queries focused on analyzing call performance, quality, and task outcomes.
+
+Metrics: These columns capture a range of performance and quality indicators, essential for evaluating the effectiveness of video calls:
+
+Call Performance: Includes CallDuration for measuring the length of calls, and bitrate metrics (CustomerOutgoingBitrateAvg, OperatorIncomingBitrateP90) to assess the data transmission quality for both the customer and operator.
+Audio Quality: Metrics like CustomerInputAudioLevelP90 and OperatorOutputAudioLevelP90 provide insights into the audio levels experienced during calls, which can be used to analyze the clarity and volume of communication.
+Reconnect Metrics: Tracks the number of reconnect attempts by both the customer and operator (CustomerMSReconnectCount, OperatorMSManualReconnectCount), highlighting connection stability issues.
+Health Checks: Data on pre-call checks (CustomerPublishCheckAudioLevel, CustomerPlayCheckRTTP90) that ensure the system is ready for a stable video call, offering a baseline for assessing call quality.
+Dimensions: These columns provide essential context for each completed task, facilitating precise and contextualized query generation:
+
+Task and Session Identifiers: Columns like TaskID, AVSessionID, and OUID uniquely identify each task and session, enabling detailed tracking and analysis.
+Agent and Customer Details: Includes identifiers (OperatorParticipantID, CustomerParticipantID) and timestamps (CallStartedAt, CallCompletedAt) to correlate tasks with specific agents and customers, as well as the duration of interactions.
+Task Actions and Outcomes: Capture the result of the task with fields like Action, Reason, and ReasonCategory, allowing for analysis of task outcomes, including verification status and reasons for failure.
+System Configuration: MSCInstanceGroup, SkillConfig, and Universe provide insights into the system environment and configurations that were active during the task, offering additional layers of context for analysis.
+Client Information: Columns such as DeviceType, OSName, and BrowserFamily capture the technical environment of the client, enabling analysis of how different setups may affect call performance.">
         <metrics>
             <column metric_name="CallDuration" description="Duration of video call" data_type="Int32" />
             <column metric_name="MSCStartAfterAllJoin" description="MSC configuration flag" data_type="Int8" />
@@ -347,7 +362,7 @@
             <column dimension_name="MSCPublisherCheckParticipantID" description="" data_type="Nullable(UUID)" />
         </dimensions>
     </table>
-    <table name="av_operator_action" description="Contains details about the actions taken by the Agent on the Task">
+    <table name="av_operator_action" description="Contains detailed records of actions taken by operators on specific tasks, including metadata such as reasons, timestamps, and session IDs. Essential for analyzing operator behavior, task handling, and decision-making processes.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />
@@ -366,7 +381,7 @@
             <column dimension_name="Remarks" description="" data_type="Nullable(String)" />
         </dimensions>
     </table>
-    <table name="av_operator_activity_stats" description="Contains aggregate details about agent actions like InCallTime, SuspendedTime etc">
+    <table name="av_operator_activity_stats" description="Description: Provides aggregate statistics on operator activities, such as time spent in various states (active, suspended, allocated), along with additional metrics like idle time and state changes. Useful for understanding overall operator performance and activity patterns.">
         <metrics>
             <column metric_name="ToggleOntimeMS" description="Total time duration for which operator was active" data_type="Int64" />
             <column metric_name="SuspendedTimeMS" description="Total time spent by operator in suspended state" data_type="Int64" />
@@ -388,7 +403,7 @@
             <column dimension_name="ShiftToggleOn" description="" data_type="Nullable(DateTime64(3))" />
         </dimensions>
     </table>
-    <table name="av_operator_events" description="Operator events before allocation">
+    <table name="av_operator_events" description="Description: Records events related to operators before task allocation, including session IDs, event names, and timestamps. Crucial for tracking pre-allocation activities and understanding operator involvement in the system.">
         <metrics />
         <dimensions>
             <column dimension_name="Universe" description="" data_type="Nullable(String)" />
@@ -404,7 +419,20 @@
             <column dimension_name="Reason" description="" data_type="Nullable(String)" />
         </dimensions>
     </table>
-    <table name="av_operator_hourly_stats" description="Contains information about number of calls allocated, accepted, rejected and missed by the operator per hour">
+    <table name="av_operator_hourly_stats" description="Table av_operator_hourly_stats: This table captures hourly statistics related to operator performance in handling video calls, focusing on the number of calls allocated, accepted, rejected, missed, and the outcomes of those calls.
+
+Metrics: These columns provide quantitative measures of operator activity and call quality:
+
+Call Counts: Metrics like CallsAllocatedCount, CallsAcceptedCount, CallsDeclinedCount, and CallsCompletedCount track the number of calls handled by the operator.
+Outcome Counts: CallsVerifiedCount, CallsRejectedCount, and CallsUTVCount (including business and technical reasons) provide insights into the final status of completed calls.
+Quality Metrics: Metrics such as OutgoingBitrateAvg, IncomingBitrateAvg, and various P90 values (e.g., OutgoingBitrateP90, InputAudioLevelP90) assess the quality of video and audio during calls.
+Reconnect Metrics: The MSReconnectCount, MSAutoReconnectCount, and MSManualReconnectCount track the number of reconnections on the operator side.
+Dimensions: These columns provide contextual details for each operator's activity:
+
+Operator Identifiers: Columns like OUID, AccountID, and EmailID help identify the operator.
+Time Windows: WindowStartTimestamp and WindowEndTimestamp specify the time range for each hourly statistic.
+Location and Universe: Location and Universe offer additional context regarding where the operator was based and the operational environment during the tracked period.
+Timestamps: InsertedAt marks when the data was logged into the system.">
         <metrics>
             <column metric_name="CallsAllocatedCount" description="No of calls allocated" data_type="Int16" />
             <column metric_name="CallsAcceptedCount" description="No of incoming calls accepted" data_type="Int16" />
@@ -438,7 +466,7 @@
             <column dimension_name="Universe" description="" data_type="Nullable(String)" />
         </dimensions>
     </table>
-    <table name="av_operator_state" description="Contains information about state of agent. Records when the agent goes offline and comes back online. ">
+    <table name="av_operator_state" description="Captures the state information of operators, including details such as operator session IDs, account IDs, and the state of the operator at specific timestamps. Also tracks queue names and application versions. This table is key for monitoring and analyzing operator states and transitions over time.">
         <metrics />
         <dimensions>
             <column dimension_name="OUID" description="" data_type="String" />

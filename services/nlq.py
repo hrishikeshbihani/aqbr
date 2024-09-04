@@ -31,7 +31,10 @@ from pydantic import BaseModel
 
 class generated_query_format(BaseModel):
     query: str
-
+class product_format(BaseModel):
+    product: str
+class check_valid_format(BaseModel):
+    valid: bool
 class table_n_metric_format(BaseModel):
     table: str
     metric: str
@@ -89,24 +92,27 @@ def get_user_message(user_input, selected_table_xml,selected_metric,selected_dim
 
 def get_query_nlq(user_input,ou_id):
     system_text, user_text = check_valid_query(user_input)
-    validation = openai_text_completion(system_text, user_text)
+    validation = openai_text_completion_structured(system_text, user_text,check_valid_format)
     valid = json.loads(validation)
-    print(valid["Valid"],"First valid q check")
-    if valid["Valid"] == "True":
+    print(valid,"First Validation")
+    if valid["valid"]:
         product_description,product = get_product(user_input)
-        selected_table, selected_metric,valid_question = get_table_n_metric(user_input,product_description)
-        print(valid_question,"Second valid q check Metric")
-        if valid_question:
-            selected_dimension,selected_table_xml= get_dimension(selected_table,selected_metric,user_input,product_description)
-            generated_query, updated_messages = get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id)
-            return product,selected_table,selected_dimension,selected_metric,valid_question,generated_query
+        if product =="VS":
+            selected_table, selected_metric,valid_question = get_table_n_metric(user_input,product_description)
+            # print(valid_question,"Second valid q check Metric")
+            if valid_question:
+                selected_dimension,selected_table_xml= get_dimension(selected_table,selected_metric,user_input,product_description)
+                generated_query, updated_messages = get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id)
+                return product,selected_table,selected_dimension,selected_metric,valid_question,generated_query
+        else: 
+            return  None, None, None, None, valid["valid"], None
         return  None, None, None, None, valid_question, None
-    return  None, None, None, None, valid["Valid"], None
+    return  None, None, None, None, valid["valid"], None
 
 def get_gen_query(product,selected_table_xml,user_input,selected_metric,selected_dimension,ou_id):
     messages = get_system_message_object(product)
     user_message = get_user_message(user_input,selected_table_xml,selected_metric,selected_dimension)
-    print(user_message)
+    # print(user_message)
     generated_query, updated_messages = openai_text_completion_conversation_structured(
             messages, user_message,ou_id,generated_query_format
     )
@@ -117,10 +123,11 @@ def get_gen_query(product,selected_table_xml,user_input,selected_metric,selected
 
 def get_product(user_input):
     system_text, user_text = select_product(user_input)
-    product = openai_text_completion(system_text, user_text)
+    product = openai_text_completion_structured(system_text, user_text,product_format)
     product = json.loads(product)
-    product_description = get_product_description(product["Product"])
-    return product_description,product["Product"]
+    print(product,"Product")
+    product_description = get_product_description(product["product"])
+    return product_description,product["product"]
 
 def get_table_n_metric(user_input,product_description):
     system_text, user_text = select_table_n_metric(user_input,product_description)

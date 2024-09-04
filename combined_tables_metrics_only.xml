@@ -1,639 +1,404 @@
 <?xml version='1.0' encoding='utf-8'?>
 <tables>
-  <table name="agentservices_tasky_agent_states_v2" description="Description for agentservices_tasky_agent_states_v2">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_allocation_created" description="Description for agentservices_tasky_allocation_created">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_allocation_cycle_stats" description="Description for agentservices_tasky_allocation_cycle_stats">
-    <metrics>
-      <column metric_name="AgentsCount" description="" data_type="Int32" />
-      <column metric_name="TasksCount" description="" data_type="Int32" />
-    </metrics>
-    </table>
-  <table name="agentservices_tasky_reviewer_offline_events" description="Description for agentservices_tasky_reviewer_offline_events">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_task_states_v2" description="Description for agentservices_tasky_task_states_v2">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_tasks_completed" description="Description for agentservices_tasky_tasks_completed">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_tasks_created" description="Description for agentservices_tasky_tasks_created">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_tasks_events" description="Description for agentservices_tasky_tasks_events">
-    <metrics />
-    </table>
-  <table name="av_agent_active_status" description="Description for av_agent_active_status">
-    <metrics>
-      <column metric_name="IsOnline" description="" data_type="Int32" />
-      <column metric_name="IsOffline" description="" data_type="Int32" />
-    </metrics>
-    </table>
-  <table name="av_agent_offline_reasons" description="Description for av_agent_offline_reasons">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="av_allocation_events" description="Description for av_allocation_events">
-    <metrics>
-      <column metric_name="Assigned" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="av_call_allocation_events" description="Description for av_call_allocation_events">
-    <metrics />
-    </table>
-  <table name="av_call_details" description="Description for av_call_details">
-    <metrics>
-      <column metric_name="UserWasInCall" description="" data_type="Nullable(UInt8)" />
-    </metrics>
-    </table>
-  <table name="av_call_events" description="Description for av_call_events">
-    <metrics>
-      <column metric_name="Assigned" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="av_call_events_view" description="Description for av_call_events_view">
-    <metrics>
-      <column metric_name="Assigned" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="av_completed_profiles" description="Description for av_completed_profiles">
-    <metrics>
-      <column metric_name="OverallTAT" description="" data_type="Int64" />
-      <column metric_name="CallDuration" description="" data_type="Int64" />
-      <column metric_name="WaitTimeInQueue" description="" data_type="Int64" />
-      <column metric_name="FirstAttemptToCompletionTAT" description="" data_type="Int64" />
-      <column metric_name="DaysToInvokeFirstCapture" description="" data_type="Int64" />
-      <column metric_name="ReviewerTAT" description="" data_type="Nullable(Int64)" />
-      <column metric_name="TotalEngagementTimePreVideo" description="" data_type="Nullable(Int64)" />
-      <column metric_name="CaptureJourneyTAT" description="" data_type="Nullable(Int64)" />
-      <column metric_name="CaptureInvokedToReviewRequiredTAT" description="" data_type="Nullable(Int64)" />
-      <column metric_name="VCTime" description="" data_type="Nullable(Int64)" />
-      <column metric_name="TotalProfileLevelCaptures" description="" data_type="Int64" />
-      <column metric_name="TotalCaptureAttempts" description="" data_type="Int64" />
-      <column metric_name="TotalVideoCallAttempts" description="" data_type="Int64" />
-      <column metric_name="StraightPassThrough" description="" data_type="Int8" />
-      <column metric_name="TechnicalReasonUTVs" description="" data_type="Int64" />
-      <column metric_name="BusinessReasonUTVs" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="av_completed_task_reasons_mv" description="Description for av_completed_task_reasons_mv">
-    <metrics>
-      <column metric_name="HourInIST" description="" data_type="UInt8" />
-      <column metric_name="AvgHandlingTime" description="" data_type="AggregateFunction(avg, Int32)" />
-      <column metric_name="AvgWaitTime" description="" data_type="AggregateFunction(avg, Nullable(Int64))" />
-    </metrics>
-    </table>
-  <table name="av_completed_tasks" description="Description for av_completed_tasks">
-    <metrics>
-      <column metric_name="CallDuration" description="" data_type="Int32" />
-      <column metric_name="MSCStartAfterAllJoin" description="" data_type="Int8" />
-      <column metric_name="CustomerOutgoingBitrateAvg" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerIncomingBitrateAvg" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OperatorOutgoingBitrateAvg" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OperatorIncomingBitrateAvg" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerOutgoingBitrateP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerIncomingBitrateP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OperatorOutgoingBitrateP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OperatorIncomingBitrateP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerInputAudioLevelP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerOutputAudioLevelP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OperatorInputAudioLevelP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OperatorOutputAudioLevelP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerMSReconnectCount" description="" data_type="Int8" />
-      <column metric_name="OperatorMSReconnectCount" description="" data_type="Int8" />
-      <column metric_name="OperatorMSAutoReconnectCount" description="" data_type="Int8" />
-      <column metric_name="OperatorMSManualReconnectCount" description="" data_type="Int8" />
-      <column metric_name="WaitTimeInQueue" description="" data_type="Nullable(Int64)" />
-      <column metric_name="SuccessBandwidthCheckCount" description="" data_type="Nullable(Int32)" />
-      <column metric_name="SuccessBandwidthCheckAvgTAT" description="" data_type="Nullable(Float64)" />
-      <column metric_name="FailedBandwidthCheckCount" description="" data_type="Nullable(Int32)" />
-      <column metric_name="FailedBandwidthCheckAvgTAT" description="" data_type="Nullable(Float64)" />
-      <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerPublishCheckAudioLevelP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerPublishSuccessCount" description="" data_type="Nullable(Int32)" />
-      <column metric_name="CustomerPublishFailureCount" description="" data_type="Nullable(Int32)" />
-      <column metric_name="CustomerHealthCheckSuccessCount" description="" data_type="Nullable(Int32)" />
-      <column metric_name="CustomerHealthCheckFailureCount" description="" data_type="Nullable(Int32)" />
-    </metrics>
-    </table>
-  <table name="av_completed_tasks_mv" description="Description for av_completed_tasks_mv">
-    <metrics>
-      <column metric_name="CallCompletedAtHourInIST" description="" data_type="UInt8" />
-      <column metric_name="CallStartedAtHourInIST" description="" data_type="UInt8" />
-      <column metric_name="AvgHandlingTime" description="" data_type="AggregateFunction(avg, Int32)" />
-      <column metric_name="AvgWaitTime" description="" data_type="AggregateFunction(avg, Nullable(Int64))" />
-    </metrics>
-    </table>
-  <table name="av_completed_tasks_v2" description="Description for av_completed_tasks_v2">
-    <metrics>
-      <column metric_name="CallDuration" description="" data_type="Int32" />
-      <column metric_name="MSCStartAfterAllJoin" description="" data_type="Int8" />
-      <column metric_name="CustomerOutgoingBitrateAvg" description="" data_type="Float32" />
-      <column metric_name="CustomerIncomingBitrateAvg" description="" data_type="Float32" />
-      <column metric_name="OperatorOutgoingBitrateAvg" description="" data_type="Float32" />
-      <column metric_name="OperatorIncomingBitrateAvg" description="" data_type="Float32" />
-      <column metric_name="CustomerOutgoingBitrateP90" description="" data_type="Float32" />
-      <column metric_name="CustomerIncomingBitrateP90" description="" data_type="Float32" />
-      <column metric_name="OperatorOutgoingBitrateP90" description="" data_type="Float32" />
-      <column metric_name="OperatorIncomingBitrateP90" description="" data_type="Float32" />
-      <column metric_name="CustomerInputAudioLevelP90" description="" data_type="Float32" />
-      <column metric_name="CustomerOutputAudioLevelP90" description="" data_type="Float32" />
-      <column metric_name="OperatorInputAudioLevelP90" description="" data_type="Float32" />
-      <column metric_name="OperatorOutputAudioLevelP90" description="" data_type="Float32" />
-      <column metric_name="CustomerMSReconnectCount" description="" data_type="Int8" />
-      <column metric_name="OperatorMSReconnectCount" description="" data_type="Int8" />
-      <column metric_name="OperatorMSAutoReconnectCount" description="" data_type="Int8" />
-      <column metric_name="OperatorMSManualReconnectCount" description="" data_type="Int8" />
-      <column metric_name="WaitTimeInQueue" description="" data_type="Nullable(Int64)" />
-      <column metric_name="SuccessBandwidthCheckCount" description="" data_type="Int32" />
-      <column metric_name="SuccessBandwidthCheckAvgTAT" description="" data_type="Float64" />
-      <column metric_name="FailedBandwidthCheckCount" description="" data_type="Int32" />
-      <column metric_name="FailedBandwidthCheckAvgTAT" description="" data_type="Float64" />
-      <column metric_name="Attempt1BandwidthCheckTAT" description="" data_type="Float64" />
-      <column metric_name="Attempt2BandwidthCheckTAT" description="" data_type="Float64" />
-      <column metric_name="Attempt3BandwidthCheckTAT" description="" data_type="Float64" />
-      <column metric_name="HealthCheckAttemptCount" description="" data_type="Int32" />
-      <column metric_name="CustomerPublishCheckAudioLevel" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckAudioLevel" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckRTTP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckRTTP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckAudioBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckVideoBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckRTTP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckRTTP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckAudioBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckAudioBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckVideoBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckVideoBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishRTTP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishRTTP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayRTTP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayRTTP90" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPublishCheckRTTP50" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPublishCheckRTTP90" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPublishCheckAudioBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPublishCheckAudioBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPublishCheckVideoBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPublishCheckVideoBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPlayCheckRTTP50" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPlayCheckAudioBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPlayCheckAudioBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPlayCheckVideoBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPlayCheckVideoBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="MSCPublisherPlayCheckRTTP90" description="" data_type="Float32" />
-    </metrics>
-    </table>
-  <table name="av_missed_and_declined_calls_summary" description="Description for av_missed_and_declined_calls_summary">
-    <metrics>
-      <column metric_name="PickupTAT" description="" data_type="Nullable(Int32)" />
-    </metrics>
-    </table>
-  <table name="av_operator_action" description="Description for av_operator_action">
-    <metrics />
-    </table>
-  <table name="av_operator_activity_stats" description="Description for av_operator_activity_stats">
-    <metrics>
-      <column metric_name="ToggleOntimeMS" description="" data_type="Int64" />
-      <column metric_name="InCallTimeMS" description="" data_type="Int64" />
-      <column metric_name="SuspendedTimeMS" description="" data_type="Int64" />
-      <column metric_name="AllocatedTimeMS" description="" data_type="Nullable(Int64)" />
-    </metrics>
-    </table>
-  <table name="av_operator_events" description="Description for av_operator_events">
-    <metrics />
-    </table>
-  <table name="av_operator_events_view" description="Description for av_operator_events_view">
-    <metrics />
-    </table>
-  <table name="av_operator_funnel_sequence" description="Description for av_operator_funnel_sequence">
-    <metrics />
-    </table>
-  <table name="av_operator_hourly_stats" description="Description for av_operator_hourly_stats">
-    <metrics>
-      <column metric_name="CallsAllocatedCount" description="" data_type="Int16" />
-      <column metric_name="CallsAcceptedCount" description="" data_type="Int16" />
-      <column metric_name="CallsNoActionCount" description="" data_type="Int16" />
-      <column metric_name="CallsDeclinedCount" description="" data_type="Int16" />
-      <column metric_name="CallsCompletedCount" description="" data_type="Int16" />
-      <column metric_name="CallsVerifiedCount" description="" data_type="Int16" />
-      <column metric_name="CallsRejectedCount" description="" data_type="Int16" />
-      <column metric_name="CallsUTVCount" description="" data_type="Int16" />
-      <column metric_name="CallsUTVBusinessCount" description="" data_type="Int16" />
-      <column metric_name="CallsUTVTechnicalCount" description="" data_type="Int16" />
-      <column metric_name="InCallTime" description="" data_type="Int32" />
-      <column metric_name="OutgoingBitrateAvg" description="" data_type="Nullable(Float32)" />
-      <column metric_name="IncomingBitrateAvg" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OutgoingBitrateP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="IncomingBitrateP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="InputAudioLevelP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="OutputAudioLevelP90" description="" data_type="Nullable(Float32)" />
-      <column metric_name="MSReconnectCount" description="" data_type="Int16" />
-      <column metric_name="MSAutoReconnectCount" description="" data_type="Int16" />
-      <column metric_name="MSManualReconnectCount" description="" data_type="Int16" />
-    </metrics>
-    </table>
-  <table name="av_operator_state" description="Description for av_operator_state">
-    <metrics />
-    </table>
-  <table name="av_ou_skills_master" description="Description for av_ou_skills_master">
-    <metrics />
-    </table>
-  <table name="av_queue_master" description="Description for av_queue_master">
-    <metrics>
-      <column metric_name="Active" description="" data_type="UInt8" />
-    </metrics>
-    </table>
-  <table name="av_reconnect_details" description="Description for av_reconnect_details">
-    <metrics>
-      <column metric_name="ReconnectTAT" description="" data_type="Int64" />
-      <column metric_name="GetUserMediaTAT" description="" data_type="Nullable(Int64)" />
-    </metrics>
-    </table>
-  <table name="av_session_meta" description="Description for av_session_meta">
-    <metrics>
-      <column metric_name="Assigned" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="av_session_queue_wait_time_summary" description="Description for av_session_queue_wait_time_summary">
-    <metrics>
-      <column metric_name="WaitTime" description="" data_type="Int32" />
-    </metrics>
-    </table>
-  <table name="av_utv_tasks_metadata" description="Description for av_utv_tasks_metadata">
-    <metrics>
-      <column metric_name="CustomerAudioUploadEnergyP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="CustomerAudioDownloadEnergyP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="AgentAudioUploadEnergyP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="AgentAudioDownloadEnergyP50" description="" data_type="Nullable(Float32)" />
-      <column metric_name="IsPopupShown" description="" data_type="Int8" />
-      <column metric_name="IsPopupClicked" description="" data_type="Int8" />
-      <column metric_name="CustomerMSCPublishResult" description="" data_type="Nullable(Int8)" />
-      <column metric_name="CustomerMSCHealthCheckResult" description="" data_type="Nullable(Int8)" />
-      <column metric_name="CustomerPublishCheckAudioLevelP50" description="" data_type="Nullable(Float32)" />
-    </metrics>
-    </table>
-  <table name="capture_autoplay_events" description="Description for capture_autoplay_events">
-    <metrics />
-    </table>
-  <table name="capture_bandwidth_check_executed" description="Description for capture_bandwidth_check_executed">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="UInt16" />
-      <column metric_name="Attempt" description="" data_type="UInt8" />
-    </metrics>
-    </table>
-  <table name="capture_camera_switch_events" description="Description for capture_camera_switch_events">
-    <metrics />
-    </table>
-  <table name="capture_create_media_stream_events" description="Description for capture_create_media_stream_events">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Nullable(UInt16)" />
-    </metrics>
-    </table>
-  <table name="capture_customer_remote_video_state" description="Description for capture_customer_remote_video_state">
-    <metrics>
-      <column metric_name="IsMuted" description="" data_type="Nullable(UInt8)" />
-      <column metric_name="IsRetry" description="" data_type="UInt8" />
-      <column metric_name="IsPlayAttempted" description="" data_type="Nullable(UInt8)" />
-    </metrics>
-    </table>
-  <table name="capture_exception_events" description="Description for capture_exception_events">
-    <metrics>
-      <column metric_name="LogSequenceNo" description="" data_type="Nullable(UInt16)" />
-      <column metric_name="Retransmitted" description="" data_type="Nullable(UInt8)" />
-    </metrics>
-    </table>
-  <table name="capture_executed_image_captures" description="Description for capture_executed_image_captures">
-    <metrics>
-      <column metric_name="CompressionQuality" description="" data_type="Nullable(Float32)" />
-      <column metric_name="AttemptedHeight" description="" data_type="Nullable(Int64)" />
-      <column metric_name="CapturedHeight" description="" data_type="Nullable(Int64)" />
-      <column metric_name="IsFileUpload" description="" data_type="Nullable(Int8)" />
-    </metrics>
-    </table>
-  <table name="capture_executed_image_captures_aggregated" description="Description for capture_executed_image_captures_aggregated">
-    <metrics>
-      <column metric_name="AttemptedHeight" description="" data_type="Nullable(Int64)" />
-      <column metric_name="Count" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="capture_funnel" description="Description for capture_funnel">
-    <metrics />
-    </table>
-  <table name="capture_funnel_timeline" description="Description for capture_funnel_timeline">
-    <metrics>
-      <column metric_name="EngagementTime" description="" data_type="UInt64" />
-      <column metric_name="TimeFromJourneyStart" description="" data_type="UInt64" />
-      <column metric_name="TimeFromPreviousPage" description="" data_type="UInt64" />
-      <column metric_name="IsLastPage" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="capture_media_stream_ended_events" description="Description for capture_media_stream_ended_events">
-    <metrics>
-      <column metric_name="IsCallOngoing" description="" data_type="Nullable(UInt8)" />
-    </metrics>
-    </table>
-  <table name="capture_navigations" description="Description for capture_navigations">
-    <metrics />
-    </table>
-  <table name="capture_od_incall_reconnect_events" description="Description for capture_od_incall_reconnect_events">
-    <metrics />
-    </table>
-  <table name="capture_user_events" description="Description for capture_user_events">
-    <metrics>
-      <column metric_name="BatteryLevel" description="" data_type="Nullable(Float32)" />
-      <column metric_name="BatteryCharging" description="" data_type="Nullable(UInt8)" />
-    </metrics>
-    </table>
-  <table name="kyc_pii_purged_objects" description="Description for kyc_pii_purged_objects">
-    <metrics />
-    </table>
-  <table name="msc_audio_stats" description="Description for msc_audio_stats">
-    <metrics>
-      <column metric_name="AudioLevel" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="msc_call_events" description="Description for msc_call_events">
-    <metrics />
-    </table>
-  <table name="msc_health_check_aggregated_stats" description="Description for msc_health_check_aggregated_stats">
-    <metrics>
-      <column metric_name="SuccessBandwidthCheckCount" description="" data_type="Int32" />
-      <column metric_name="SuccessBandwidthCheckAvgTAT" description="" data_type="Float64" />
-      <column metric_name="FailedBandwidthCheckCount" description="" data_type="Int32" />
-      <column metric_name="FailedBandwidthCheckAvgTAT" description="" data_type="Float64" />
-      <column metric_name="Attempt1BandwidthCheckTAT" description="" data_type="Float64" />
-      <column metric_name="Attempt2BandwidthCheckTAT" description="" data_type="Float64" />
-      <column metric_name="Attempt3BandwidthCheckTAT" description="" data_type="Float64" />
-      <column metric_name="CustomerPublishCheckP50AudioLevel" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckP90AudioLevel" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckP50AudioLevel" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckP90AudioLevel" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckRTTP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckRTTP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckAudioBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPublishCheckVideoBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckRTTP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckRTTP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckAudioBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckAudioBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckVideoBandwidthP50" description="" data_type="Float32" />
-      <column metric_name="CustomerPlayCheckVideoBandwidthP90" description="" data_type="Float32" />
-      <column metric_name="MSCWebRTCStatsCount" description="" data_type="Int32" />
-      <column metric_name="NullRTTStatsCount" description="" data_type="Int32" />
-    </metrics>
-    </table>
-  <table name="msc_health_check_decision" description="Description for msc_health_check_decision">
-    <metrics>
-      <column metric_name="PublishRTTMean" description="" data_type="Float32" />
-      <column metric_name="PublishRTTP90" description="" data_type="Float32" />
-      <column metric_name="PublishRTTP50" description="" data_type="Float32" />
-    </metrics>
-    </table>
-  <table name="msc_health_check_mappings" description="Description for msc_health_check_mappings">
-    <metrics>
-      <column metric_name="IsPlayNeeded" description="" data_type="Nullable(UInt8)" />
-    </metrics>
-    </table>
-  <table name="msc_ms_rooms" description="Description for msc_ms_rooms">
-    <metrics />
-    </table>
-  <table name="msc_participants" description="Description for msc_participants">
-    <metrics />
-    </table>
-  <table name="msc_room_state_change" description="Description for msc_room_state_change">
-    <metrics>
-      <column metric_name="StateChangeTAT" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="msc_rooms" description="Description for msc_rooms">
-    <metrics>
-      <column metric_name="ComposeOnDemand" description="" data_type="Int8" />
-      <column metric_name="WebhookAfterComposition" description="" data_type="Int8" />
-      <column metric_name="StartAfterAllJoin" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="msc_stream_state_change" description="Description for msc_stream_state_change">
-    <metrics>
-      <column metric_name="StateChangeTAT" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="msc_streams" description="Description for msc_streams">
-    <metrics />
-    </table>
-  <table name="msc_video_composition_executed" description="Description for msc_video_composition_executed">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Nullable(Float64)" />
-    </metrics>
-    </table>
-  <table name="msc_webrtc_stats" description="Description for msc_webrtc_stats">
-    <metrics>
-      <column metric_name="IsChrome" description="" data_type="Int8" />
-      <column metric_name="RTT" description="" data_type="Float64" />
-      <column metric_name="Resolutions_Height" description="" data_type="Int64" />
-      <column metric_name="CpuLimitedResolution" description="" data_type="Int8" />
-      <column metric_name="Audio_AudioLevel" description="" data_type="Float64" />
-      <column metric_name="Audio_TotalAudioEnergy" description="" data_type="Float64" />
-      <column metric_name="Audio_Bytes" description="" data_type="Float64" />
-      <column metric_name="Audio_PacketsLost" description="" data_type="Int64" />
-      <column metric_name="Audio_Latency" description="" data_type="Int64" />
-      <column metric_name="Audio_Jitter" description="" data_type="Float64" />
-      <column metric_name="Audio_JitterBufferDelay" description="" data_type="Float64" />
-      <column metric_name="Track_Audio_Enabled" description="" data_type="Int8" />
-      <column metric_name="Track_Audio_Muted" description="" data_type="Int8" />
-      <column metric_name="Track_Audio_Isolated" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="pg_client_costs_master" description="Description for pg_client_costs_master">
-    <metrics>
-      <column metric_name="Cost" description="" data_type="Float32" />
-    </metrics>
-    </table>
-  <table name="pg_inbound_adaptors_activities" description="Description for pg_inbound_adaptors_activities">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Nullable(Int32)" />
-      <column metric_name="Attempt" description="" data_type="Nullable(Int32)" />
-    </metrics>
-    </table>
-  <table name="pg_outbound_adaptors_activities_v2" description="Description for pg_outbound_adaptors_activities_v2">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Nullable(Int32)" />
-      <column metric_name="Attempt" description="" data_type="Nullable(Int32)" />
-    </metrics>
-    </table>
-  <table name="pg_pii_purged_objects" description="Description for pg_pii_purged_objects">
-    <metrics />
-    </table>
-  <table name="pg_profile_state_transitions" description="Description for pg_profile_state_transitions">
-    <metrics />
-    </table>
-  <table name="pm_capture_session_meta" description="Description for pm_capture_session_meta">
-    <metrics>
-      <column metric_name="Lat" description="" data_type="Nullable(Float32)" />
-      <column metric_name="Long" description="" data_type="Nullable(Float32)" />
-    </metrics>
-    </table>
-  <table name="pm_external_tasks_executed" description="Description for pm_external_tasks_executed">
-    <metrics />
-    </table>
-  <table name="pm_link_clicked" description="Description for pm_link_clicked">
-    <metrics />
-    </table>
-  <table name="pm_maker_checker_daily_mis_report" description="Description for pm_maker_checker_daily_mis_report">
-    <metrics>
-      <column metric_name="ProfilesInPendingReview" description="" data_type="Int32" />
-      <column metric_name="NewProfilesForReview" description="" data_type="Int32" />
-      <column metric_name="TotalUniqueCustomer" description="" data_type="Int32" />
-      <column metric_name="AvgCallDuration" description="" data_type="Float32" />
-      <column metric_name="AvgWaitTimeInQueue" description="" data_type="Float32" />
-      <column metric_name="VerifiedCount" description="" data_type="Int32" />
-      <column metric_name="RejectedCount" description="" data_type="Int32" />
-      <column metric_name="CallsAccepted" description="" data_type="Int32" />
-      <column metric_name="CallsDeclined" description="" data_type="Int32" />
-      <column metric_name="CallNoAction" description="" data_type="Int32" />
-      <column metric_name="CallsAllocated" description="" data_type="Int32" />
-      <column metric_name="CheckerApproved" description="" data_type="Int32" />
-      <column metric_name="CheckerAutoApproved" description="" data_type="Int32" />
-      <column metric_name="RepeatCustomerCalls" description="" data_type="Int32" />
-      <column metric_name="UTVCount" description="" data_type="Int32" />
-      <column metric_name="CheckerRejected" description="" data_type="Int32" />
-      <column metric_name="CheckerAutoRejected" description="" data_type="Int32" />
-    </metrics>
-    </table>
-  <table name="pm_package_meta" description="Description for pm_package_meta">
-    <metrics>
-      <column metric_name="AutocloseEnabled" description="" data_type="Int8" />
-      <column metric_name="Active" description="" data_type="Int8" />
-      <column metric_name="ReviewEnabled" description="" data_type="Int8" />
-      <column metric_name="CaptureEnabled" description="" data_type="Int8" />
-      <column metric_name="APIOnly" description="" data_type="Int8" />
-      <column metric_name="IsGeneric" description="" data_type="Nullable(Int8)" />
-      <column metric_name="CaptureExpiresIn" description="" data_type="Nullable(Int64)" />
-      <column metric_name="PermitMultipleCaptures" description="" data_type="Nullable(Int8)" />
-      <column metric_name="CaptureProcessingEnabled" description="" data_type="Int8" />
-      <column metric_name="ScreenshotEditEnabled" description="" data_type="Nullable(Int8)" />
-      <column metric_name="ReviewWaitTime" description="" data_type="Nullable(Int64)" />
-    </metrics>
-    </table>
-  <table name="pm_pdf_generation_exceptions" description="Description for pm_pdf_generation_exceptions">
-    <metrics />
-    </table>
-  <table name="pm_pdf_generation_executed" description="Description for pm_pdf_generation_executed">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_pdf_publisher_executed" description="Description for pm_pdf_publisher_executed">
-    <metrics />
-    </table>
-  <table name="pm_profile_creation_webhook_executed" description="Description for pm_profile_creation_webhook_executed">
-    <metrics>
-      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
-      <column metric_name="RetriesLeft" description="" data_type="Int64" />
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_profile_creation_webhook_retries" description="Description for pm_profile_creation_webhook_retries">
-    <metrics>
-      <column metric_name="RetriesLeft" description="" data_type="Nullable(Int64)" />
-      <column metric_name="HTTPStatusCode" description="" data_type="Int64" />
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_profile_status_update_webhook_executed" description="Description for pm_profile_status_update_webhook_executed">
-    <metrics>
-      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
-      <column metric_name="RetriesLeft" description="" data_type="Int64" />
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_profile_status_update_webhook_retries" description="Description for pm_profile_status_update_webhook_retries">
-    <metrics>
-      <column metric_name="RetriesLeft" description="" data_type="Int64" />
-      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_resolve_location_result" description="Description for pm_resolve_location_result">
-    <metrics />
-    </table>
-  <table name="pm_reviewer_action" description="Description for pm_reviewer_action">
-    <metrics>
-      <column metric_name="AutoClosed" description="" data_type="Int8" />
-    </metrics>
-    </table>
-  <table name="pm_session_status_update_webhook_executed" description="Description for pm_session_status_update_webhook_executed">
-    <metrics>
-      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
-      <column metric_name="RetriesLeft" description="" data_type="Int64" />
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_session_status_update_webhook_retries" description="Description for pm_session_status_update_webhook_retries">
-    <metrics>
-      <column metric_name="RetriesLeft" description="" data_type="Int64" />
-      <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
-      <column metric_name="TAT" description="" data_type="Float64" />
-    </metrics>
-    </table>
-  <table name="pm_task_inputs_flattened" description="Description for pm_task_inputs_flattened">
-    <metrics>
-      <column metric_name="ResourceCount" description="" data_type="Int32" />
-    </metrics>
-    </table>
-  <table name="pm_tasks_executed_billing" description="Description for pm_tasks_executed_billing">
-    <metrics />
-    </table>
-  <table name="pm_tasks_executed_billing_mv" description="Description for pm_tasks_executed_billing_mv">
-    <metrics>
-      <column metric_name="HourInIST" description="" data_type="UInt8" />
-    </metrics>
-    </table>
-  <table name="profile_capture_tat_breakdown" description="Description for profile_capture_tat_breakdown">
-    <metrics>
-      <column metric_name="IsRecapture" description="" data_type="Nullable(Int8)" />
-      <column metric_name="ReviewerTAT" description="" data_type="Nullable(Int64)" />
-    </metrics>
-    </table>
-  <table name="pm_profile_states_count" description="Description for pm_profile_states_count">
-    <metrics>
-      <column metric_name="pm_profile_states_Count" description="" data_type="Float" />
-    </metrics>
-    </table>
-  <table name="hr_portal_profiles_created" description="Description for hr_portal_profiles_created">
-    <metrics />
-    </table>
-  <table name="agentservices_tasky_task_states_v2" description="Description for agentservices_tasky_task_states_v2">
-    <metrics />
-    </table>
-  <table name="ops_portal_tasks_created" description="Description for ops_portal_tasks_created">
-    <metrics />
-    </table>
-  <table name="tasky_completed_tasks" description="Description for tasky_completed_tasks">
-    <metrics>
-      <column metric_name="TAT" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="tasky_reviewer_activity_stats" description="Description for tasky_reviewer_activity_stats">
-    <metrics>
-      <column metric_name="ToggleOntimeMS" description="" data_type="Int64" />
-      <column metric_name="ToggleOfftimeMS" description="" data_type="Int64" />
-      <column metric_name="InReviewTimeMS" description="" data_type="Int64" />
-    </metrics>
-    </table>
-  <table name="profile_master_attributes" description="Description for profile_master_attributes">
-    <metrics />
-    </table>
-  <table name="profile_master_profiles" description="Description for profile_master_profiles">
-    <metrics />
-    </table>
+    <table name="agentservices_tasky_agent_states_v2" description="Contains Tasky agent state change events">
+        <metrics />
+        </table>
+    <table name="agentservices_tasky_allocation_created" description="Stores metadata against each Tasky agent allocation">
+        <metrics />
+        </table>
+    <table name="agentservices_tasky_reviewer_offline_events" description="Contains Tasky reviewer offline events with reason">
+        <metrics />
+        </table>
+    <table name="agentservices_tasky_task_states_v2" description="Contains Tasky task state change events">
+        <metrics />
+        </table>
+    <table name="agentservices_tasky_tasks_completed" description="Tasky task completed events">
+        <metrics />
+        </table>
+    <table name="agentservices_tasky_tasks_created" description="Tasky task created events">
+        <metrics />
+        </table>
+    <table name="agentservices_tasky_tasks_events" description="Tasky task action events (accepted, declined, missed)">
+        <metrics />
+        </table>
+    <table name="av_agent_offline_reasons" description="Contains reasons for operator going offline">
+        <metrics>
+            <column metric_name="TAT" description="Duration for which agent was offline" data_type="Int64" />
+        </metrics>
+        </table>
+    <table name="av_allocation_events" description="Stores metadata for operator allocation to Users">
+        <metrics>
+            <column metric_name="Assigned" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="av_call_details" description="Contains customer/task and operator events">
+        <metrics>
+            <column metric_name="UserWasInCall" description="" data_type="Nullable(UInt8)" />
+        </metrics>
+        </table>
+    <table name="av_call_events" description="Contains customer/task events before it gets allocated">
+        <metrics>
+            <column metric_name="Assigned" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="av_completed_profiles" description="Contains details of the Profiles which are completed. Profiles which are either marked as Accepted or Rejected or UTV">
+        <metrics>
+            <column metric_name="OverallTAT" description="Time duration from profile creation to completion" data_type="Int64" />
+            <column metric_name="CallDuration" description="Call duration of the task" data_type="Int64" />
+            <column metric_name="WaitTimeInQueue" description="Customer's wait time" data_type="Int64" />
+            <column metric_name="FirstAttemptToCompletionTAT" description="Time duration from first link open by customer to profile completion" data_type="Int64" />
+            <column metric_name="DaysToInvokeFirstCapture" description="Time duration from profile creation to link clicked" data_type="Int64" />
+            <column metric_name="ReviewerTAT" description="Time taken by agent to perform review on the profile. Review start to review completion." data_type="Nullable(Int64)" />
+            <column metric_name="TotalEngagementTimePreVideo" description="Time duration from link clicked to start of video call" data_type="Nullable(Int64)" />
+            <column metric_name="CaptureJourneyTAT" description="Total duration taken by customer including video call" data_type="Nullable(Int64)" />
+            <column metric_name="CaptureInvokedToReviewRequiredTAT" description="Time duration from first link opened by customer to when profile went to review required" data_type="Nullable(Int64)" />
+            <column metric_name="VCTime" description="Time taken for Video Composition of recordings" data_type="Nullable(Int64)" />
+            <column metric_name="TotalProfileLevelCaptures" description="No of capture journeys completed for a profile done by customer. Based on Capture ID." data_type="Int64" />
+            <column metric_name="TotalCaptureAttempts" description="No of capture journeys attempted for a profile done by customer. Based on capture sessions." data_type="Int64" />
+            <column metric_name="TotalVideoCallAttempts" description="Total number of video calls done by the customer" data_type="Int64" />
+            <column metric_name="StraightPassThrough" description="" data_type="Int8" />
+            <column metric_name="TechnicalReasonUTVs" description="No of UTV tasks for the profile due to technical reasons" data_type="Int64" />
+            <column metric_name="BusinessReasonUTVs" description="No of UTV tasks for the profile due to business reasons" data_type="Int64" />
+        </metrics>
+        </table>
+    <table name="av_completed_tasks_v2" description="Contains details of the tasks which are completed by the agent. Contains UTV reasons for the tasks">
+        <metrics>
+            <column metric_name="CallDuration" description="Duration of video call" data_type="Int32" />
+            <column metric_name="MSCStartAfterAllJoin" description="MSC configuration flag" data_type="Int8" />
+            <column metric_name="CustomerOutgoingBitrateAvg" description="Average outgoing bitrate of customer during video call" data_type="Float32" />
+            <column metric_name="CustomerIncomingBitrateAvg" description="Average incoming bitrate of customer during video call" data_type="Float32" />
+            <column metric_name="OperatorOutgoingBitrateAvg" description="Average outgoing bitrate of operator during video call" data_type="Float32" />
+            <column metric_name="OperatorIncomingBitrateAvg" description="Average incoming bitrate of operator during video call" data_type="Float32" />
+            <column metric_name="CustomerOutgoingBitrateP90" description="P90 outgoing bitrate of customer during video call" data_type="Float32" />
+            <column metric_name="CustomerIncomingBitrateP90" description="P90 incoming bitrate of customer during video call" data_type="Float32" />
+            <column metric_name="OperatorOutgoingBitrateP90" description="P90 outgoing bitrate of operator during video call" data_type="Float32" />
+            <column metric_name="OperatorIncomingBitrateP90" description="P90 incoming bitrate of operator during video call" data_type="Float32" />
+            <column metric_name="CustomerInputAudioLevelP90" description="P90 customer audio level of mic" data_type="Float32" />
+            <column metric_name="CustomerOutputAudioLevelP90" description="P90 customer audio level of speaker" data_type="Float32" />
+            <column metric_name="OperatorInputAudioLevelP90" description="P90 operator audio level of mic" data_type="Float32" />
+            <column metric_name="OperatorOutputAudioLevelP90" description="P90 operator audio level of speaker" data_type="Float32" />
+            <column metric_name="CustomerMSReconnectCount" description="No of reconnects triggered by customer during the call" data_type="Int8" />
+            <column metric_name="OperatorMSReconnectCount" description="No of reconnects triggered by operator during the call" data_type="Int8" />
+            <column metric_name="OperatorMSAutoReconnectCount" description="No of auto reconnects triggered by operator during the call" data_type="Int8" />
+            <column metric_name="OperatorMSManualReconnectCount" description="No of manual reconnects triggered by operator during the call" data_type="Int8" />
+            <column metric_name="WaitTimeInQueue" description="Wait time of customer in queue before video call" data_type="Nullable(Int64)" />
+            <column metric_name="SuccessBandwidthCheckCount" description="No of successful bandwidth check done before video call" data_type="Int32" />
+            <column metric_name="SuccessBandwidthCheckAvgTAT" description="Average bandwidth of bandwidth check done before video call" data_type="Float64" />
+            <column metric_name="FailedBandwidthCheckCount" description="No of failed bandwidth check done before video call" data_type="Int32" />
+            <column metric_name="FailedBandwidthCheckAvgTAT" description="Average bandwidth of failed bandwidth check done before video call" data_type="Float64" />
+            <column metric_name="Attempt1BandwidthCheckTAT" description="Bandwidth check TAT of attempt 1" data_type="Float64" />
+            <column metric_name="Attempt2BandwidthCheckTAT" description="Bandwidth check TAT of attempt 2" data_type="Float64" />
+            <column metric_name="Attempt3BandwidthCheckTAT" description="Bandwidth check TAT of attempt 3" data_type="Float64" />
+            <column metric_name="HealthCheckAttemptCount" description="Count of health check performed" data_type="Int32" />
+            <column metric_name="CustomerPublishCheckAudioLevel" description="Audio level of customer's outgoing stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckAudioLevel" description="Audio level of customer's incoming stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckRTTP50" description="P50 RTT of customer's outgoing stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckRTTP90" description="P90 RTT of customer's outgoing stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="P50 bandwidth of customer's outgoing audio stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckAudioBandwidthP90" description="P90 bandwidth of customer's outgoing audio stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="P50 bandwidth of customer's outgoing video stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckVideoBandwidthP90" description="P90 bandwidth of customer's outgoing video stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckRTTP50" description="P50 RTT of customer's incoming stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckRTTP90" description="P90 RTT of customer's incoming stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckAudioBandwidthP50" description="P50 bandwidth of customer's incoming audio stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckAudioBandwidthP90" description="P90 bandwidth of customer's incoming audio stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckVideoBandwidthP50" description="P50 bandwidth of customer's incoming video stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckVideoBandwidthP90" description="P90 bandwidth of customer's incoming video stream of &quot;Health Check&quot; before video call" data_type="Float32" />
+            <column metric_name="CustomerPublishRTTP50" description="P50 customer outgoing Round Trip Time" data_type="Float32" />
+            <column metric_name="CustomerPublishRTTP90" description="P90 customer outgoing Round Trip Time" data_type="Float32" />
+            <column metric_name="CustomerPlayRTTP50" description="P50 customer incoming Round Trip Time" data_type="Float32" />
+            <column metric_name="CustomerPlayRTTP90" description="P90 customer incoming Round Trip Time" data_type="Float32" />
+        </metrics>
+        </table>
+    <table name="av_operator_action" description="Contains details about the actions taken by the Agent on the Task">
+        <metrics />
+        </table>
+    <table name="av_operator_activity_stats" description="Contains aggregate details about agent actions like InCallTime, SuspendedTime etc">
+        <metrics>
+            <column metric_name="ToggleOntimeMS" description="Total time duration for which operator was active" data_type="Int64" />
+            <column metric_name="SuspendedTimeMS" description="Total time spent by operator in suspended state" data_type="Int64" />
+            <column metric_name="AllocatedTimeMS" description="Total time spent by operator in allocated state" data_type="Nullable(Int64)" />
+        </metrics>
+        </table>
+    <table name="av_operator_events" description="Operator events before allocation">
+        <metrics />
+        </table>
+    <table name="av_operator_hourly_stats" description="Contains information about number of calls allocated, accepted, rejected and missed by the operator per hour">
+        <metrics>
+            <column metric_name="CallsAllocatedCount" description="No of calls allocated" data_type="Int16" />
+            <column metric_name="CallsAcceptedCount" description="No of incoming calls accepted" data_type="Int16" />
+            <column metric_name="CallsNoActionCount" description="No of incoming calls where no action was taken" data_type="Int16" />
+            <column metric_name="CallsDeclinedCount" description="No of incoming calls declined" data_type="Int16" />
+            <column metric_name="CallsCompletedCount" description="No of calls completed" data_type="Int16" />
+            <column metric_name="CallsVerifiedCount" description="No of completed calls marked as Verified" data_type="Int16" />
+            <column metric_name="CallsRejectedCount" description="No of completed calls marked as Rejected" data_type="Int16" />
+            <column metric_name="CallsUTVCount" description="No of completed calls marked as Unable To Verify" data_type="Int16" />
+            <column metric_name="CallsUTVBusinessCount" description="No of completed calls marked as Unable To Verify due to business reasons" data_type="Int16" />
+            <column metric_name="CallsUTVTechnicalCount" description="No of completed calls marked as Unable To Verify due to technical reasons reasons" data_type="Int16" />
+            <column metric_name="InCallTime" description="Time spent in video call in seconds" data_type="Int32" />
+            <column metric_name="OutgoingBitrateAvg" description="Average outgoing bitrate of operator" data_type="Nullable(Float32)" />
+            <column metric_name="IncomingBitrateAvg" description="Average incoming bitrate of operator" data_type="Nullable(Float32)" />
+            <column metric_name="OutgoingBitrateP90" description="P90 outgoing bitrate of operator" data_type="Nullable(Float32)" />
+            <column metric_name="IncomingBitrateP90" description="P90 incoming bitrate of operator" data_type="Nullable(Float32)" />
+            <column metric_name="InputAudioLevelP90" description="P90 audio level of mic" data_type="Nullable(Float32)" />
+            <column metric_name="OutputAudioLevelP90" description="P90 audio level of speaker" data_type="Nullable(Float32)" />
+            <column metric_name="MSReconnectCount" description="Total no of reconnects triggered on the operator side" data_type="Int16" />
+            <column metric_name="MSAutoReconnectCount" description="Total no of auto reconnects triggered on the operator side" data_type="Int16" />
+            <column metric_name="MSManualReconnectCount" description="Total no of manual reconnects triggered on the operator side" data_type="Int16" />
+        </metrics>
+        </table>
+    <table name="av_operator_state" description="Contains information about state of agent. Records when the agent goes offline and comes back online. ">
+        <metrics />
+        </table>
+    <table name="av_reconnect_details" description="Contains reasons and details of call reconnection. Includes information about whether the reconnect was Auto or Manual and Reconnection reason">
+        <metrics>
+            <column metric_name="ReconnectTAT" description="Time taken to perform the reconnect" data_type="Int64" />
+            <column metric_name="GetUserMediaTAT" description="TAT to invoke GetUserMedia (get camera access)" data_type="Nullable(Int64)" />
+        </metrics>
+        </table>
+    <table name="av_session_meta" description="Metadata of each AssistedVideo task session">
+        <metrics>
+            <column metric_name="Assigned" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="av_session_queue_wait_time_summary" description="Wait time for an AV Session">
+        <metrics>
+            <column metric_name="WaitTime" description="Time for which customer was waiting in the queue" data_type="Int32" />
+        </metrics>
+        </table>
+    <table name="capture_camera_switch_events" description="Capture camera switch events">
+        <metrics />
+        </table>
+    <table name="capture_create_media_stream_events" description="Capture events representing media stream creation events">
+        <metrics>
+            <column metric_name="TAT" description="TAT of event" data_type="Nullable(UInt16)" />
+        </metrics>
+        </table>
+    <table name="capture_customer_remote_video_state" description="State change events of incoming video stream being downloaded">
+        <metrics>
+            <column metric_name="IsMuted" description="" data_type="Nullable(UInt8)" />
+            <column metric_name="IsRetry" description="" data_type="UInt8" />
+            <column metric_name="IsPlayAttempted" description="" data_type="Nullable(UInt8)" />
+        </metrics>
+        </table>
+    <table name="capture_exception_events" description="All exception events of Capture">
+        <metrics>
+            <column metric_name="LogSequenceNo" description="" data_type="Nullable(UInt16)" />
+            <column metric_name="Retransmitted" description="" data_type="Nullable(UInt8)" />
+        </metrics>
+        </table>
+    <table name="capture_executed_image_captures" description="Capture impage capture events during video call">
+        <metrics>
+            <column metric_name="CompressionQuality" description="Compression quality of images captured during video call" data_type="Nullable(Float32)" />
+            <column metric_name="AttemptedHeight" description="Attempted height of image being captured" data_type="Nullable(Int64)" />
+            <column metric_name="CapturedHeight" description="Actual height of image being captured" data_type="Nullable(Int64)" />
+            <column metric_name="IsFileUpload" description="" data_type="Nullable(Int8)" />
+        </metrics>
+        </table>
+    <table name="capture_funnel" description="Contains page navigation summary for each Capture Session. Useful to get user drop off data. Each row represents a Capture Session.">
+        <metrics />
+        </table>
+    <table name="capture_funnel_timeline" description="Contains page navigation events for Capture Session. Each row represents individual navigation.">
+        <metrics>
+            <column metric_name="EngagementTime" description="Time spent by the customer on the current page" data_type="UInt64" />
+            <column metric_name="TimeFromJourneyStart" description="Total time spent by the customer from journey start to the current page" data_type="UInt64" />
+            <column metric_name="TimeFromPreviousPage" description="Time spent by the customer on the previous page" data_type="UInt64" />
+            <column metric_name="IsLastPage" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="capture_media_stream_ended_events" description="Capture events representing media stream ended events">
+        <metrics>
+            <column metric_name="IsCallOngoing" description="" data_type="Nullable(UInt8)" />
+        </metrics>
+        </table>
+    <table name="msc_audio_stats" description="Contains events representing audio input level during a video call">
+        <metrics>
+            <column metric_name="AudioLevel" description="Audio level of mic" data_type="Float64" />
+        </metrics>
+        </table>
+    <table name="msc_call_events" description="Contains MSC events for participants like Joined, Reconnected &amp; Left">
+        <metrics />
+        </table>
+    <table name="msc_health_check_aggregated_stats" description="Stats of &quot;Health Checks&quot; performed before video call. Includes failed health checks">
+        <metrics>
+            <column metric_name="SuccessBandwidthCheckCount" description="Total number of successful bandwidth checks for the task" data_type="Int32" />
+            <column metric_name="SuccessBandwidthCheckAvgTAT" description="Average TAT of successful bandwidth checks for the task" data_type="Float64" />
+            <column metric_name="FailedBandwidthCheckCount" description="Total number of failed bandwidth checks for the task" data_type="Int32" />
+            <column metric_name="FailedBandwidthCheckAvgTAT" description="Average TAT of failed bandwidth checks for the task" data_type="Float64" />
+            <column metric_name="Attempt1BandwidthCheckTAT" description="TAT of first bandwidth check performed" data_type="Float64" />
+            <column metric_name="Attempt2BandwidthCheckTAT" description="TAT of second bandwidth check performed" data_type="Float64" />
+            <column metric_name="Attempt3BandwidthCheckTAT" description="TAT of third bandwidth check performed" data_type="Float64" />
+            <column metric_name="CustomerPublishCheckP50AudioLevel" description="P50 audio level of customer's outgoing stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckP90AudioLevel" description="P90 audio level of customer's outgoing stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckP50AudioLevel" description="P50 audio level of customer's incoming stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckP90AudioLevel" description="P90 audio level of customer's incoming stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckRTTP50" description="P50 RTT of customer's outgoing stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckRTTP90" description="P90 RTT of customer's outgoing stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckAudioBandwidthP50" description="P50 bandwidth of customer's outgoing audio stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckAudioBandwidthP90" description="P90 bandwidth of customer's outgoing audio stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckVideoBandwidthP50" description="P50 bandwidth of customer's outgoing video stream" data_type="Float32" />
+            <column metric_name="CustomerPublishCheckVideoBandwidthP90" description="P90 bandwidth of customer's outgoing video stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckRTTP50" description="P50 RTT of customer's incoming stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckRTTP90" description="P90 RTT of customer's incoming stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckAudioBandwidthP50" description="P50 bandwidth of customer's incoming audio stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckAudioBandwidthP90" description="P90 bandwidth of customer's incoming audio stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckVideoBandwidthP50" description="P50 bandwidth of customer's incoming video stream" data_type="Float32" />
+            <column metric_name="CustomerPlayCheckVideoBandwidthP90" description="P90 bandwidth of customer's incoming video stream" data_type="Float32" />
+            <column metric_name="MSCWebRTCStatsCount" description="Total number of WebRTC stats events" data_type="Int32" />
+            <column metric_name="NullRTTStatsCount" description="Count of events where RTT stats were missing" data_type="Int32" />
+        </metrics>
+        </table>
+    <table name="msc_health_check_decision" description="Contains results of &quot;Health Checks&quot; performed before video call">
+        <metrics>
+            <column metric_name="PublishRTTMean" description="Average RTT of outgoing video stream" data_type="Float32" />
+            <column metric_name="PublishRTTP90" description="P90 RTT of outgoing video stream" data_type="Float32" />
+            <column metric_name="PublishRTTP50" description="P50 RTT of outgoing video stream" data_type="Float32" />
+        </metrics>
+        </table>
+    <table name="msc_health_check_mappings" description="Contains additional mapping fields for Health Check decision">
+        <metrics>
+            <column metric_name="IsPlayNeeded" description="" data_type="Nullable(UInt8)" />
+        </metrics>
+        </table>
+    <table name="msc_ms_rooms" description="External Media Server room creation events">
+        <metrics />
+        </table>
+    <table name="msc_participants" description="MSC Participant creation events">
+        <metrics />
+        </table>
+    <table name="msc_room_state_change" description="MSC Room state change events">
+        <metrics>
+            <column metric_name="StateChangeTAT" description="Time duration for which Room state stayed in previous state" data_type="Int64" />
+        </metrics>
+        </table>
+    <table name="msc_rooms" description="MSC Room creation events">
+        <metrics>
+            <column metric_name="ComposeOnDemand" description="" data_type="Int8" />
+            <column metric_name="WebhookAfterComposition" description="" data_type="Int8" />
+            <column metric_name="StartAfterAllJoin" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="msc_stream_state_change" description="MSC Stream state change events">
+        <metrics>
+            <column metric_name="StateChangeTAT" description="Time duration for which Stream state stayed in previous state" data_type="Int64" />
+        </metrics>
+        </table>
+    <table name="msc_streams" description="MSC Stream creation events">
+        <metrics />
+        </table>
+    <table name="msc_video_composition_executed" description="MSC video composition execution events">
+        <metrics>
+            <column metric_name="TAT" description="Time taken for video composition" data_type="Nullable(Float64)" />
+        </metrics>
+        </table>
+    <table name="msc_webrtc_stats" description="MSC WebRTC stats of video &amp; audio being streamed. Helpful to get network, quality of call, etc. Metrics are measured &amp; transmitted every fixed interval to this table.">
+        <metrics>
+            <column metric_name="IsChrome" description="" data_type="Int8" />
+            <column metric_name="RTT" description="Round Trip Time" data_type="Float64" />
+            <column metric_name="Resolutions_Height" description="Height of video being transmitted" data_type="Int64" />
+            <column metric_name="CpuLimitedResolution" description="" data_type="Int8" />
+            <column metric_name="Audio_AudioLevel" description="Represents audio level/loudness" data_type="Float64" />
+            <column metric_name="Audio_TotalAudioEnergy" description="Accumulated total audio energy from the start of the call" data_type="Float64" />
+            <column metric_name="Audio_Bytes" description="Total bytes of audio stream transmitted form start of call" data_type="Float64" />
+            <column metric_name="Audio_PacketsLost" description="Packets lost of audio stream" data_type="Int64" />
+            <column metric_name="Audio_Latency" description="Audio stream latency" data_type="Int64" />
+            <column metric_name="Audio_Jitter" description="Audio jitter" data_type="Float64" />
+            <column metric_name="Audio_JitterBufferDelay" description="Time spent by audio packets in the jitter buffer before being decoded" data_type="Float64" />
+            <column metric_name="Track_Audio_Enabled" description="" data_type="Int8" />
+            <column metric_name="Track_Audio_Muted" description="" data_type="Int8" />
+            <column metric_name="Track_Audio_Isolated" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="pg_outbound_adaptors_activities_v2" description="Outbound adaptor webhook logs">
+        <metrics>
+            <column metric_name="TAT" description="Webhook API response TAT" data_type="Nullable(Int32)" />
+            <column metric_name="Attempt" description="Attempt number for the webhook" data_type="Nullable(Int32)" />
+        </metrics>
+        </table>
+    <table name="pg_profile_state_transitions" description="Stored information about the Personal Indentifcation Information(PII) purging/deletion">
+        <metrics />
+        </table>
+    <table name="pm_capture_session_meta" description="Stored meta information about the capture session that is created for capturing customer's Data">
+        <metrics>
+            <column metric_name="Lat" description="Geolocation latitude of the customer" data_type="Nullable(Float32)" />
+            <column metric_name="Long" description="Geolocation longitude of the customer" data_type="Nullable(Float32)" />
+        </metrics>
+        </table>
+    <table name="pm_external_tasks_executed" description="Contains API call details to external services">
+        <metrics />
+        </table>
+    <table name="pm_link_clicked" description="Contains details of Verification links clicked by the customer">
+        <metrics />
+        </table>
+    <table name="pm_package_meta" description="Package creation event containing additional metadata describing the journey">
+        <metrics>
+            <column metric_name="AutocloseEnabled" description="" data_type="Int8" />
+            <column metric_name="Active" description="" data_type="Int8" />
+            <column metric_name="ReviewEnabled" description="" data_type="Int8" />
+            <column metric_name="CaptureEnabled" description="" data_type="Int8" />
+            <column metric_name="APIOnly" description="" data_type="Int8" />
+            <column metric_name="IsGeneric" description="" data_type="Nullable(Int8)" />
+            <column metric_name="CaptureExpiresIn" description="Capure expiry set on the package" data_type="Nullable(Int64)" />
+            <column metric_name="PermitMultipleCaptures" description="" data_type="Nullable(Int8)" />
+            <column metric_name="CaptureProcessingEnabled" description="" data_type="Int8" />
+            <column metric_name="ScreenshotEditEnabled" description="" data_type="Nullable(Int8)" />
+        </metrics>
+        </table>
+    <table name="pm_pdf_generation_exceptions" description="PDF generation exceptions">
+        <metrics />
+        </table>
+    <table name="pm_pdf_generation_executed" description="PDF generation executed">
+        <metrics>
+            <column metric_name="TAT" description="TAT of PDF Generation" data_type="Float64" />
+        </metrics>
+        </table>
+    <table name="pm_profile_creation_webhook_executed" description="Profile creation webhook events with success/error responses">
+        <metrics>
+            <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+            <column metric_name="RetriesLeft" description="Count of retries left" data_type="Int64" />
+            <column metric_name="TAT" description="Webhook API response TAT" data_type="Float64" />
+        </metrics>
+        </table>
+    <table name="pm_profile_status_update_webhook_executed" description="Profile status update webhook events with success/error responses">
+        <metrics>
+            <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+            <column metric_name="RetriesLeft" description="Count of retries left" data_type="Int64" />
+            <column metric_name="TAT" description="Webhook API response TAT" data_type="Float64" />
+        </metrics>
+        </table>
+    <table name="pm_resolve_location_result" description="Event containing location data from GPS coordinates of Customer">
+        <metrics />
+        </table>
+    <table name="pm_reviewer_action" description="Profile Manager reviewer action events">
+        <metrics>
+            <column metric_name="AutoClosed" description="" data_type="Int8" />
+        </metrics>
+        </table>
+    <table name="pm_session_status_update_webhook_executed" description="Session status update webhook events with success/error responses">
+        <metrics>
+            <column metric_name="HTTPStatusCode" description="" data_type="Nullable(Int64)" />
+            <column metric_name="RetriesLeft" description="Count of retries left" data_type="Int64" />
+            <column metric_name="TAT" description="Webhook API response TAT" data_type="Float64" />
+        </metrics>
+        </table>
+    <table name="pm_task_inputs_flattened" description="Contains documents processed during the Capture Journey">
+        <metrics>
+            <column metric_name="ResourceCount" description="Total number of documents captured during capture journey" data_type="Int32" />
+        </metrics>
+        </table>
+    <table name="agentservices_tasky_task_states_v2" description="Description for agentservices_tasky_task_states_v2">
+        <metrics />
+        </table>
+    <table name="tasky_completed_tasks" description="Each row respresents a Tasky task with info about that task">
+        <metrics>
+            <column metric_name="TAT" description="Time taken from first task allocation to task completion" data_type="Int64" />
+        </metrics>
+        </table>
+    <table name="tasky_reviewer_activity_stats" description="Contains Tasky reviewer state statistics">
+        <metrics>
+            <column metric_name="ToggleOntimeMS" description="Total time agent was online" data_type="Int64" />
+            <column metric_name="ToggleOfftimeMS" description="Total time agent was offline" data_type="Int64" />
+            <column metric_name="InReviewTimeMS" description="Total time agent spent reviewing tasks" data_type="Int64" />
+        </metrics>
+        </table>
 </tables>

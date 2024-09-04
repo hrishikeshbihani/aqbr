@@ -492,7 +492,7 @@
             <column dimension_name="PackageID" description="" data_type="Nullable(String)" />
         </dimensions>
     </table>
-    <table name="av_session_queue_wait_time_summary" description="Wait time for an AV Session">
+    <table name="av_session_queue_wait_time_summary" description="Wait time for an AV Session and Useful to get user drop off data with skill ">
         <metrics>
             <column metric_name="WaitTime" description="Time for which customer was waiting in the queue" data_type="Int32" />
         </metrics>

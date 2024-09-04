@@ -1,0 +1,59 @@
+Name,Description
+agentservices_tasky_agent_states_v2,Contains Tasky agent state change events
+agentservices_tasky_allocation_created,Stores metadata against each Tasky agent allocation
+agentservices_tasky_reviewer_offline_events,Contains Tasky reviewer offline events with reason
+agentservices_tasky_task_states_v2,Contains Tasky task state change events
+agentservices_tasky_tasks_completed,Tasky task completed events
+agentservices_tasky_tasks_created,Tasky task created events
+agentservices_tasky_tasks_events,"Tasky task action events (accepted, declined, missed)"
+av_agent_offline_reasons,Contains reasons for operator going offline
+av_allocation_events,Stores metadata for operator allocation to Users
+av_call_details,Contains customer/task and operator events
+av_call_events,Contains customer/task events before it gets allocated
+av_completed_profiles,Contains details of the Profiles which are completed. Profiles which are either marked as Accepted or Rejected or UTV
+av_completed_tasks_v2,Contains details of the tasks which are completed by the agent. Contains UTV reasons for the tasks
+av_operator_action,Contains details about the actions taken by the Agent on the Task
+av_operator_activity_stats,"Contains aggregate details about agent actions like InCallTime, SuspendedTime etc"
+av_operator_events,Operator events before allocation
+av_operator_hourly_stats,"Contains information about number of calls allocated, accepted, rejected and missed by the operator per hour"
+av_operator_state,Contains information about state of agent. Records when the agent goes offline and comes back online. 
+av_reconnect_details,Contains reasons and details of call reconnection. Includes information about whether the reconnect was Auto or Manual and Reconnection reason
+av_session_meta,Metadata of each AssistedVideo task session
+av_session_queue_wait_time_summary,Wait time for an AV Session
+capture_camera_switch_events,Capture camera switch events
+capture_create_media_stream_events,Capture events representing media stream creation events
+capture_customer_remote_video_state,State change events of incoming video stream being downloaded
+capture_exception_events,All exception events of Capture
+capture_executed_image_captures,Capture impage capture events during video call
+capture_funnel,Contains page navigation summary for each Capture Session. Useful to get user drop off data. Each row represents a Capture Session.
+capture_funnel_timeline,Contains page navigation events for Capture Session. Each row represents individual navigation.
+capture_media_stream_ended_events,Capture events representing media stream ended events
+msc_audio_stats,Contains events representing audio input level during a video call
+msc_call_events,"Contains MSC events for participants like Joined, Reconnected & Left"
+msc_health_check_aggregated_stats,"Stats of ""Health Checks"" performed before video call. Includes failed health checks"
+msc_health_check_decision,"Contains results of ""Health Checks"" performed before video call"
+msc_health_check_mappings,Contains additional mapping fields for Health Check decision
+msc_ms_rooms,External Media Server room creation events
+msc_participants,MSC Participant creation events
+msc_room_state_change,MSC Room state change events
+msc_rooms,MSC Room creation events
+msc_stream_state_change,MSC Stream state change events
+msc_streams,MSC Stream creation events
+msc_video_composition_executed,MSC video composition execution events
+msc_webrtc_stats,"MSC WebRTC stats of video & audio being streamed. Helpful to get network, quality of call, etc. Metrics are measured & transmitted every fixed interval to this table."
+pg_outbound_adaptors_activities_v2,Outbound adaptor webhook logs
+pg_profile_state_transitions,Stored information about the Personal Indentifcation Information(PII) purging/deletion
+pm_capture_session_meta,Stored meta information about the capture session that is created for capturing customer's Data
+pm_external_tasks_executed,Contains API call details to external services
+pm_link_clicked,Contains details of Verification links clicked by the customer
+pm_package_meta,Package creation event containing additional metadata describing the journey
+pm_pdf_generation_exceptions,PDF generation exceptions
+pm_pdf_generation_executed,PDF generation executed
+pm_profile_creation_webhook_executed,Profile creation webhook events with success/error responses
+pm_profile_status_update_webhook_executed,Profile status update webhook events with success/error responses
+pm_resolve_location_result,Event containing location data from GPS coordinates of Customer
+pm_reviewer_action,Profile Manager reviewer action events
+pm_session_status_update_webhook_executed,Session status update webhook events with success/error responses
+pm_task_inputs_flattened,Contains documents processed during the Capture Journey
+tasky_completed_tasks,Each row respresents a Tasky task with info about that task
+tasky_reviewer_activity_stats,Contains Tasky reviewer state statistics

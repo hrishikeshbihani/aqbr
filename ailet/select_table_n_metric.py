@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-tree = ET.parse('./combined_tables_metrics_only.xml')
+tree = ET.parse('./combined_tables_updated.xml')
 root = tree.getroot()
 tables_xml_string = ET.tostring(root, encoding='utf-8', xml_declaration=True).decode('utf-8')
 

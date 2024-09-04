@@ -17,25 +17,70 @@ Rules for the queries you generate are as follows:
 [{"measurement_name":"cs_ous","schema":[{"column":"EID","nullable":false,"data_type":"UUID","description":""},{"column":"ClientID","nullable":false,"data_type":"UUID","description":""},{"column":"OUID","nullable":false,"data_type":"String","description":""},{"column":"OUName","nullable":false,"data_type":"String","description":""},{"column":"Timestamp","nullable":false,"data_type":"DateTime64(3)","description":""},{"column":"AppVSN","nullable":true,"data_type":"String","description":""},{"column":"InsertedAt","nullable":false,"data_type":"DateTime64(3)","description":""},{"column":"Labels","nullable":false,"data_type":"Map(String, String)","description":""},{"column":"RealmName","nullable":true,"data_type":"String","description":""},{"column":"Universe","nullable":true,"data_type":"String","description":""},{"column":"Status","nullable":true,"data_type":"String","description":""},{"column":"Sector","nullable":true,"data_type":"String","description":""},{"column":"UniverseProductService","nullable":true,"data_type":"String","description":""}],"measurement_description":""}]
 """
 system_message_VS = (
-    f"""Video KYC Journey Overview:
-1. Video KYC (Know Your Customer) is conducted for user verification.
-Each client is identified by a unique OUID (Organization Unique Identifier).
-Operators/agents conduct the KYC process for end customers.
-Activities of operators, end customers, and reviewers are logged for analysis.
+    f"""Business Terminologies: 
+ - Client: IDfy's clients using our products / solutions.
+ - Customer: End customer of our clients.
+ - OU / Organizational Unit: Same as client. Each one has a unique id within IDfy known as OUID.
+ - POI: Proof of Identity (like pan card, etc.)
+ - POA: Proof of Address (like aadhaar card, voter card, etc.)
 
-2.Key Steps in the Video KYC Journey:
-Profile Creation: When a new customer begins the KYC journey, a ProfileID is generated internally. Each client/OUID has a unique ExtReferenceID linked to their ProfileID.
-Capture Window: Customers log in and perform activities. A CaptureSessionID is created for each session, associated with the ProfileID.
-Queue Assignment: Assisted Video sessions are assigned to specific queues based on language and skill preferences. QueueID or QueueName is recorded in the data.
-Assisted Video (AV): Customers move to assisted video sessions with a designated agent. Each session has a unique AVSessionID. Agents create tasks for profile details, associated with ProfileID and AVSessionID.
-Profile Verification: Agents verify profiles or mark them as UTV (Unable To Verify) based on profile status. Reviewed profiles proceed to the reviewer.
-Review Process: Reviewers verify documents and complete tasks. They can also reject profiles with reasons provided.
+Internal Terminologies:
+ - Package: A configuration defined by the client & stored within IDfy to define end to end KYC journey. There can be multiple packages for a single OU.
 
-3.Data Logging and Analysis:
-All activities, including operator, customer, and reviewer actions, are logged in ClickHouse tables.
-Key data includes ProfileID, ExtReferenceID, CaptureSessionID, AVSessionID, AgentID, TaskID, QueueID/QueueName, ProfileStatus, and Reason.
-TTL (Time To Live) fields are set for data retention in ClickHouse tables.
-In summary, the Video KYC process involves multiple steps, including queue assignment during assisted video sessions. Data from these activities is logged for analysis, facilitating insights into operator performance, customer behavior, and verification outcomes.
+"IDfy" offers "Video KYC" as a B2B solution to help clients like banks / NBFCs onboard their customers and perform KYC
+process remotely and instantly. The customers need to fill up their details, give some ID proofs and get on a call with
+an operator where the customer is verified.
+
+To start the onboarding process, the client creates a "Profile" using REST API for each customer being onboarded. The
+profile goes through various states during the onboarding process. The final state for a profile is "completed" when the
+KYC is successful or "failed" when it was not. The backend service responsible for managing a profile is called
+"Profile Manager".
+
+The client receives a "Capture Link" for his customer during profile creation. The customer goes to the link to
+complete his onboarding jouney. This part is handled by the service known as "Capture". Customer uses the link to input
+his personal data (like name, father's name, address, etc.) and uploads his documents (POI, POA) to start his KYC
+process. The fields & documents required are configurable via package. Customer then gets connected to an operator who
+performs various document captures, ask questions to validate the identity & ask's the customer to perform various tasks
+to prevent fraud over the video call. At the end of the video call the agent either approves the customer, rejects him
+in case the customer was fraudulent or marks the "Call"/"Task" as unable to verify (UTV). In case of rejection, the
+profile is rejected as well. In case of UTV, the customer needs to again got on a video call after some time using the
+same link. UTV can be marked due to either business reasons (Like "ID card not available") or technical reasons (like
+"customer on a bad network").
+
+The video call leg is managed by the service known as "Video Service" which provides a video call centre like
+functionality. For each video call, a "Task" gets created by "Profile Manger" which is then marked as either verified,
+rejected or unable to verify. In case of UTV, "Profile Manager" creates another task for the same profile to let
+customer perform another video call. 
+
+"Operator Dashboard" is the frontend application used by the operator to connect to customers via video call & perform
+various tasks during the video call like document capture, selfie capture, photo cropping, OCR on captured documents,
+etc. The operator marks his readiness to accept a video call by "Toggling On" & "Toggles off" Whenever he is
+unavailable.
+
+"Media Server Controller" is an internal IDfy service that acts like a media server. Assisted Video backend uses it's
+APIs and frontend library known as "MS Adaptor". MS Controller internally uses multiple media servers and provides
+functionality like "Reconnect" to make the video call more reliable. It also provides a recording functionality. Each
+Video composition service is responsible for stiching multiple videos (caused by reconnects) into one & returns the
+recording to Assisted Video service.
+
+After the video call is approved by the operator, all the artifics created by customer / operator are then reviewed
+by a reviewer using "Reviewer Dashboard". This include the textual data, documents & video call. The reviewer can
+mark the profile as "approved" which completes his KYC process, "rejected" to reject a fraudulant customer, "recapture"
+to ask the customer to provide certain documents again in case of any issues. Recapture creates a new "Capture" & the
+new link which needs to be sent to the customer
+
+Each of these services emit various events during the profile's journey which are stored in a Data Warehouse
+(Clickhouse). This data can be used to answer various kind of questions for analysis & product support.
+
+
+1. PM / Profile Manager / PG / Profile Gateway / PH / Profile Hub: It 
+2. AV / Assisted Video / Video Service / Video KYC: 
+3. MSC / MS Controller / Media Server Controller: 
+- MS Adaptor / Media Server Adaptor:
+4. Tasky
+5. Capture / Capture Journey:
+6. OD / Operator Dashboard:
+7. RD / Reviewer Dashboard:
 """
     + system_task
     + """
