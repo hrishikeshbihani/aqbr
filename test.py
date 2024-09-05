@@ -77,7 +77,7 @@ def test_row(row):
     product, table, dimensions, metric,valid_question, query = get_query_nlq(row['Question'],ou_id)
 
     # Check validation
-    if not (valid_question == row["Valid"]):
+    if not (str.lower(str(valid_question)) == str.lower(str(row["Valid"]))):
         mismatch_list.append({
             "field": "Validation",
             "expected": row["Valid"],
@@ -86,7 +86,6 @@ def test_row(row):
         test_passed = False
     else:
         validation_success += 1
-
     # Check table
     if not table == row["Table"]:
         mismatch_list.append({
@@ -143,45 +142,30 @@ def test_row(row):
   EXPECTED: {item["expected"]}
   GOT:      {item["got"]}""")
             if item.get("reason"):
-                print(f"  REASON: {item["reason"]}")
+                print(f"  REASON: {item['reason']}")
         print("-------------")
     return test_passed
 
-def parse_tsv_output(rd):
-    # CSV reader provides output as array of array. This function converts that
-    # to array of objects with keys as header row. This prevents the script from
-    # breaking if there are any changes in the google sheet.
-    #
-    # Returns the parsed array of objects
-    
+def parse_tsv_output(rd, replace_empty_with_none=True):
     parsed = []
-    header_row = []
-    first = True
-
+    headers = next(rd)
+    
     for row in rd:
-        if first:
-            header_row = row
-            first = False
-            continue
-        
         parsed_row = {}
-        for i in range(len(row)):
-            value = row[i]
-            key = header_row[i]
-            parsed_row[key] = value
-        
-        if (parsed_row["Valid"] == "TRUE"):
-            parsed_row["Valid"] = True
-        elif (parsed_row["Valid"] == "FALSE"):
-            parsed_row["Valid"] = False
-        else:
-            parsed_row["Valid"] = None
+        for i in range(len(headers)):
+            value = row[i].strip()
+            if replace_empty_with_none and value == "":
+                value = None
+            parsed_row[headers[i]] = value
 
-        parsed_row["Dimensions"] = parsed_row["Dimensions"].split(',')
+        # Handle Dimensions as a special case if needed
+        if parsed_row["Dimensions"]:
+            parsed_row["Dimensions"] = parsed_row["Dimensions"].split(',')
 
         parsed.append(parsed_row)
     
     return parsed
+
 
 def run():
     if len(sys.argv) != 2:
