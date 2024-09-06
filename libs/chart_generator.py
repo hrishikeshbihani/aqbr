@@ -27,7 +27,7 @@ Design Specifications:
 
 1. Ensure the chart is presentable and labels are fully visible (no labels should be cut off).
 2. Tooltips are not required.
-3. Use blue and orange colors for bars (use other colors only if necessary).
+3. Use blue and red colors for bars (use other colors(grey) only if necessary).
 4. Always include data labels using the ChartJS plugin chartjs-plugin-datalabels with options align: end and anchor: end.
 5. Add a chart title.
 6. All fonts should be black and bold.
@@ -37,7 +37,7 @@ Output:
 
 Provide only the link to the images of the charts. Do not write anything else.
 
-Example URL: https://quickchart.io/chart?width=1000&height=1000&c={"type":"horizontalBar","data":{"labels":["Name mismatch in the original PAN Card","Third party prompt","Customer Reading from Document","Original PAN not available","Incorrect answer to security question"],"datasets":[{"label":"Current","data":[1,1,1,1,1],"backgroundColor":["blue","blue","blue","blue","blue"]},{"label":"Previous","data":[23,23,21,20,14],"backgroundColor":["orange","orange","orange","orange","orange"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display"
+Example URL: https://quickchart.io/chart?width=1000&height=1000&c={"type":"horizontalBar","data":{"labels":["Name mismatch in the original PAN Card","Third party prompt","Customer Reading from Document","Original PAN not available","Incorrect answer to security question"],"datasets":[{"label":"Current","data":[1,1,1,1,1],"backgroundColor":["blue","blue","blue","blue","blue"]},{"label":"Previous","data":[23,23,21,20,14],"backgroundColor":["red","red","red","red","red"]}]},"options":{"plugins":{"datalabels":{"anchor":"end","align":"end","color":"black"}},"title":{"display"
 ,"text":"Comparison of Current and Previous Issues"}}}
 
     """
