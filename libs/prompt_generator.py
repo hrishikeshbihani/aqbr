@@ -16,19 +16,35 @@ def convert_csv_to_jsonl(csv_content):
     return jsonl_content
 
 
-def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previous_end_date):
-    url = (
+def clean_package_ids(package_ids):
+    package_ids_split = package_ids.split(",")
+    package_ids_split_comma = map(
+        lambda x: "\"{x}\"".format(x=x.strip()), package_ids_split)
+    # Split by comma, strip whitespace, and join back into a CSV string
+    return ",".join(package_ids_split_comma)
+
+
+def get_url(card_number, start_date, end_date, ou_id, previous_start_date, previous_end_date, package_ids=None, timezone="Asia/Kolkata"):
+    base_url = (
         "https://metabase.idfy.com/api/card/{card_number}/query/csv?format_rows=true&parameters="
         "["
         "{{\"type\": \"date/single\", \"value\": \"{start_date}\", \"target\": [\"variable\", [\"template-tag\", \"start_date\"]]}},"
         "{{\"type\": \"date/single\", \"value\": \"{end_date}\", \"target\": [\"variable\", [\"template-tag\", \"end_date\"]]}},"
         "{{\"type\": \"string/=\", \"value\": [\"{ou_id}\"], \"target\": [\"variable\", [\"template-tag\", \"ou_id\"]]}},"
         "{{\"type\": \"date/single\", \"value\": \"{previous_start_date}\", \"target\": [\"variable\", [\"template-tag\", \"previous_start_date\"]]}},"
-        "{{\"type\": \"date/single\", \"value\": \"{previous_end_date}\", \"target\": [\"variable\", [\"template-tag\", \"previous_end_date\"]]}}"
-        "]"
-    ).format(card_number=card_number, start_date=start_date, end_date=end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
-    return url
+        "{{\"type\": \"date/single\", \"value\": \"{previous_end_date}\", \"target\": [\"variable\", [\"template-tag\", \"previous_end_date\"]]}},"
+        "{{\"type\": \"string/=\", \"value\": [\"{timezone}\"], \"target\": [\"variable\", [\"template-tag\", \"timezone\"]]}}"
+    ).format(card_number=card_number, start_date=start_date, end_date=end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date, timezone=timezone)
 
+    # Conditionally add PackageID if provided
+    if package_ids:
+        cleaned_package_ids = clean_package_ids(package_ids)
+        package_id_section = (
+            ",{{\"type\": \"string/=\", \"value\": [{package_ids}], \"target\": [\"dimension\", [\"template-tag\", \"PackageID\"]]}}"
+        ).format(package_ids=cleaned_package_ids)
+        base_url += package_id_section
+    base_url += "]"
+    return base_url
 
 def call_url(url):
     headers = {
@@ -50,8 +66,9 @@ def get_data_from_metabase(**kwargs):
     ou_id = kwargs["ou_id"]
     previous_start_date = kwargs["previous_start_date"]
     previous_end_date = kwargs["previous_end_date"]
+    package_ids = kwargs["package_ids"]
     url = get_url(card_number, start_date, end_date, ou_id,
-                  previous_start_date, previous_end_date)
+                  previous_start_date, previous_end_date, package_ids)
     response = call_url(url)
     response_text = response.text
     return response_text
@@ -76,22 +93,23 @@ def get_jsonl_data_from_card(card_id, **kwargs):
     current_date_range = kwargs['current_date_range']
     previous_date_range = kwargs['previous_date_range']
     ou_id = kwargs['ou_id']
+    package_ids = kwargs["package_ids"]
     (current_start_date, current_end_date) = current_date_range
     (previous_start_date, previous_end_date) = previous_date_range
     csv_data = get_data_from_metabase(card_number=card_id, start_date=current_start_date, end_date=current_end_date,
-                                      ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
+                                      ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date, package_ids=package_ids)
     jsonl_data = convert_csv_to_jsonl(csv_data)
     return jsonl_data
 
 
-def get_prompt_body(product, current_date_range, previous_date_range, ou_id):
+def get_prompt_body(product, current_date_range, previous_date_range, ou_id, package_ids):
     title_and_card_id_list = get_title_and_card_id(product)
     prompt_body = """
 """
     for title_and_card in title_and_card_id_list:
         (title, card_id) = title_and_card
         data = get_jsonl_data_from_card(
-            card_id, current_date_range=current_date_range, previous_date_range=previous_date_range, ou_id=ou_id)
+            card_id, current_date_range=current_date_range, previous_date_range=previous_date_range, ou_id=ou_id, package_ids=package_ids)
         prompt_body = """{prompt_body}
 
 {title}\n
@@ -130,11 +148,11 @@ def get_customization_prompt(custom_prompt_inputs):
     return ""
 
 
-def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id, custom_prompt_inputs):
+def get_storyline_prompt(product, current_date_range, previous_date_range, ou_id, custom_prompt_inputs, package_ids):
     prompt_header_file = get_prompt_header_file_name(product)
     prompt_header = open(prompt_header_file).read()
     prompt_body = get_prompt_body(product, current_date_range, previous_date_range,
-                                  ou_id)
+                                  ou_id, package_ids)
     custom_prompt = get_customization_prompt(custom_prompt_inputs)
     prompt_tail = """Write an Email to my clients using the above data to explain them how they have improved/impaired in this period as compared to previous. Ensure you include every item of a metric even if you do not see any notable change in the metric. Wherever you are comparing the data, include the percentage increase/decrease.
     
