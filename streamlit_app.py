@@ -7,73 +7,72 @@ from libs.utils import calculate_previous_date_range
 from libs.chart_generator import chart_generator
 import datetime
 
+
 def get_metabase_dashboard_name(product):
-  if product == "VS":
-    return "1099-business-review-dashboard"
-  if product == "EVE":
-    return "1123-eve-aqbr"
+    if product == "VS":
+        return "1099-business-review-dashboard"
+    if product == "EVE":
+        return "1123-eve-aqbr"
 
 
-def get_metabase_dashboard_url(product, current_date_range, previous_date_range, ou_id):
-  metabase_dashboard_name = get_metabase_dashboard_name(product)
-  (current_start_date, current_end_date) = current_date_range
-  (previous_start_date, previous_end_date) = previous_date_range
-  return "https://metabase.idfy.com/dashboard/{metabase_dashboard_name}?start_date={current_start_date}&end_date={current_end_date}&ouid={ou_id}&timezone=Asia%2FKolkata&previous_start_date={previous_start_date}&previous_end_date={previous_end_date}".format(metabase_dashboard_name=metabase_dashboard_name, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
+def get_url_package_ids(package_ids):
+    if (len(package_ids) > 0):
+        package_ids_list = package_ids.split(",")
+        package_ids_params = map(
+            lambda x: "packageid={x}".format(x=x), package_ids_list)
+        return "&".join(list(package_ids_params))
+    return None
+
+
+def get_metabase_dashboard_url(product, current_date_range, previous_date_range, ou_id, package_ids=None):
+    metabase_dashboard_name = get_metabase_dashboard_name(product)
+    (current_start_date, current_end_date) = current_date_range
+    (previous_start_date, previous_end_date) = previous_date_range
+    package_ids_in_url = get_url_package_ids(package_ids)
+    url_without_package_id = "https://metabase.idfy.com/dashboard/{metabase_dashboard_name}?start_date={current_start_date}&end_date={current_end_date}&ouid={ou_id}&timezone=Asia%2FKolkata&previous_start_date={previous_start_date}&previous_end_date={previous_end_date}".format(
+        metabase_dashboard_name=metabase_dashboard_name, current_start_date=current_start_date, current_end_date=current_end_date, ou_id=ou_id, previous_start_date=previous_start_date, previous_end_date=previous_end_date)
+    if (package_ids_in_url):
+        return "{url_without_package_id}&{package_ids_in_url}".format(url_without_package_id=url_without_package_id, package_ids_in_url=package_ids_in_url)
+    return url_without_package_id
 
 
 def render_developer_app():
-  product = st.selectbox(
-      "Select Product from the list",
-      ("VS", "EVE"))
-  current_date_range = st.date_input(
-      'Select current time period',
-      value=(datetime.datetime.now(), datetime.datetime.now())
-  )
-  previous_date_range = st.date_input(
-      'Select previous time period',
-      value=(datetime.datetime.now(), datetime.datetime.now())
-  )
-  ou_id = st.text_input("OU ID")
-  package_ids = ""
-  if (product == "VS"):
-    package_ids = st.text_input("Package Ids", "")
-  custom_prompt_inputs = []
-  with st.expander("Customization Options"):
-    custom_prompt_inputs = render_customizable_rules(product)
-  if (current_date_range and previous_date_range and ou_id):
-    is_generate = st.button('Let\'s put AI to work !!')
-    if (is_generate):
-      story_line, graphical_representations = st.tabs(
-          ["Storyline", "Graphical Representation"])
+    product = st.selectbox(
+        "Select Product from the list",
+        ("VS", "EVE"))
+    current_date_range = st.date_input(
+        'Select current time period',
+        value=(datetime.datetime.now(), datetime.datetime.now())
+    )
+    previous_date_range = st.date_input(
+        'Select previous time period',
+        value=(datetime.datetime.now(), datetime.datetime.now())
+    )
+    ou_id = st.text_input("OU ID")
+    package_ids = ""
+    if (product == "VS"):
+        package_ids = st.text_input("Package Ids", "")
+    custom_prompt_inputs = []
+    with st.expander("Customization Options"):
+        custom_prompt_inputs = render_customizable_rules(product)
+    if (current_date_range and previous_date_range and ou_id):
+        is_generate = st.button('Let\'s put AI to work !!')
+        if (is_generate):
+            prompt = get_storyline_prompt(product,
+                                          current_date_range, previous_date_range, ou_id, custom_prompt_inputs, package_ids)
 
-      with story_line:
-        prompt = get_storyline_prompt(product,
-                                      current_date_range, previous_date_range, ou_id, custom_prompt_inputs, package_ids)
+            if len(prompt) > 0:
+                openai_output = make_call_to_openai(prompt)
+                st.write(openai_output)
+                metabase_dashboard_url = get_metabase_dashboard_url(product,
+                                                                    current_date_range, previous_date_range, ou_id, package_ids)
+                st.link_button("Open Dashboard in Metabase",
+                               metabase_dashboard_url)
 
-        if len(prompt) > 0:
-          openai_output = make_call_to_openai(prompt)
-          st.write(openai_output)
-          metabase_dashboard_url = get_metabase_dashboard_url(product,
-                                                              current_date_range, previous_date_range, ou_id)
-          st.link_button("Open Dashboard in Metabase",
-                         metabase_dashboard_url)
-
-      with graphical_representations:
-        pass
-        # title_and_card_id_list = get_title_and_card_id(product)
-        # for title_and_card_id in title_and_card_id_list:
-        #   (title, card_id) = title_and_card_id
-        #   with st.expander(title):
-        #     jsonl_data = get_jsonl_data_from_card(
-        #         card_id, current_date_range=current_date_range, previous_date_range=previous_date_range, ou_id=ou_id)
-        #     chart_generator_output = chart_generator(jsonl_data, title)
-        #     corrected_url = check_chartio_url_response(chart_generator_output)
-        #     if corrected_url is not None:
-        #       st.image(corrected_url)
-        #     else:
-        #       st.write("Graph could not generated due to error from source.")
 
 def main():
-  st.title("AQBR Demo")
-  render_developer_app()
+    st.title("AQBR Demo")
+    render_developer_app()
+
+
 main()
