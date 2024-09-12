@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Show only APIs with Significant Changes",
+    "prompt": "Do not add every single API call. Add only the once that has significant changes. Ensure that table is rendered instead of printing the raw HTML",
+    "antiPrompt": "Add information of every single API in each section. Even if there are no changes in the metric, you need to say that as well."
+  },
+  {
+    "text": "Use tables",
+    "prompt": "Add tables to show data comparison wherever applicable. Do not use tables everywhere, only use where the volume of data is large.",
+    "antiPrompt": "Do not use tables of any kind to show the data. All the information should be displayed in textual form only."
+  },
+  {
+    "text": "Show API Comparison medians in same subsection",
+    "prompt": "In API Performance Metrics, the API should be section and P50, P90 and P99 should be the part of same subsection.",
+    "antiPrompt": "In API Performance Metrics, the percentiles (P50, P90, P99 etc) should be section and APIs should be subsections under them."
+  },
+  {
+    "text": "Sanitize Failure reasons",
+    "prompt": "Sanitize the failure reason to make it more comprehensible. For example instead of 'The image requested is smaller than the acceptance range, please refer to our FAQs page https://eve-api-docs.idfy.com/#faq', just write 'Smaller Image Size'",
+    "antiPrompt": "Do not try to simplify or sanitize the failure reasons. For example is the failure reason is 'The image requested is smaller than the acceptance range, please refer to our FAQs page https://eve-api-docs.idfy.com/#faq', write is as it is even though it is relatively longer in length"
+  }
+]

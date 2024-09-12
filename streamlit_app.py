@@ -1,12 +1,9 @@
+from aqbr.data_fetcher import get_data
 from libs.customizable_rules import render_customizable_rules
-from libs.prompt_generator import get_jsonl_data_from_card, get_storyline_prompt, get_title_and_card_id
+from aqbr.prompt_generator import get_storyline_prompt
 import streamlit as st
-from libs.chart_generator import chart_generator, check_chartio_url_response
-from services.openai_request import make_call_to_openai
-from libs.utils import calculate_previous_date_range
-from libs.chart_generator import chart_generator
 import datetime
-
+from services.openai_request import make_call_to_openai
 
 def get_metabase_dashboard_name(product):
     if product == "VS":
@@ -36,7 +33,7 @@ def get_metabase_dashboard_url(product, current_date_range, previous_date_range,
     return url_without_package_id
 
 
-def render_developer_app():
+def get_inputs():
     product = st.selectbox(
         "Select Product from the list",
         ("VS", "EVE"))
@@ -55,11 +52,19 @@ def render_developer_app():
     custom_prompt_inputs = []
     with st.expander("Customization Options"):
         custom_prompt_inputs = render_customizable_rules(product)
+    return (product, current_date_range, previous_date_range, ou_id, package_ids, custom_prompt_inputs)
+
+
+def render_developer_app():
+    (product, current_date_range, previous_date_range,
+     ou_id, package_ids, custom_prompt_inputs) = get_inputs()
     if (current_date_range and previous_date_range and ou_id):
         is_generate = st.button('Let\'s put AI to work !!')
         if (is_generate):
-            prompt = get_storyline_prompt(product,
-                                          current_date_range, previous_date_range, ou_id, custom_prompt_inputs, package_ids)
+            data_body = get_data(product, ou_id, current_date_range,
+                                 previous_date_range, package_ids)
+            prompt = get_storyline_prompt(
+                product, data_body, custom_prompt_inputs)
 
             if len(prompt) > 0:
                 openai_output = make_call_to_openai(prompt)

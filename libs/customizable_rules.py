@@ -4,9 +4,9 @@ from libs.utils import get_data_from_json_file
 
 def get_configurable_options_filename(product):
     if (product == "EVE"):
-        return "./config/eve_configurable_options.json"
+        return "./aqbr/config/eve_configurable_options.json"
     if (product == "VS"):
-        return "./config/vs_configurable_options.json"
+        return "./aqbr/config/vs_configurable_options.json"
 
 
 def render_customizable_rules(product):
